@@ -13,17 +13,8 @@ import { addMiddleware } from './addMiddleware'
 export const getApp = (): Express => {
   const app = express()
   app.set('etag', false)
-
-  /*if (process.env.CORS_ALLOWED_ORIGINS) {
-    // CORS_ALLOWED_ORIGINS can be an array of allowed origins so we support
-    // a list of comma delimited CORS origins
-    const origin = process.env.CORS_ALLOWED_ORIGINS.split(',')
-    app.use(cors({ origin }))
-  }*/
-
   app.use(cors())
   app.use(compression())
-
   addDependencies(app)
   addMiddleware(app)
   addHealthChecks(app)
