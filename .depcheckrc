@@ -1,5 +1,9 @@
 ignores: [
   "@types/jest",
+  "@ethersproject/address",
+  "@ethersproject/contracts",
+  "@ethersproject/networks",
+  "@ethersproject/solidity",
   "@xylabs/tsconfig",
   "babel-jest",
   "jest-sorted",
