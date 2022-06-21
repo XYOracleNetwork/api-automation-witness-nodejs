@@ -2,7 +2,6 @@ import { XyoBoundWitness, XyoBoundWitnessBuilder, XyoPayload } from '@xyo-networ
 
 import { getSigningAccount } from './getSigningAccount'
 
-export const witnessPayload = <T extends XyoPayload>(payload: T): XyoBoundWitness => {
-  const account = getSigningAccount()
+export const witnessPayload = <T extends XyoPayload>(payload: T, account = getSigningAccount()): XyoBoundWitness => {
   return new XyoBoundWitnessBuilder({ inlinePayloads: true }).witness(account).payload(payload).build()
 }
