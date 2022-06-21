@@ -1,10 +1,10 @@
 import { StatusCodes } from 'http-status-codes'
 
-import { getArchivist } from './test'
+import { getAutomationWitness } from './test'
 
 describe('/', () => {
   it('Provides health checks', async () => {
-    const response = await getArchivist().get('/').expect(StatusCodes.OK)
-    expect(response.body.data).toEqual({ alive: true })
+    const response = await getAutomationWitness().get('/').expect(StatusCodes.OK)
+    expect(response.body).toEqual({ alive: true })
   })
 })
