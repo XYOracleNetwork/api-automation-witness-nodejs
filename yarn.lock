@@ -2189,7 +2189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/contracts@npm:5.6.2":
+"@ethersproject/contracts@npm:5.6.2, @ethersproject/contracts@npm:^5.6.2":
   version: 5.6.2
   resolution: "@ethersproject/contracts@npm:5.6.2"
   dependencies:
@@ -2281,7 +2281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/networks@npm:5.6.4, @ethersproject/networks@npm:^5.6.3":
+"@ethersproject/networks@npm:5.6.4, @ethersproject/networks@npm:^5.6.3, @ethersproject/networks@npm:^5.6.4":
   version: 5.6.4
   resolution: "@ethersproject/networks@npm:5.6.4"
   dependencies:
@@ -2382,7 +2382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/solidity@npm:5.6.1, @ethersproject/solidity@npm:^5.0.9":
+"@ethersproject/solidity@npm:5.6.1, @ethersproject/solidity@npm:^5.0.9, @ethersproject/solidity@npm:^5.6.1":
   version: 5.6.1
   resolution: "@ethersproject/solidity@npm:5.6.1"
   dependencies:
@@ -4136,6 +4136,11 @@ __metadata:
   dependencies:
     "@babel/core": ^7.18.5
     "@babel/preset-env": ^7.18.2
+    "@ethersproject/address": ^5.6.1
+    "@ethersproject/contracts": ^5.6.2
+    "@ethersproject/networks": ^5.6.4
+    "@ethersproject/providers": ^5.6.8
+    "@ethersproject/solidity": ^5.6.1
     "@types/compression": ^1.7.2
     "@types/cors": ^2.8.12
     "@types/express": 4.17.13
