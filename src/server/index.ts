@@ -3,6 +3,7 @@ import compression from 'compression'
 import cors from 'cors'
 import express, { Express } from 'express'
 
+import { getWitnesses } from '../Witnesses'
 import { addDependencies } from './addDependencies'
 import { addErrorHandlers } from './addErrorHandlers'
 import { addHealthChecks } from './addHealthChecks'
@@ -26,6 +27,7 @@ export const getApp = (): Express => {
   addMiddleware(app)
   addHealthChecks(app)
   addErrorHandlers(app)
+  getWitnesses(app)
   return app
 }
 
