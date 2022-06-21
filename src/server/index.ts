@@ -7,6 +7,7 @@ import { getWitnesses } from '../Witnesses'
 import { addDependencies } from './addDependencies'
 import { addErrorHandlers } from './addErrorHandlers'
 import { addHealthChecks } from './addHealthChecks'
+import { addJobs } from './addJobs'
 import { addMiddleware } from './addMiddleware'
 
 export const getApp = (): Express => {
@@ -28,6 +29,7 @@ export const getApp = (): Express => {
   addHealthChecks(app)
   addErrorHandlers(app)
   getWitnesses(app)
+  addJobs(app)
   return app
 }
 
