@@ -8,7 +8,6 @@ import { addErrorHandlers } from './addErrorHandlers'
 import { addHealthChecks } from './addHealthChecks'
 import { addMiddleware } from './addMiddleware'
 
-
 export const getApp = (): Express => {
   const app = express()
   app.set('etag', false)
@@ -42,7 +41,7 @@ export const server = async (port = 80) => {
   }
 
   const app = getApp()
-  const host = process.env.PUBLIC_ORIGIN || `http://localhost:${port}`
+  // const host = process.env.PUBLIC_ORIGIN || `http://localhost:${port}`
   // await configureDoc(app, { host })
 
   const server = app.listen(port, () => {

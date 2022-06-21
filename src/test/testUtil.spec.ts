@@ -6,7 +6,7 @@ test('Must have API_KEY ENV VAR defined', () => {
   expect(process.env.API_KEY).toBeTruthy()
 })
 
-const request = supertest(getApp())
+// const request = supertest(getApp())
 
 export const getAutomationWitness = (): SuperTest<Test> => {
   return supertest(getApp())
