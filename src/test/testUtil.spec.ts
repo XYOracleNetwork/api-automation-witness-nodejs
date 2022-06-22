@@ -2,8 +2,8 @@ import supertest, { SuperTest, Test } from 'supertest'
 
 import { getApp } from '../server'
 
-test('Must have API_KEY ENV VAR defined', () => {
-  expect(process.env.API_KEY).toBeTruthy()
+test('Must have ACCOUNT_SEED ENV VAR defined', () => {
+  expect(process.env.ACCOUNT_SEED).toBeTruthy()
 })
 
 // const request = supertest(getApp())
