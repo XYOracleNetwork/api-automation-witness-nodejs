@@ -5,7 +5,8 @@ import { Job } from '../Model'
 import { getCryptoMarketWitness } from '../Witnesses'
 
 const testJob = new CronJob(
-  '* * * * *',
+  // '* * * * * *', // every second
+  '* * * * *', // every minute
   async () => {
     const witnesses = getCryptoMarketWitness()
     const observations = await Promise.all(witnesses.map((w) => w.observe()))
