@@ -805,7 +805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.17.0":
+"@babel/eslint-parser@npm:^7.17.0, @babel/eslint-parser@npm:^7.18.2":
   version: 7.18.2
   resolution: "@babel/eslint-parser@npm:7.18.2"
   dependencies:
@@ -3452,13 +3452,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^28.1.2":
-  version: 28.1.2
-  resolution: "@types/jest@npm:28.1.2"
+"@types/jest@npm:^28.1.3":
+  version: 28.1.3
+  resolution: "@types/jest@npm:28.1.3"
   dependencies:
     jest-matcher-utils: ^28.0.0
     pretty-format: ^28.0.0
-  checksum: 53ec95b0b27c61380225b94f8660e661e8c6c6fc69b7130531fb5d72ebf5c8838a4266b8a6d7b3a77b3bcdabed632de0c21c9592a2529c1efe80a0f0a995a3aa
+  checksum: 28141f2d5b3bafd063362de9790cb8f219488d9b0ad47524a84bef1142a4f0d9d35be0c56988d9f922205225cc83c986acd4be424bd8653b38dc27ab672455e2
   languageName: node
   linkType: hard
 
@@ -3675,7 +3675,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.19.0":
+"@typescript-eslint/eslint-plugin@npm:^5.19.0, @typescript-eslint/eslint-plugin@npm:^5.29.0":
   version: 5.29.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.29.0"
   dependencies:
@@ -3709,7 +3709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.19.0":
+"@typescript-eslint/parser@npm:^5.19.0, @typescript-eslint/parser@npm:^5.29.0":
   version: 5.29.0
   resolution: "@typescript-eslint/parser@npm:5.29.0"
   dependencies:
@@ -4005,6 +4005,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/eslint-config@npm:^2.3.27":
+  version: 2.3.27
+  resolution: "@xylabs/eslint-config@npm:2.3.27"
+  dependencies:
+    "@babel/core": ^7.18.5
+    "@babel/eslint-parser": ^7.18.2
+    "@rushstack/eslint-patch": ^1.1.3
+    "@typescript-eslint/eslint-plugin": ^5.29.0
+    "@typescript-eslint/parser": ^5.29.0
+    eslint: ^8.18.0
+    eslint-config-prettier: ^8.5.0
+    eslint-import-resolver-typescript: ^2.7.1
+    eslint-plugin-deprecation: ^1.3.2
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-json-es: ^1.5.7
+    eslint-plugin-md: ^1.0.19
+    eslint-plugin-no-secrets: ^0.8.9
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-simple-import-sort: ^7.0.0
+    eslint-plugin-sort-keys-fix: ^1.1.2
+    markdown-eslint-parser: ^1.2.1
+    prettier: ^2.7.1
+    remark-lint-maximum-line-length: ^3.1.2
+    remark-preset-lint-markdown-style-guide: ^5.1.2
+    typescript: ^4.7.4
+  checksum: 4a0f03a7625fed123dc5dae70ba06bdd35ff4f1f5e0c455b2fa7e570e1dce8cdca824a3dc951a12ddc6b8117fc799efd9cd9c4547bb1562fb30a417c9f36dbee
+  languageName: node
+  linkType: hard
+
 "@xylabs/rollup-config@npm:1.1.17":
   version: 1.1.17
   resolution: "@xylabs/rollup-config@npm:1.1.17"
@@ -4162,11 +4191,11 @@ __metadata:
     "@types/cors": ^2.8.12
     "@types/cron": ^2.0.0
     "@types/express": 4.17.13
-    "@types/jest": ^28.1.2
+    "@types/jest": ^28.1.3
     "@types/luxon": ^2.3.2
     "@types/supertest": ^2.0.12
     "@types/swagger-ui-express": ^4.1.3
-    "@xylabs/eslint-config": ^2.3.22
+    "@xylabs/eslint-config": ^2.3.27
     "@xylabs/sdk-api-express-ecs": ^1.2.2
     "@xylabs/sdk-js": ^2.5.9
     "@xylabs/ts-scripts": ^1.0.66
@@ -6580,7 +6609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.13.0, eslint@npm:^8.14.0":
+"eslint@npm:^8.13.0, eslint@npm:^8.14.0, eslint@npm:^8.18.0":
   version: 8.18.0
   resolution: "eslint@npm:8.18.0"
   dependencies:
@@ -11000,7 +11029,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.2":
+"prettier@npm:^2.6.2, prettier@npm:^2.7.1":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
