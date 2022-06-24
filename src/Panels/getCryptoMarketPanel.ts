@@ -1,7 +1,7 @@
 import { Provider } from '@ethersproject/providers'
 import { XyoPanel } from '@xyo-network/sdk-xyo-client-js'
 
-import { getArchive, getArchivists, getSigningAccount } from '../Network'
+import { getArchive, getArchivists, getSigningAccount } from '../Archivists'
 import { getInfuraProvider } from '../Providers'
 import { getCryptoMarketWitness } from '../Witnesses'
 import { PanelProvider } from './PanelProvider'
