@@ -5,3 +5,7 @@ export const everyFifteenSeconds = '*/15 * * * * *'
 export const everyThirtySeconds = '*/30 * * * * *'
 
 export const everyMinute = '* * * * *'
+export const everyFiveMinutes = '*/5 * * * *'
+export const everyTenMinutes = '*/10 * * * *'
+export const everyFifteenMinutes = '*/15 * * * *'
+export const everyThirtyMinutes = '*/30 * * * *'
