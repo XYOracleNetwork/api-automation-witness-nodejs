@@ -2,13 +2,14 @@ import { CronJob } from 'cron'
 
 import { Job } from '../Model'
 import { getCryptoMarketPanel } from '../Panels'
-import { everyMinute } from './CronSchedules'
+import { everyTenMinutes } from './CronSchedules'
 
-const schedule = process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || everyMinute
+// const schedule = process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || everyMinute
 
 const cryptoMarketWitnessJob = new CronJob(
-  schedule,
+  everyTenMinutes,
   async () => {
+    console.log(`[${new Date()}] Witnessing Crypto Prices`)
     await getCryptoMarketPanel().report()
   },
   null,
