@@ -1,2 +1,2 @@
-export * from './getDefaultProvider'
 export * from './getInfuraProvider'
+export * from './getProvider'

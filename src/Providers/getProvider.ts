@@ -2,6 +2,6 @@ import { Provider } from '@ethersproject/providers'
 
 import { getInfuraProvider } from './getInfuraProvider'
 
-export const getDefaultProvider = (): Provider => {
+export const getProvider = (): Provider => {
   return getInfuraProvider()
 }
