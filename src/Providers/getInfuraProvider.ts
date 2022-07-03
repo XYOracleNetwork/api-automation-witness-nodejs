@@ -5,12 +5,26 @@ let instance: InfuraProvider | undefined = undefined
 
 const pollingIntervalMs = 1000 * 60 * 5
 
+export interface InfuraProviderConfig {
+  projectId: string
+  projectSecret: string
+}
+
 export const getInfuraProvider = (): Provider => {
   if (instance) return instance
-  const projectId = assertEx(process.env.INFURA_PROJECT_ID)
-  const projectSecret = assertEx(process.env.INFURA_PROJECT_SECRET)
-  instance = new InfuraProvider('homestead', { projectId, projectSecret })
+  const config = getProviderConfig()
+  instance = new InfuraProvider('homestead', config)
   instance.pollingInterval = pollingIntervalMs
   instance.polling = false
   return instance
+}
+
+export const canUseProvider = (): boolean => {
+  return process.env.INFURA_PROJECT_ID && process.env.INFURA_PROJECT_SECRET ? true : false
+}
+
+export const getProviderConfig = (): InfuraProviderConfig => {
+  const projectId = assertEx(process.env.INFURA_PROJECT_ID)
+  const projectSecret = assertEx(process.env.INFURA_PROJECT_SECRET)
+  return { projectId, projectSecret }
 }
