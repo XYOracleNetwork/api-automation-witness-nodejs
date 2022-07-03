@@ -1,5 +1,10 @@
 import supertest, { SuperTest, Test } from 'supertest'
 
+// NOTE: Ensure this is always before importing the server
+// so that any timers set (for CRON jobs for example) don't
+// prevent Jest from exiting
+jest.useFakeTimers()
+
 import { getApp } from '../server'
 
 test('Must have ACCOUNT_SEED ENV VAR defined', () => {
