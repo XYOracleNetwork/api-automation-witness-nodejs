@@ -4,14 +4,17 @@ import { Job } from '../Model'
 import { getCryptoMarketPanel } from '../Panels'
 import { everyMinute } from './CronSchedules'
 
-export const cryptoMarketWitnessJobSchedule = process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || everyMinute
-
-export const getCryptoMarketWitnessJob = (schedule = cryptoMarketWitnessJobSchedule): Job => {
+export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
+  const cryptoMarketWitnessJobSchedule = schedule || process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || everyMinute
   const cryptoMarketWitnessJob = new CronJob(
-    schedule,
+    cryptoMarketWitnessJobSchedule,
     async () => {
-      console.log(`[${new Date()}] Witnessing Crypto Prices`)
-      await getCryptoMarketPanel().report()
+      try {
+        console.log(`[${new Date()}] Witnessing Crypto Prices`)
+        await getCryptoMarketPanel().report()
+      } catch (error) {
+        console.error(error)
+      }
     },
     null,
     true,
