@@ -1,20 +1,20 @@
 import { InfuraProvider, Provider } from '@ethersproject/providers'
 import { assertEx } from '@xylabs/sdk-js'
 
-let instance: InfuraProvider | undefined = undefined
+import { defaultPollingIntervalMs } from './DefaultPollingInterval'
 
-const pollingIntervalMs = 1000 * 60 * 5
+let instance: InfuraProvider | undefined = undefined
 
 export interface InfuraProviderConfig {
   projectId: string
   projectSecret: string
 }
 
-export const getInfuraProvider = (): Provider => {
+export const getInfuraProvider = (pollingInterval = defaultPollingIntervalMs): Provider => {
   if (instance) return instance
   const config = getProviderConfig()
   instance = new InfuraProvider('homestead', config)
-  instance.pollingInterval = pollingIntervalMs
+  instance.pollingInterval = pollingInterval
   instance.polling = false
   return instance
 }
