@@ -1,6 +1,7 @@
 const generateJestConfig = ({ esModules }) => {
   const esModuleslist = Array.isArray(esModules) ? esModules.join('|') : esModules
   return {
+    coveragePathIgnorePatterns: ['<rootDir>/src/server/index.ts'],
     coverageThreshold: {
       global: {
         branches: 50,
