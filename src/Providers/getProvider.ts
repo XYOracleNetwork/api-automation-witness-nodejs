@@ -4,7 +4,7 @@ import { defaultPollingIntervalMs } from './DefaultPollingInterval'
 import { canUseProvider, getInfuraProvider, getProviderConfig } from './getInfuraProvider'
 import { providerOmitted } from './ProviderOmitted'
 
-export const getProvider = (useFallbackProvider = false): Provider => {
+export const getProvider = (useFallbackProvider = true): Provider => {
   const provider = useFallbackProvider ? getFallbackProvider() : getInfuraProvider()
   return provider
 }
