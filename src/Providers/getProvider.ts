@@ -2,14 +2,9 @@ import { getDefaultProvider, Provider } from '@ethersproject/providers'
 
 import { defaultPollingIntervalMs } from './DefaultPollingInterval'
 import { canUseProvider, getInfuraProvider, getProviderConfig } from './getInfuraProvider'
+import { providerOmitted } from './ProviderOmitted'
 
-// From the ether's docs
-// https://docs.ethers.io/v5/api-keys/#api-keys--getDefaultProvider
-const providerOmitted = '-'
-
-const useFallbackProvider = true
-
-export const getProvider = (): Provider => {
+export const getProvider = (useFallbackProvider = false): Provider => {
   const provider = useFallbackProvider ? getFallbackProvider() : getInfuraProvider()
   return provider
 }

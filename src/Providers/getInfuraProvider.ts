@@ -20,7 +20,7 @@ export const getInfuraProvider = (pollingInterval = defaultPollingIntervalMs): P
 }
 
 export const canUseProvider = (): boolean => {
-  return process.env.INFURA_PROJECT_ID && process.env.INFURA_PROJECT_SECRET ? true : false
+  return !!process.env.INFURA_PROJECT_ID && !!process.env.INFURA_PROJECT_SECRET ? true : false
 }
 
 export const getProviderConfig = (): InfuraProviderConfig => {
