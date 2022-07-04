@@ -12,13 +12,13 @@ describe('getProvider', () => {
       expect(provider).toBeTruthy()
       expect(provider._isProvider).toBeTruthy()
     })
-    it.only('returns Infra Provider if config available', () => {
+    it('returns Infra Provider if config available', () => {
       const provider = getProvider(true)
       expect(provider).toBeDefined()
       expect(provider).toBeTruthy()
       expect(provider._isProvider).toBeTruthy()
     })
-    it.only('returns empty for Infra Provider if config not available', () => {
+    it('returns empty for Infra Provider if config not available', () => {
       delete process.env.INFURA_PROJECT_ID
       delete process.env.INFURA_PROJECT_SECRET
       const provider = getProvider(true)
@@ -29,7 +29,7 @@ describe('getProvider', () => {
   })
   describe('with Infura Provider', () => {
     it('returns a Provider', () => {
-      const provider = getProvider()
+      const provider = getProvider(false)
       expect(provider).toBeDefined()
       expect(provider).toBeTruthy()
       expect(provider._isProvider).toBeTruthy()

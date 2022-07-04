@@ -1,6 +1,10 @@
 import { canUseProvider, getInfuraProvider, getProviderConfig } from './getInfuraProvider'
 
 describe('getInfuraProvider', () => {
+  beforeEach(() => {
+    process.env.INFURA_PROJECT_ID = 'foo'
+    process.env.INFURA_PROJECT_SECRET = 'bar'
+  })
   describe('getInfuraProvider', () => {
     it('returns a Provider', () => {
       if (canUseProvider()) {
@@ -19,10 +23,6 @@ describe('getInfuraProvider', () => {
     })
   })
   describe('canUseProvider', () => {
-    beforeEach(() => {
-      process.env.INFURA_PROJECT_ID = 'foo'
-      process.env.INFURA_PROJECT_SECRET = 'bar'
-    })
     it('returns true if projectId/secret are defined in ENV', () => {
       const canUse = canUseProvider()
       expect(canUse).toBeDefined()
