@@ -15,7 +15,6 @@ export const getInfuraProvider = (pollingInterval = defaultPollingIntervalMs): P
   const config = getProviderConfig()
   instance = new InfuraProvider('homestead', config)
   instance.pollingInterval = pollingInterval
-  instance.polling = false
   return instance
 }
 
