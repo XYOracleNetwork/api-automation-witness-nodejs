@@ -10,8 +10,13 @@ export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
   const cryptoMarketWitnessJob = new CronJob(
     cryptoMarketWitnessJobSchedule,
     async () => {
+      let blockNumber = -1
       try {
-        const blockNumber = await getInfuraProvider().getBlockNumber()
+        blockNumber = await getInfuraProvider().getBlockNumber()
+      } catch (error) {
+        console.error('Error retrieving current block number')
+      }
+      try {
         console.log(`[${new Date()}] Witnessing Crypto Prices at Block #${blockNumber}`)
         await getCryptoMarketPanel().report()
       } catch (error) {
