@@ -1,6 +1,5 @@
 import { getDefaultProvider, Provider } from '@ethersproject/providers'
 
-import { defaultPollingIntervalMs } from './DefaultPollingInterval'
 import { canUseProvider, getInfuraProvider, getProviderConfig } from './getInfuraProvider'
 import { providerOmitted } from './ProviderOmitted'
 
@@ -9,9 +8,8 @@ export const getProvider = (useFallbackProvider = false): Provider => {
   return provider
 }
 
-const getFallbackProvider = (pollingInterval = defaultPollingIntervalMs): Provider => {
+const getFallbackProvider = (): Provider => {
   const infura = canUseProvider() ? getProviderConfig() : providerOmitted
   const provider = getDefaultProvider('homestead', { infura })
-  provider.pollingInterval = pollingInterval
   return provider
 }

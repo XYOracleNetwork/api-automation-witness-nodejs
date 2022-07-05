@@ -13,7 +13,7 @@ import { PanelProvider } from './PanelProvider'
 let panel: XyoPanel | undefined = undefined
 
 export const getCryptoMarketPanel: PanelProvider<Provider> = (provider = getProvider()): XyoPanel => {
-  if (panel) return panel
+  // if (panel) return panel
   const account = getSigningAccount()
   const archive = getArchive()
   const archivists = getArchivists()
