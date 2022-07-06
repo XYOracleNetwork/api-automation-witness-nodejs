@@ -10,16 +10,16 @@ export interface InfuraProviderConfig {
 
 export const getInfuraProvider = (): Provider => {
   if (instance) return instance
-  const config = getProviderConfig()
+  const config = getInfuraProviderConfig()
   instance = new InfuraProvider('homestead', config)
   return instance
 }
 
-export const canUseProvider = (): boolean => {
+export const canUseInfuraProvider = (): boolean => {
   return !!process.env.INFURA_PROJECT_ID && !!process.env.INFURA_PROJECT_SECRET ? true : false
 }
 
-export const getProviderConfig = (): InfuraProviderConfig => {
+export const getInfuraProviderConfig = (): InfuraProviderConfig => {
   const projectId = assertEx(process.env.INFURA_PROJECT_ID)
   const projectSecret = assertEx(process.env.INFURA_PROJECT_SECRET)
   return { projectId, projectSecret }
