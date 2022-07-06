@@ -3,6 +3,7 @@ import { getDefaultProvider, Provider } from '@ethersproject/providers'
 import { canUseAlchemyProvider, getAlchemyProviderConfig } from './getAlchemyProvider'
 import { canUseEtherscanProvider, getEtherscanProviderConfig } from './getEtherscanProvider'
 import { canUseInfuraProvider, getInfuraProviderConfig } from './getInfuraProvider'
+import { canUsePocketProvider, getPocketProviderConfig } from './getPocketProvider'
 import { providerOmitted } from './ProviderOmitted'
 
 export interface ProviderOptions {
@@ -22,7 +23,8 @@ const getFallbackProvider = (): Provider => {
   const alchemy = canUseAlchemyProvider() ? getAlchemyProviderConfig() : providerOmitted
   const etherscan = canUseEtherscanProvider() ? getEtherscanProviderConfig() : providerOmitted
   const infura = canUseInfuraProvider() ? getInfuraProviderConfig() : providerOmitted
-  const options: ProviderOptions = { alchemy, etherscan, infura }
+  const pocket = canUsePocketProvider() ? getPocketProviderConfig() : providerOmitted
+  const options: ProviderOptions = { alchemy, etherscan, infura, pocket }
   const provider = getDefaultProvider('homestead', options)
   return provider
 }
