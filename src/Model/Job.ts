@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
 
 export interface Job {
-  // addCallback(callback: Function): void
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  addCallback(callback: Function): void
   lastDate(): Date
   nextDate(): DateTime
   nextDates(i?: number): DateTime | DateTime[]
