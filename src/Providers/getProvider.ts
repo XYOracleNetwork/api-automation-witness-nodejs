@@ -1,30 +1,21 @@
 import { getDefaultProvider, Provider } from '@ethersproject/providers'
 
+import { ProviderOptions } from '../Model'
 import { canUseAlchemyProvider, getAlchemyProviderConfig } from './getAlchemyProvider'
 import { canUseEtherscanProvider, getEtherscanProviderConfig } from './getEtherscanProvider'
 import { canUseInfuraProvider, getInfuraProviderConfig } from './getInfuraProvider'
 import { canUsePocketProvider, getPocketProviderConfig } from './getPocketProvider'
 import { providerOmitted } from './ProviderOmitted'
 
-export interface ProviderOptions {
-  alchemy?: string // Alchemy API Token
-  etherscan?: string // Etherscan API Token
-  infura?: string | { projectId: string; projectSecret: string } // INFURA Project ID or { projectId, projectSecret }
-  pocket?: string | { applicationId: string; applicationSecretKey: string } // Pocket Network Application ID or { applicationId, applicationSecretKey }
-  quorum?: number // The number of backends that must agree (default: 2 for mainnet, 1 for testnets)
-}
-
 export const getProvider = (): Provider => {
-  const provider = getFallbackProvider()
+  const provider = getDefaultProvider('homestead', getProviderOptions())
   return provider
 }
 
-const getFallbackProvider = (): Provider => {
+const getProviderOptions = (): ProviderOptions => {
   const alchemy = canUseAlchemyProvider() ? getAlchemyProviderConfig() : providerOmitted
   const etherscan = canUseEtherscanProvider() ? getEtherscanProviderConfig() : providerOmitted
   const infura = canUseInfuraProvider() ? getInfuraProviderConfig() : providerOmitted
   const pocket = canUsePocketProvider() ? getPocketProviderConfig() : providerOmitted
-  const options: ProviderOptions = { alchemy, etherscan, infura, pocket }
-  const provider = getDefaultProvider('homestead', options)
-  return provider
+  return { alchemy, etherscan, infura, pocket }
 }
