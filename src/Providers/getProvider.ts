@@ -7,9 +7,12 @@ import { canUseInfuraProvider, getInfuraProviderConfig } from './getInfuraProvid
 import { canUsePocketProvider, getPocketProviderConfig } from './getPocketProvider'
 import { providerOmitted } from './ProviderOmitted'
 
+let instance: Provider | undefined = undefined
+
 export const getProvider = (): Provider => {
-  const provider = getDefaultProvider('homestead', getProviderOptions())
-  return provider
+  if (instance) return instance
+  instance = getDefaultProvider('homestead', getProviderOptions())
+  return instance
 }
 
 const getProviderOptions = (): ProviderOptions => {
