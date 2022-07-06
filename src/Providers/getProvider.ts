@@ -1,15 +1,15 @@
 import { getDefaultProvider, Provider } from '@ethersproject/providers'
 
-import { canUseProvider, getInfuraProvider, getProviderConfig } from './getInfuraProvider'
+import { canUseInfuraProvider, getInfuraProvider, getInfuraProviderConfig } from './getInfuraProvider'
 import { providerOmitted } from './ProviderOmitted'
 
-export const getProvider = (useFallbackProvider = false): Provider => {
-  const provider = useFallbackProvider ? getFallbackProvider() : getInfuraProvider()
+export const getProvider = (): Provider => {
+  const provider = canUseInfuraProvider() ? getInfuraProvider() : getFallbackProvider()
   return provider
 }
 
 const getFallbackProvider = (): Provider => {
-  const infura = canUseProvider() ? getProviderConfig() : providerOmitted
+  const infura = canUseInfuraProvider() ? getInfuraProviderConfig() : providerOmitted
   const provider = getDefaultProvider('homestead', { infura })
   return provider
 }
