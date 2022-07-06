@@ -2,7 +2,7 @@ import { CronJob } from 'cron'
 
 import { Job } from '../Model'
 import { getCryptoMarketPanel } from '../Panels'
-import { getInfuraProvider } from '../Providers'
+import { getProvider } from '../Providers'
 import { everyMinute } from './CronSchedules'
 
 export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
@@ -12,7 +12,7 @@ export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
     async () => {
       let blockNumber = -1
       try {
-        blockNumber = await getInfuraProvider().getBlockNumber()
+        blockNumber = await getProvider().getBlockNumber()
       } catch (error) {
         console.error('Error retrieving current block number')
       }
