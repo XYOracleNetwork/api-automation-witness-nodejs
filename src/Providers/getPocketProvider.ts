@@ -1,12 +1,9 @@
 import { PocketProvider, Provider } from '@ethersproject/providers'
 import { assertEx } from '@xylabs/sdk-js'
 
-let instance: PocketProvider | undefined = undefined
+import { PocketProviderConfig } from '../Model'
 
-export interface PocketProviderConfig {
-  applicationId: string
-  applicationSecretKey: string
-}
+let instance: PocketProvider | undefined = undefined
 
 export const getPocketProvider = (): Provider => {
   if (instance) return instance

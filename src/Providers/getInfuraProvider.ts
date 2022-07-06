@@ -1,12 +1,9 @@
 import { InfuraProvider, Provider } from '@ethersproject/providers'
 import { assertEx } from '@xylabs/sdk-js'
 
-let instance: InfuraProvider | undefined = undefined
+import { InfuraProviderConfig } from '../Model'
 
-export interface InfuraProviderConfig {
-  projectId: string
-  projectSecret: string
-}
+let instance: InfuraProvider | undefined = undefined
 
 export const getInfuraProvider = (): Provider => {
   if (instance) return instance
