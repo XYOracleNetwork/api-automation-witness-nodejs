@@ -41,18 +41,18 @@ jobs:
       - name: copy env file
         run: cp .example.env .env
       - name: test
-        run: yarn test --detectOpenHandles --coverage || echo "Possible test failure, attempting to upload coverage anyway"
+        run: yarn test --forceExit --coverage
         env:
           # Current max memory size of Linux hosted runner is 7 GB
           # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
           NODE_OPTIONS: "--max-old-space-size=5120"
       - name: format code coverage
-        uses: ./.github/actions/cc-test-reporter
+        uses: xylabs/action-code-climate-test-reporter@f5f7851fd8d1c9fdf8eff37d35be671d0bd4cd3d
         with:
           subcommand: "format-coverage -t lcov ./coverage/lcov.info"
       # TODO: Setup coverage project on Code Climate
       # - name: upload code coverage
-      #   uses: ./.github/actions/cc-test-reporter
+      #   uses: xylabs/action-code-climate-test-reporter@f5f7851fd8d1c9fdf8eff37d35be671d0bd4cd3d
       #   env:
       #     CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       #   with:
