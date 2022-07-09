@@ -8,15 +8,19 @@ import {
   XyoWitness,
 } from '@xyo-network/sdk-xyo-client-js'
 
-import { getProvider } from '../Providers'
+import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
 export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = getProvider()): XyoWitness[] => {
-  return [
+  const witnesses: XyoWitness[] = [
     new XyoCoinGeckoCryptoMarketWitness({ coins: defaultCoins, currencies: defaultCurrencies, schema: XyoCoinGeckoCryptoMarketWitness.schema }),
     new XyoEtherchainEthereumGasWitnessV1({ schema: XyoEtherchainEthereumGasWitnessV1.schema }),
     new XyoEtherchainEthereumGasWitnessV2({ schema: XyoEtherchainEthereumGasWitnessV2.schema }),
-    new XyoEtherscanEthereumGasWitness({ schema: XyoEtherscanEthereumGasWitness.schema }),
     new XyoUniswapCryptoMarketWitness({ pools: UniswapPoolContracts, schema: XyoUniswapCryptoMarketWitness.schema, targetSchema: XyoUniswapCryptoMarketWitness.schema }, provider),
   ]
+  if (canUseEtherscanProvider()) {
+    const apiKey = getEtherscanProviderConfig()
+    witnesses.push(new XyoEtherscanEthereumGasWitness({ schema: XyoEtherscanEthereumGasWitness.schema }, apiKey))
+  }
+  return witnesses
 }
