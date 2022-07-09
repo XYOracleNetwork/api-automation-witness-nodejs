@@ -11,7 +11,8 @@
       "jest",
       "node",
       "@types/jest",
-      "jest-sorted"
+      "jest-sorted",
+      "jest-extended"
     ]
   },
   "exclude": [

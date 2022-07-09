@@ -76,6 +76,7 @@
     "@xylabs/tsconfig": "^1.0.14",
     "babel-jest": "^28.1.2",
     "jest": "^28.1.2",
+    "jest-extended": "^2.0.0",
     "jest-sorted": "^1.0.14",
     "license-checker": "^25.0.1",
     "nodemon": "^2.0.19",
