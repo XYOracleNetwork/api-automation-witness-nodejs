@@ -9315,17 +9315,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.12.0":
+"lru-cache@npm:^7.12.0, lru-cache@npm:^7.4.4, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
   version: 7.12.0
   resolution: "lru-cache@npm:7.12.0"
   checksum: fdb62262978393df7a4bd46a072bc5c3808c50ca5a347a82bb9459410efd841b7bae50655c3cf9004c70d12c756cf6d018f6bff155a16cdde9eba9a82899b5eb
-  languageName: node
-  linkType: hard
-
-"lru-cache@npm:^7.4.4, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
-  version: 7.10.2
-  resolution: "lru-cache@npm:7.10.2"
-  checksum: b8f98064c981ce98e2a3b82903726dd28d842f54b7f53e1d6029c6836546243d4157b8495a405c062209715c612050150bdf30b5fa8200d5a3559fb0fd4072c1
   languageName: node
   linkType: hard
 
