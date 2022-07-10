@@ -9,7 +9,7 @@ import { WrappedWinstonLogger } from './WrappedWinstonLogger'
 
 const { Console } = transports
 
-const format = process.env.NODE_ENV === 'production' ? logFormatStructured : logFormatLocalDev
+const format = process.env.NODE_ENV === 'development' ? logFormatLocalDev : logFormatStructured
 const transport = new Console()
 
 // TODO: Make dynamic and pass in for re-use
