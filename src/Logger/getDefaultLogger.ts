@@ -1,32 +1,37 @@
-import { createLogger, format, transports } from 'winston'
+import { createLogger, transports } from 'winston'
 
+import { logFormatLocalDev, logFormatStructured } from './LogFormats'
 import { Logger } from './Logger'
+import { LoggerMeta } from './LoggerMeta'
 import { LoggerVerbosity } from './LoggerVerbosity'
 import { toWinstonVerbosity } from './toWinstonVerbosity'
 import { WrappedWinstonLogger } from './WrappedWinstonLogger'
 
-const { colorize, combine, timestamp, printf } = format
 const { Console } = transports
 
-const localDevFormat = combine(
-  colorize(),
-  timestamp(),
-  printf((info) => `[${info.timestamp} ${info.level}] ${info.message}`)
-)
-
-// TODO: Change to structured logs in production
-const logFormat = process.env.NODE_ENV === 'production' ? localDevFormat : localDevFormat
+const format = process.env.NODE_ENV === 'production' ? logFormatStructured : logFormatLocalDev
 const transport = new Console()
 
 // TODO: Make dynamic and pass in for re-use
-const defaultMeta = { service: 'api-automation-witness' }
+const defaultAutomationWitnessMeta: LoggerMeta = { service: 'api-automation-witness' }
+const handleRejections = true
 
-export const getDefaultLogger = (minimumVerbosity: LoggerVerbosity = 'info'): Logger => {
+/**
+ * Static instance to prevent multiple instances of the same logger
+ * with the same config
+ */
+let defaultLogger: WrappedWinstonLogger
+export const getDefaultLogger = (): Logger => {
+  if (defaultLogger) return defaultLogger
+  return getLogger()
+}
+
+export const getLogger = (minimumVerbosity: LoggerVerbosity = 'info', defaultMeta: LoggerMeta = defaultAutomationWitnessMeta): Logger => {
   const level = toWinstonVerbosity(minimumVerbosity)
   const logger = createLogger({
     defaultMeta,
-    format: logFormat,
-    handleRejections: true,
+    format,
+    handleRejections,
     level,
     rejectionHandlers: [transport],
     transports: [transport],
