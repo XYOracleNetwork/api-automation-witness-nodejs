@@ -6,6 +6,7 @@ ignores: [
   "@ethersproject/solidity",
   "@xylabs/tsconfig",
   "babel-jest",
+  "jest-extended",
   "jest-sorted",
   "ts-jest",
   "ts-node"
