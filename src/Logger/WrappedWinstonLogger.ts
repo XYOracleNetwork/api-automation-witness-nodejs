@@ -7,10 +7,10 @@ import { LogFunction, Logger } from './Logger'
  * console logging methods
  */
 export class WrappedWinstonLogger implements Logger {
-  debug: LogFunction = this.winston.debug
-  error: LogFunction = this.winston.error
-  info: LogFunction = this.winston.info
-  log: LogFunction = this.winston.info
-  warn: LogFunction = this.winston.warn
   constructor(protected readonly winston: Winston) {}
+  debug: LogFunction = (message) => this.winston.debug(message)
+  error: LogFunction = (message) => this.winston.error(message)
+  info: LogFunction = (message) => this.winston.info(message)
+  log: LogFunction = (message) => this.winston.info(message)
+  warn: LogFunction = (message) => this.winston.warn(message)
 }
