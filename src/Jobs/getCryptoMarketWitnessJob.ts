@@ -1,11 +1,13 @@
 import { CronJob } from 'cron'
 
+import { getDefaultLogger } from '../Logger'
 import { Job } from '../Model'
 import { getCryptoMarketPanel } from '../Panels'
 import { getProvider } from '../Providers'
 import { everyMinute } from './CronSchedules'
 
 export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
+  const logger = getDefaultLogger()
   const cryptoMarketWitnessJobSchedule = schedule || process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || everyMinute
   const cryptoMarketWitnessJob = new CronJob(
     cryptoMarketWitnessJobSchedule,
@@ -14,13 +16,13 @@ export const getCryptoMarketWitnessJob = (schedule?: string): Job => {
       try {
         blockNumber = await getProvider().getBlockNumber()
       } catch (error) {
-        console.error('Error retrieving current block number')
+        logger.error('Error retrieving current block number')
       }
       try {
-        console.log(`[${new Date()}] Witnessing Crypto Prices at Block #${blockNumber}`)
+        logger.log(`Witnessing Crypto Prices at Block #${blockNumber}`)
         await getCryptoMarketPanel().report()
       } catch (error) {
-        console.error(error)
+        logger.error(error)
       }
     },
     null,
