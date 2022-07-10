@@ -1,16 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Logger } from 'winston'
 
 import { getDefaultLogger } from './getDefaultLogger'
 
 type LoggerKey = keyof Logger
-const loggerKeys: LoggerKey[] = [
-  // In decreasing severity
-  'error',
-  'warn',
-  'log',
-  'info',
-  'debug',
-]
+const loggerKeys: LoggerKey[] = ['error', 'warn', 'log', 'info', 'debug']
 
 describe('getDefaultLogger', () => {
   it('providers a default logger', () => {
@@ -18,13 +12,21 @@ describe('getDefaultLogger', () => {
     expect(logger).toBeObject()
   })
   describe('verbosity', () => {
-    it.each(loggerKeys)('can log with %s verbosity', (verbosity: LoggerKey) => {
-      const logger = getDefaultLogger('silly')
+    let stdOutMock: jest.SpyInstance<boolean, [str: string | Uint8Array, encoding?: BufferEncoding | undefined, cb?: ((err?: Error | undefined) => void) | undefined]>
+    beforeEach(() => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const ugly = logger as any
-      const logMethod = ugly[verbosity]
+      stdOutMock = jest.spyOn(process.stdout, 'write').mockImplementation(jest.fn as any)
+    })
+    afterEach(() => {
+      stdOutMock.mockRestore()
+    })
+    it.each(loggerKeys)('logs log with %s verbosity', (verbosity: LoggerKey) => {
+      const logger = getDefaultLogger('debug')
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const logMethod = (logger as any)[verbosity]
       expect(logMethod).toBeFunction()
-      logMethod('test')
+      logMethod('log from unit test')
+      expect(stdOutMock).toHaveBeenCalledOnce()
     })
   })
 })
