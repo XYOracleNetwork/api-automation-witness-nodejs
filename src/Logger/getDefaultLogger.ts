@@ -5,14 +5,13 @@ import { LoggerVerbosity } from './LoggerVerbosity'
 import { toWinstonVerbosity } from './toWinstonVerbosity'
 import { WrappedWinstonLogger } from './WrappedWinstonLogger'
 
-const { align, colorize, combine, timestamp, printf } = format
+const { colorize, combine, timestamp, printf } = format
 const { Console } = transports
 
 const localDevFormat = combine(
   colorize(),
   timestamp(),
-  align(),
-  printf((info) => `[${info.timestamp}] ${info.level}: ${info.message}`)
+  printf((info) => `[${info.timestamp} ${info.level}] ${info.message}`)
 )
 
 // TODO: Change to structured logs in production
