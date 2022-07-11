@@ -5,9 +5,9 @@ import express, { Express } from 'express'
 
 import { getDefaultLogger } from '../Logger'
 import { addDependencies } from './addDependencies'
+import { addDistributedJobs } from './addDistributedJobs'
 import { addErrorHandlers } from './addErrorHandlers'
 import { addHealthChecks } from './addHealthChecks'
-import { addJobs } from './addJobs'
 import { addMiddleware } from './addMiddleware'
 
 export const getApp = (): Express => {
@@ -19,7 +19,6 @@ export const getApp = (): Express => {
   addMiddleware(app)
   addHealthChecks(app)
   addErrorHandlers(app)
-  addJobs(app)
   return app
 }
 
@@ -35,6 +34,7 @@ export const server = async (port = 80) => {
 
   const logger = getDefaultLogger()
   const app = getApp()
+  await addDistributedJobs(app)
   const server = app.listen(port, () => {
     logger.log(`Server listening at http://localhost:${port}`)
   })
