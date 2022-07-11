@@ -1,16 +1,18 @@
 import { Agenda } from 'agenda'
 
 import { JobQueue } from '../Model'
+import { getName } from './getName'
 
 /**
  * Collection to use for managing jobs
  */
 const collection = 'automationWitness'
 
-export const getJobQueue = (): JobQueue => {
+export const getJobQueue = async (): Promise<JobQueue> => {
   const address = process.env.MONGO_CONNECTION_STRING || 'mongodb://root:example@localhost:27017/job?authSource=admin'
   const db = { address, collection }
-  const jobQueue = new Agenda({ db })
+  const name = await getName()
+  const jobQueue = new Agenda({ db, name })
 
   // TODO: Depends on minimum job interval, set to 20 seconds for
   // default since we should never be running jobs faster than every minute
