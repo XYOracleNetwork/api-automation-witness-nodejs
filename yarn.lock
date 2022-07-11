@@ -3333,16 +3333,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cron@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@types/cron@npm:2.0.0"
-  dependencies:
-    "@types/luxon": "*"
-    "@types/node": "*"
-  checksum: 392d2cfca51504140397533c30be8facd2196251074eb26ee09232a7e983144ff1d8364cd64922ed22d142686a4724934a70672fc8353b441fea729ac0ed0611
-  languageName: node
-  linkType: hard
-
 "@types/debug@npm:^4.0.0":
   version: 4.1.7
   resolution: "@types/debug@npm:4.1.7"
@@ -3507,7 +3497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:*, @types/luxon@npm:^2.3.2":
+"@types/luxon@npm:^2.3.2":
   version: 2.3.2
   resolution: "@types/luxon@npm:2.3.2"
   checksum: b9fe79118681f4bb9f2e37696a7df992a82683ba4448e7ad1af8cc241443ffc64ef08fdeaad749de9e6259b42b0d4b6540d7e880bca39bb504e0f3863d503c98
@@ -4202,7 +4192,6 @@ __metadata:
     "@ethersproject/solidity": ^5.6.1
     "@types/compression": ^1.7.2
     "@types/cors": ^2.8.12
-    "@types/cron": ^2.0.0
     "@types/express": 4.17.13
     "@types/jest": ^28.1.4
     "@types/luxon": ^2.3.2
@@ -4218,7 +4207,6 @@ __metadata:
     babel-jest: ^28.1.2
     compression: ^1.7.4
     cors: ^2.8.5
-    cron: ^2.0.0
     dotenv: ^16.0.1
     express: ^4.18.1
     http-status-codes: ^2.2.0
@@ -5860,15 +5848,6 @@ __metadata:
     is-nan: ^1.3.2
     luxon: ^1.26.0
   checksum: 80096ac1c30fa4017648ad2fa062ae002e6c0d7775b96a00dbadf1e2d7f9e01b3db0324eef2a33fe6136363be3ffb0d6065cf1b91e6a13fd5ed4d3c168abbc69
-  languageName: node
-  linkType: hard
-
-"cron@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "cron@npm:2.0.0"
-  dependencies:
-    luxon: ^1.23.x
-  checksum: 179ec137ada4ceb44cafe51c55491e84954308d7012d2a44539f0dadbbb1ffbbe3072c2f7aaa88595d60bd56e0d536aae2e4aaa4430c869317d6c2abd966988b
   languageName: node
   linkType: hard
 
@@ -9502,7 +9481,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^1.23.x, luxon@npm:^1.26.0":
+"luxon@npm:^1.26.0":
   version: 1.28.0
   resolution: "luxon@npm:1.28.0"
   checksum: 5250cb9f138b6048eeb0b3a9044a4ac994d0058f680c72a0da4b6aeaec8612460385639cba2b1052ef6d5564879e9ed144d686f26d9d97b38ab920d82e18281c
