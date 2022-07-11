@@ -1,9 +1,11 @@
 import { Express } from 'express'
 
-import { addJobProcessors, addJobs, configureAgenda } from '../Jobs'
+import { addJobProcessors } from '../JobProcessors'
+import { addJobQueue } from '../JobQueue'
+import { addJobs } from '../Jobs'
 
 export const addDistributedJobs = async (_app: Express) => {
-  const agenda = configureAgenda()
-  await addJobs(agenda)
-  await addJobProcessors(agenda)
+  const jobQueue = addJobQueue()
+  await addJobs(jobQueue)
+  await addJobProcessors(jobQueue)
 }

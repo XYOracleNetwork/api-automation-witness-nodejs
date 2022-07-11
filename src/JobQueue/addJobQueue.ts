@@ -5,7 +5,7 @@ import { Agenda } from 'agenda'
  */
 const collection = 'automationWitness'
 
-export const configureAgenda = (): Agenda => {
+export const addJobQueue = (): Agenda => {
   const address = process.env.MONGO_CONNECTION_STRING || 'mongodb://root:example@localhost:27017/job?authSource=admin'
   const db = { address, collection }
   const agenda = new Agenda({ db })
