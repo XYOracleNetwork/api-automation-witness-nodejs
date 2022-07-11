@@ -3,15 +3,13 @@ import { Agenda, DefineOptions, Job } from 'agenda'
 import { getDefaultLogger } from '../Logger'
 import { getCryptoMarketPanel } from '../Panels'
 
-export const addJobs = async (agenda: Agenda) => {
+export const addJobs = (jobQueue: Agenda) => {
   const logger = getDefaultLogger()
 
   // TODO: Depends on job schedule
-  const options: DefineOptions = {
-    lockLifetime: 10000,
-  }
+  const options: DefineOptions = { lockLifetime: 10000 }
 
-  agenda.define('test job', options, async (_job: Job) => {
+  jobQueue.define('test job', options, async (_job: Job) => {
     try {
       logger.log('Witnessing Crypto Prices')
       await getCryptoMarketPanel().report()
@@ -19,6 +17,4 @@ export const addJobs = async (agenda: Agenda) => {
       logger.error(error)
     }
   })
-
-  await agenda.start()
 }
