@@ -1,20 +1,11 @@
-import { Agenda, DefineOptions, Job } from 'agenda'
+import { Agenda, DefineOptions } from 'agenda'
 
-import { getDefaultLogger } from '../Logger'
-import { getCryptoMarketPanel } from '../Panels'
+import { Job } from '../Model'
 
-export const defineJobs = (jobQueue: Agenda) => {
-  const logger = getDefaultLogger()
+// TODO: Depends on job schedule, calculate dynamically
+// to something like 25% of schedule to allow for retries
+const options: DefineOptions = { lockLifetime: 10000 }
 
-  // TODO: Depends on job schedule
-  const options: DefineOptions = { lockLifetime: 10000 }
-
-  jobQueue.define('test job', options, async (_job: Job) => {
-    try {
-      logger.log('Witnessing Crypto Prices')
-      await getCryptoMarketPanel().report()
-    } catch (error) {
-      logger.error(error)
-    }
-  })
+export const defineJobs = (jobQueue: Agenda, jobs: Job[]) => {
+  jobs.map((job) => jobQueue.define(job.name, options, job.task))
 }
