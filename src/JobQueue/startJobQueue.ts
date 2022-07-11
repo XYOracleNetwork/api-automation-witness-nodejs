@@ -1,5 +1,5 @@
-import { Agenda } from 'agenda'
+import { JobQueue } from '../Model'
 
-export const startJobQueue = async (jobQueue: Agenda) => {
+export const startJobQueue = async (jobQueue: JobQueue) => {
   await jobQueue.start()
 }
