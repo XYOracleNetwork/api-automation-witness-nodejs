@@ -1,3 +1,2 @@
 export * from './defineJobs'
-export * from './Job'
-export * from './Task'
+export * from './getJobs'
