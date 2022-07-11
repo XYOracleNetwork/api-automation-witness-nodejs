@@ -1,6 +1,7 @@
 import { Agenda } from 'agenda'
 
-export const scheduleJobs = async (jobQueue: Agenda) => {
-  const interval = process.env.CRYPTO_MARKET_WITNESS_JOB_SCHEDULE || '10 minutes'
-  await jobQueue.every(interval, 'test job')
+import { Job } from '../Model'
+
+export const scheduleJobs = async (jobQueue: Agenda, jobs: Job[]) => {
+  await Promise.all(jobs.map(async (job) => await jobQueue.every(job.schedule, job.name)))
 }
