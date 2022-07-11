@@ -1,7 +1,7 @@
 import { tryParseInt } from '@xylabs/sdk-api-express-ecs'
 import { config } from 'dotenv'
 
-import { server } from './server'
+import { server } from './Server'
 
 config()
 
