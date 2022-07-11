@@ -3333,16 +3333,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cron@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@types/cron@npm:2.0.0"
-  dependencies:
-    "@types/luxon": "*"
-    "@types/node": "*"
-  checksum: 392d2cfca51504140397533c30be8facd2196251074eb26ee09232a7e983144ff1d8364cd64922ed22d142686a4724934a70672fc8353b441fea729ac0ed0611
-  languageName: node
-  linkType: hard
-
 "@types/debug@npm:^4.0.0":
   version: 4.1.7
   resolution: "@types/debug@npm:4.1.7"
@@ -3504,13 +3494,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
-  languageName: node
-  linkType: hard
-
-"@types/luxon@npm:*, @types/luxon@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "@types/luxon@npm:2.3.2"
-  checksum: b9fe79118681f4bb9f2e37696a7df992a82683ba4448e7ad1af8cc241443ffc64ef08fdeaad749de9e6259b42b0d4b6540d7e880bca39bb504e0f3863d503c98
   languageName: node
   linkType: hard
 
@@ -4202,10 +4185,8 @@ __metadata:
     "@ethersproject/solidity": ^5.6.1
     "@types/compression": ^1.7.2
     "@types/cors": ^2.8.12
-    "@types/cron": ^2.0.0
     "@types/express": 4.17.13
     "@types/jest": ^28.1.4
-    "@types/luxon": ^2.3.2
     "@types/supertest": ^2.0.12
     "@xylabs/eslint-config": ^2.3.30
     "@xylabs/sdk-api-express-ecs": ^1.2.2
@@ -4214,18 +4195,18 @@ __metadata:
     "@xylabs/tsconfig": ^1.0.14
     "@xyo-network/cryptomarket-witness": ^2.21.16
     "@xyo-network/sdk-xyo-client-js": ^2.21.16
+    agenda: ^4.3.0
     babel-jest: ^28.1.2
     compression: ^1.7.4
     cors: ^2.8.5
-    cron: ^2.0.0
     dotenv: ^16.0.1
     express: ^4.18.1
     http-status-codes: ^2.2.0
     jest: ^28.1.2
     jest-extended: ^3.0.0
+    jest-mock-extended: ^2.0.6
     jest-sorted: ^1.0.14
     license-checker: ^25.0.1
-    luxon: ^3.0.1
     nodemon: ^2.0.19
     rimraf: ^3.0.2
     rollbar: ^2.25.0
@@ -4540,6 +4521,20 @@ __metadata:
   version: 3.0.0
   resolution: "aes-js@npm:3.0.0"
   checksum: 251e26d533cd1a915b44896b17d5ed68c24a02484cfdd2e74ec700a309267db96651ea4eb657bf20aac32a3baa61f6e34edf8e2fec2de440a655da9942d334b8
+  languageName: node
+  linkType: hard
+
+"agenda@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "agenda@npm:4.3.0"
+  dependencies:
+    cron-parser: ^3.0.0
+    date.js: ~0.3.3
+    debug: ~4.3.0
+    human-interval: ~2.0.0
+    moment-timezone: ~0.5.27
+    mongodb: ^4.1.0
+  checksum: 259eb1954a41f9fb97b6c035f5f0c3ec126555847accb6a8a5ac27a013221fe6bbce65d71355b67d837b585ea6729b2951908317a41b4e2dc8390bed1faaf404
   languageName: node
   linkType: hard
 
@@ -5837,12 +5832,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "cron@npm:2.0.0"
+"cron-parser@npm:^3.0.0":
+  version: 3.5.0
+  resolution: "cron-parser@npm:3.5.0"
   dependencies:
-    luxon: ^1.23.x
-  checksum: 179ec137ada4ceb44cafe51c55491e84954308d7012d2a44539f0dadbbb1ffbbe3072c2f7aaa88595d60bd56e0d536aae2e4aaa4430c869317d6c2abd966988b
+    is-nan: ^1.3.2
+    luxon: ^1.26.0
+  checksum: 80096ac1c30fa4017648ad2fa062ae002e6c0d7775b96a00dbadf1e2d7f9e01b3db0324eef2a33fe6136363be3ffb0d6065cf1b91e6a13fd5ed4d3c168abbc69
   languageName: node
   linkType: hard
 
@@ -5877,6 +5873,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date.js@npm:~0.3.3":
+  version: 0.3.3
+  resolution: "date.js@npm:0.3.3"
+  dependencies:
+    debug: ~3.1.0
+  checksum: 1d776c544675204f4146c9d57b0ba67b77fb30c084fe5bfd99bfd463df2859bfd924207ac0e1de9f8a1bec168d529f70bf3d6f4be68940fe21d72a9883a8e0ff
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -5886,7 +5891,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.2.0, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
+"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.2.0, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4, debug@npm:~4.3.0":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -5904,6 +5909,15 @@ __metadata:
   dependencies:
     ms: ^2.1.1
   checksum: b3d8c5940799914d30314b7c3304a43305fd0715581a919dacb8b3176d024a782062368405b47491516d2091d6462d4d11f2f4974a405048094f8bfebfa3071c
+  languageName: node
+  linkType: hard
+
+"debug@npm:~3.1.0":
+  version: 3.1.0
+  resolution: "debug@npm:3.1.0"
+  dependencies:
+    ms: 2.0.0
+  checksum: 0b52718ab957254a5b3ca07fc34543bc778f358620c206a08452251eb7fc193c3ea3505072acbf4350219c14e2d71ceb7bdaa0d3370aa630b50da790458d08b3
   languageName: node
   linkType: hard
 
@@ -7802,6 +7816,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"human-interval@npm:~2.0.0":
+  version: 2.0.1
+  resolution: "human-interval@npm:2.0.1"
+  dependencies:
+    numbered: ^1.1.0
+  checksum: 8f1b37485f554d1f7a3fa2cefdbd9cee2df3ff2cfb86ae1db9f58f2db9d524d44863c2d291f04c810317f2fa7ceeda2188281985c7d65b3774d53c9e835ed55c
+  languageName: node
+  linkType: hard
+
 "human-signals@npm:^2.1.0":
   version: 2.1.0
   resolution: "human-signals@npm:2.1.0"
@@ -8220,6 +8243,16 @@ __metadata:
   version: 1.0.0
   resolution: "is-module@npm:1.0.0"
   checksum: 8cd5390730c7976fb4e8546dd0b38865ee6f7bacfa08dfbb2cc07219606755f0b01709d9361e01f13009bbbd8099fa2927a8ed665118a6105d66e40f1b838c3f
+  languageName: node
+  linkType: hard
+
+"is-nan@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "is-nan@npm:1.3.2"
+  dependencies:
+    call-bind: ^1.0.0
+    define-properties: ^1.1.3
+  checksum: 5dfadcef6ad12d3029d43643d9800adbba21cf3ce2ec849f734b0e14ee8da4070d82b15fdb35138716d02587c6578225b9a22779cab34888a139cc43e4e3610a
   languageName: node
   linkType: hard
 
@@ -8731,6 +8764,18 @@ __metadata:
     slash: ^3.0.0
     stack-utils: ^2.0.3
   checksum: cca23b9a0103c8fb7006a6d21e67a204fcac4289e1a3961450a4a1ad62eb37087c2a19a26337d3c0ea9f82c030a80dda79ac8ec34a18bf3fd5eca3fd55bef957
+  languageName: node
+  linkType: hard
+
+"jest-mock-extended@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "jest-mock-extended@npm:2.0.6"
+  dependencies:
+    ts-essentials: ^7.0.3
+  peerDependencies:
+    jest: ^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0 || ^28.0.0
+    typescript: ^3.0.0 || ^4.0.0
+  checksum: 62b920594674af8606ce690bc431bc0ad94976fbeebe4c7a1b3fa45b5bac27f389bb389673e300cc0e30ee17d3f3fd4d7ff550a4f18c5d814388c270fb4c5005
   languageName: node
   linkType: hard
 
@@ -9427,17 +9472,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^1.23.x":
+"luxon@npm:^1.26.0":
   version: 1.28.0
   resolution: "luxon@npm:1.28.0"
   checksum: 5250cb9f138b6048eeb0b3a9044a4ac994d0058f680c72a0da4b6aeaec8612460385639cba2b1052ef6d5564879e9ed144d686f26d9d97b38ab920d82e18281c
-  languageName: node
-  linkType: hard
-
-"luxon@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "luxon@npm:3.0.1"
-  checksum: aa966eb919bf95b1bd819cda784d1f6f66e3fb65bd9ec7bf68b6a978eeb4e3e14f7e2275021b473f93b15b6b7ba2e5a30471e53add3929a7e695fcfd6dd40ec8
   languageName: node
   linkType: hard
 
@@ -10201,6 +10239,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moment-timezone@npm:~0.5.27":
+  version: 0.5.34
+  resolution: "moment-timezone@npm:0.5.34"
+  dependencies:
+    moment: ">= 2.9.0"
+  checksum: 12a1d3d52e4ba509cf1fa36bbda59d898a08fa80ab35f6c358747e93aec1f07e617cec647eaf2e8acf5f9132e581d4704d34a9edffa9a80c5cd04bf23b277595
+  languageName: node
+  linkType: hard
+
+"moment@npm:>= 2.9.0":
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 0ec3f9c2bcba38dc2451b1daed5daded747f17610b92427bebe1d08d48d8b7bdd8d9197500b072d14e326dd0ccf3e326b9e3d07c5895d3d49e39b6803b76e80e
+  languageName: node
+  linkType: hard
+
 "mongodb-connection-string-url@npm:^2.5.2":
   version: 2.5.2
   resolution: "mongodb-connection-string-url@npm:2.5.2"
@@ -10211,7 +10265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.7.0":
+"mongodb@npm:^4.1.0, mongodb@npm:^4.7.0":
   version: 4.7.0
   resolution: "mongodb@npm:4.7.0"
   dependencies:
@@ -10680,6 +10734,13 @@ __metadata:
     gauge: ^4.0.3
     set-blocking: ^2.0.0
   checksum: ae238cd264a1c3f22091cdd9e2b106f684297d3c184f1146984ecbe18aaa86343953f26b9520dedd1b1372bc0316905b736c1932d778dbeb1fcf5a1001390e2a
+  languageName: node
+  linkType: hard
+
+"numbered@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "numbered@npm:1.1.0"
+  checksum: cdc238990fe29818cb603ac8d4050ff82a05b63e10d8848d1ff1e315231e94813c48b405e651b22d32edc8ccf1f323920d1182ea02c081f11d94ea22b1f8c17a
   languageName: node
   linkType: hard
 
@@ -14215,6 +14276,15 @@ __metadata:
   version: 4.1.1
   resolution: "true-myth@npm:4.1.1"
   checksum: 0b937bb215b78d0ccff8637ac1c49be7f08c04f32a7b755c45a1566a1d522f50b0cadac93ad869b6bea9b843f60479160d3382c2c91d2381ef3559915564ff82
+  languageName: node
+  linkType: hard
+
+"ts-essentials@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "ts-essentials@npm:7.0.3"
+  peerDependencies:
+    typescript: ">=3.7.0"
+  checksum: 74d75868acf7f8b95e447d8b3b7442ca21738c6894e576df9917a352423fde5eb43c5651da5f78997da6061458160ae1f6b279150b42f47ccc58b73e55acaa2f
   languageName: node
   linkType: hard
 

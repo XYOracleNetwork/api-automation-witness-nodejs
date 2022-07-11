@@ -1,4 +1,6 @@
 export * from './InfuraProviderConfig'
 export * from './Job'
+export * from './JobQueue'
 export * from './PocketProviderConfig'
 export * from './ProviderOptions'
+export * from './Task'
