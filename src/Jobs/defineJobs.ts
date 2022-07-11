@@ -3,7 +3,7 @@ import { Agenda, DefineOptions, Job } from 'agenda'
 import { getDefaultLogger } from '../Logger'
 import { getCryptoMarketPanel } from '../Panels'
 
-export const addJobs = (jobQueue: Agenda) => {
+export const defineJobs = (jobQueue: Agenda) => {
   const logger = getDefaultLogger()
 
   // TODO: Depends on job schedule
