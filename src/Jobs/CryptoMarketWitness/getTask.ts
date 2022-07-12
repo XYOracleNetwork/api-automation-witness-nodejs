@@ -1,4 +1,5 @@
-import { getDefaultLogger } from '../../Logger'
+import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
+
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
 
