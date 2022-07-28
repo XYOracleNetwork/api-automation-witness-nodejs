@@ -5,5 +5,11 @@
   "ignoreWords": [],
   "import": [],
   "version": "0.2",
-  "words": ["yarnpkg"]
+  "words": [
+    "cryptomarket",
+    "Etherchain",
+    "ethersproject",
+    "xylabs",
+    "yarnpkg"
+  ]
 }
