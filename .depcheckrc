@@ -4,6 +4,7 @@ ignores: [
   "@ethersproject/contracts",
   "@ethersproject/networks",
   "@ethersproject/solidity",
+  "@xylabs/ts-scripts",
   "@xylabs/tsconfig",
   "babel-jest",
   "jest-extended",
