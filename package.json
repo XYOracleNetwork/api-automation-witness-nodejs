@@ -28,7 +28,7 @@
     "start": "nodemon",
     "launch": "node --max-old-space-size=8192 --experimental-specifier-resolution=node ./dist/cjs/index.js",
     "clean": "rimraf tsconfig.tsbuildinfo && rimraf ./build && rimraf ./.serverless && rimraf ./.webpack",
-    "compile": "yarn gitlint-fix && rimraf ./dist && yarn compile:esm && yarn compile:cjs",
+    "compile": "rimraf ./dist && yarn compile:esm && yarn compile:cjs",
     "compile:cjs": "tsc -p tsconfig.build.cjs.json",
     "compile:esm": "tsc -p tsconfig.build.esm.json",
     "reinstall": "rimraf ./yarn-error.log && rimraf ./node_modules && yarn install && yarn outdated",
