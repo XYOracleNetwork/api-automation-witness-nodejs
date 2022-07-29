@@ -37,9 +37,7 @@ describe('divinePrices', () => {
   it('divines prices', () => {
     const result = divinePrices(uniswapPayload, coinGeckoPayload)
     expect(result).toBeObject()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const payload = result as any
-    expect(payload?.assets?.xyo?.value?.usd).toBe('0.014635635000000001')
-    expect(payload?.timestamp).toBeNumber()
+    expect(result.assets.xyo?.value.usd).toBe('0.014635635000000001')
+    expect(result.timestamp).toBeNumber()
   })
 })
