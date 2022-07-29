@@ -2,17 +2,9 @@ import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload } from '
 import { XyoPayload, XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
 
 import { Assets } from './Assets'
+import { averagePrices } from './averagePrices'
 
 const schema = 'network.xyo.crypto.asset'
-
-const isNumber = (val: number | undefined): val is number => {
-  return val !== undefined
-}
-
-const averagePrice = (...prices: (number | undefined)[]): number | undefined => {
-  const numbers = prices.filter(isNumber)
-  return numbers.length ? numbers.reduce((sum, n) => sum + n, 0) / numbers.length : undefined
-}
 
 export const calculatePrice = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined, coingeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined): XyoPayload => {
   const xyoUsd = coingeckoPayload?.assets?.xyo?.usd
@@ -23,7 +15,7 @@ export const calculatePrice = (uniswapPayload: XyoCryptoMarketUniswapPayload | u
     ?.find((t) => t.symbol === 'xyo')?.value
   const fields: Assets = {}
   if (xyoUsd || xyoUsdt) {
-    const usd = averagePrice(xyoUsd, xyoUsdt)?.toString()
+    const usd = averagePrices(xyoUsd, xyoUsdt)?.toString()
     fields.xyo = { value: { usd } }
   }
   return new XyoPayloadBuilder({ schema }).fields(fields).build()
