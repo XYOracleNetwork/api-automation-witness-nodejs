@@ -11,10 +11,11 @@ const schema = 'network.xyo.crypto.asset'
 export const divinePrices = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined, coinGeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined): XyoPayload => {
   const coinGeckoPrices = divineCoinGeckoPrices(coinGeckoPayload)
   const uniswapPrices = divineUniswapPrices(uniswapPayload)
-  const fields: Assets = {}
+  const assets: Assets = {}
   if (coinGeckoPrices || uniswapPrices) {
     const usd = average(coinGeckoPrices, uniswapPrices)?.toString()
-    fields.xyo = { value: { usd } }
+    assets.xyo = { value: { usd } }
   }
-  return new XyoPayloadBuilder({ schema }).fields(fields).build()
+  const timestamp = Date.now()
+  return new XyoPayloadBuilder({ schema }).fields({ assets, timestamp }).build()
 }
