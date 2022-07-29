@@ -7,7 +7,7 @@ import { getCryptoMarketWitness } from '../Witnesses'
 import { PanelProvider } from './PanelProvider'
 
 /**
- * Static panel to prevent recreation/reinitialization of panel
+ * Static panel to prevent recreation/re-initialization of panel
  * dependencies each time
  */
 let panel: XyoPanel | undefined = undefined
