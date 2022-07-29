@@ -32,10 +32,9 @@ interface CryptoAsset extends Record<string, unknown> {
 const calculatePrice = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined, coingeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined): XyoPayload => {
   const xyoUsdt = uniswapPayload?.pairs
     .map((p) => p.tokens)
-    .filter((t) => t.some((t) => t.symbol.toLowerCase() === 'xyo'))
-    ?.find((t) => t.some((t) => t.symbol.toLowerCase() === 'usdt'))
-    ?.map((x) => x)
-    ?.pop()?.value
+    .filter((t) => t.some((t) => t.symbol === 'xyo'))
+    ?.find((t) => t.some((t) => t.symbol === 'usdt'))
+    ?.find((t) => t.symbol === 'xyo')?.value
   const xyoUsd = coingeckoPayload?.assets?.xyo?.usd
   const fields: CryptoAsset = {}
   if (xyoUsdt || xyoUsd) {
