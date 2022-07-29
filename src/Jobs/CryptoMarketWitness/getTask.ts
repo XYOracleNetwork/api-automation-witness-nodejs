@@ -24,7 +24,7 @@ const schema = 'network.xyo.crypto.asset'
 interface CryptoAsset extends Record<string, unknown> {
   xyo?: {
     value?: {
-      usd?: number
+      usd?: string
     }
   }
 }
@@ -38,7 +38,7 @@ const calculatePrice = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefine
   const xyoUsd = coingeckoPayload?.assets?.xyo?.usd
   const fields: CryptoAsset = {}
   if (xyoUsdt || xyoUsd) {
-    const usd = xyoUsdt && xyoUsd ? (xyoUsdt + xyoUsd) / 2 : xyoUsdt || xyoUsd
+    const usd = (xyoUsdt && xyoUsd ? (xyoUsdt + xyoUsd) / 2 : xyoUsdt || xyoUsd)?.toString()
     fields.xyo = { value: { usd } }
   }
   return new XyoPayloadBuilder({ schema }).fields(fields).build()
