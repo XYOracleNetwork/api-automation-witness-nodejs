@@ -3,8 +3,8 @@ import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload, XyoPayl
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
-import { divinePrices } from './divinePrices'
 import { getAdHocWitness } from './getAdHocPanel'
+import { divinePrices } from './PriceDiviner'
 
 const uniswapSchema = 'network.xyo.crypto.market.uniswap'
 const coingeckoSchema = 'network.xyo.crypto.market.coingecko'
