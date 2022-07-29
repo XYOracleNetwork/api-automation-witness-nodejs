@@ -3,7 +3,7 @@ import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload, XyoPayl
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
-import { getAdHocWitness } from './getAdHocPanel'
+import { getAdHocPanel } from './getAdHocPanel'
 import { divinePrices } from './PriceDiviner'
 
 const uniswapSchema = 'network.xyo.crypto.market.uniswap'
@@ -23,7 +23,7 @@ export const getTask = (): Task => {
       logger.log('Witnessed Crypto Prices')
       logger.log('Witnessing Aggregated Crypto Prices')
       const prices = divinePrices(uniswapPayload, coingeckoPayload)
-      const panel = getAdHocWitness(prices)
+      const panel = getAdHocPanel(prices)
       await panel.report()
       logger.log('Witnessed Aggregated Crypto Prices')
     } catch (error) {

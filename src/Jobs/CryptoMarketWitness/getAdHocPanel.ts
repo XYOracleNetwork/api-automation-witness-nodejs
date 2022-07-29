@@ -2,7 +2,7 @@ import { XyoAdhocWitness, XyoPanel, XyoPayloadBase } from '@xyo-network/sdk-xyo-
 
 import { getArchive, getArchivists, getSigningAccount } from '../../Archivists'
 
-export const getAdHocWitness = (prices: XyoPayloadBase): XyoPanel => {
+export const getAdHocPanel = (prices: XyoPayloadBase): XyoPanel => {
   const account = getSigningAccount()
   const archive = getArchive()
   const archivists = getArchivists()
