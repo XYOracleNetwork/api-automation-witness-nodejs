@@ -1,3 +1,4 @@
+export * from './Assets'
 export * from './InfuraProviderConfig'
 export * from './Job'
 export * from './JobQueue'

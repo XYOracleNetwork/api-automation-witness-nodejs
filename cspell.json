@@ -1,0 +1,15 @@
+{
+  "dictionaries": [],
+  "dictionaryDefinitions": [],
+  "ignorePaths": [],
+  "ignoreWords": [],
+  "import": [],
+  "version": "0.2",
+  "words": [
+    "cryptomarket",
+    "Etherchain",
+    "ethersproject",
+    "xylabs",
+    "yarnpkg"
+  ]
+}

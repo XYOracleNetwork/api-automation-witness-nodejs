@@ -22,7 +22,7 @@ jobs:
       - name: install
         run: yarn install
       - name: build
-        run: yarn
+        run: yarn build
   test:
     runs-on: ubuntu-latest
     env:
@@ -47,12 +47,12 @@ jobs:
           # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
           NODE_OPTIONS: "--max-old-space-size=5120"
       - name: format code coverage
-        uses: xylabs/action-code-climate-test-reporter@f5f7851fd8d1c9fdf8eff37d35be671d0bd4cd3d
+        uses: xylabs/action-code-climate-test-reporter@v1.0.0
         with:
           subcommand: "format-coverage -t lcov ./coverage/lcov.info"
       # TODO: Setup coverage project on Code Climate
       # - name: upload code coverage
-      #   uses: xylabs/action-code-climate-test-reporter@f5f7851fd8d1c9fdf8eff37d35be671d0bd4cd3d
+      #   uses: xylabs/action-code-climate-test-reporter@v1.0.0
       #   env:
       #     CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       #   with:
