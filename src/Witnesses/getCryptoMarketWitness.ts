@@ -14,7 +14,12 @@ import { WitnessProvider } from './WitnessProvider'
 export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = getProvider()): XyoWitness[] => {
   const witnesses: XyoWitness[] = [
     new XyoCoinGeckoCryptoMarketWitness({
-      query: { coins: defaultCoins, currencies: defaultCurrencies, schema: 'network.xyo.crypto.market.coingecko.query', targetSchema: XyoCoinGeckoCryptoMarketWitness.schema },
+      query: {
+        coins: defaultCoins,
+        currencies: defaultCurrencies,
+        schema: 'network.xyo.crypto.market.coingecko.query',
+        targetSchema: XyoCoinGeckoCryptoMarketWitness.schema,
+      },
     }),
     new XyoEtherchainEthereumGasWitnessV1(),
     new XyoEtherchainEthereumGasWitnessV2(),
