@@ -1,5 +1,3 @@
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
-
 export interface ValueBasis {
   usd?: string
 }
