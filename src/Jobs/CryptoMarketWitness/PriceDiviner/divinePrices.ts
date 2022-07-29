@@ -1,21 +1,22 @@
 import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
-import { XyoPayload, XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
 
-import { Assets } from '../../../Model'
+import { AssetInfo, XyoCryptoMarketAssetPayload, xyoCryptoMarketAssetSchema } from '../../../Model'
 import { average } from './average'
 import { divineCoinGeckoPrices } from './divineCoinGeckoPrices'
 import { divineUniswapPrices } from './divineUniswapPrices'
 
-const schema = 'network.xyo.crypto.asset'
-
-export const divinePrices = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined, coinGeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined): XyoPayload => {
+export const divinePrices = (
+  uniswapPayload: XyoCryptoMarketUniswapPayload | undefined,
+  coinGeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined
+): XyoCryptoMarketAssetPayload => {
   const coinGeckoPrices = divineCoinGeckoPrices(coinGeckoPayload)
   const uniswapPrices = divineUniswapPrices(uniswapPayload)
-  const assets: Assets = {}
+  const assets: Record<string, AssetInfo> = {}
   if (coinGeckoPrices || uniswapPrices) {
     const usd = average(coinGeckoPrices, uniswapPrices)?.toString()
     assets.xyo = { value: { usd } }
   }
   const timestamp = Date.now()
-  return new XyoPayloadBuilder({ schema }).fields({ assets, timestamp }).build()
+  return new XyoPayloadBuilder<XyoCryptoMarketAssetPayload>({ schema: xyoCryptoMarketAssetSchema }).fields({ assets, timestamp }).build()
 }
