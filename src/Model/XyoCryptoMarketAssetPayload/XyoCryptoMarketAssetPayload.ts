@@ -1,4 +1,4 @@
-import { XyoPayload, XyoQueryPayload } from '@xyo-network/payload'
+import { XyoPayload, XyoQueryPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { AssetInfo } from './AssetInfo'
 import { Token } from './Token'
