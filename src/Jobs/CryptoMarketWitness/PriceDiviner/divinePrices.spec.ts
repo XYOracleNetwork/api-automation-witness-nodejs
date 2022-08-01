@@ -35,7 +35,7 @@ const uniswapPayload: XyoCryptoMarketUniswapPayload = {
 
 describe('divinePrices', () => {
   it('divines prices', () => {
-    const result = divinePrices(uniswapPayload, coinGeckoPayload)
+    const result = divinePrices(coinGeckoPayload, uniswapPayload)
     expect(result).toBeObject()
     expect(result.assets.xyo?.value.usd).toBe('0.014635635000000001')
     expect(result.timestamp).toBeNumber()
