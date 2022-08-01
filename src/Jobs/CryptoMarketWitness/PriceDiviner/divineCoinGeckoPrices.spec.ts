@@ -1,3 +1,4 @@
+import { assertEx } from '@xylabs/sdk-js'
 import { XyoCryptoMarketCoinGeckoPayload } from '@xyo-network/cryptomarket-witness'
 
 import { divineCoinGeckoPrices } from './divineCoinGeckoPrices'
@@ -78,6 +79,21 @@ const coinGeckoPayload: XyoCryptoMarketCoinGeckoPayload = {
 describe('divineCoinGeckoPrices', () => {
   it('divines prices from CoinGecko', () => {
     const result = divineCoinGeckoPrices(coinGeckoPayload)
-    expect(result).toBe(0.01439307)
+    expect(result.assets).toBeObject()
+    const assets = assertEx(result.assets)
+    Object.entries(assets).map(([token, assetInfo]) => {
+      expect(token).toBeString()
+      expect(assetInfo).toBeObject()
+      const value = assertEx(assetInfo?.value)
+      expect(value).toBeObject()
+      Object.entries(value).map(([symbol, price]) => {
+        expect(symbol).toBeString()
+        expect(price).toBeString()
+        const parsed = parseFloat(price)
+        expect(parsed).toBeNumber()
+        expect(isNaN(parsed)).toBeFalse()
+      })
+    })
+    expect(result?.assets?.xyo?.value?.usd).toBe('0.01439307')
   })
 })
