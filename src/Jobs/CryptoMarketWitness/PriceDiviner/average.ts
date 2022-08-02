@@ -32,7 +32,7 @@ export const average = (...input: (XyoCryptoMarketAssetPayload | undefined)[]): 
             .flatMap((v) => v)
             .filter(exists)
         )
-        return Array.from(valueBasis)
+        return [...valueBasis]
       })
       .flatMap((v) => v)
   )
