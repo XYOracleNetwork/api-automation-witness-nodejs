@@ -1,15 +1,12 @@
-import { XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
+import { PartialRecord, XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
+import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
 
-import { XyoCryptoMarketAssetPayload } from '../../../Model'
+import { AssetInfo, Token, XyoCryptoMarketAssetPayload, xyoCryptoMarketAssetSchema } from '../../../Model'
 
-const xyo = 'xyo'
-const usdt = 'usdt'
+const schema = xyoCryptoMarketAssetSchema
 
 export const divineUniswapPrices = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined): XyoCryptoMarketAssetPayload => {
-  uniswapPayload?.pairs
-    .map((p) => p.tokens)
-    .filter((t) => t.some((t) => t.symbol.toLowerCase() === xyo))
-    ?.find((t) => t.some((t) => t.symbol.toLowerCase() === usdt))
-    ?.find((t) => t.symbol === xyo)?.value
-  throw new Error('')
+  const assets: PartialRecord<Token, AssetInfo | undefined> = { xyo: { value: { usd: undefined } } }
+  const timestamp = Date.now()
+  return new XyoPayloadBuilder<XyoCryptoMarketAssetPayload>({ schema }).fields({ assets, timestamp }).build()
 }
