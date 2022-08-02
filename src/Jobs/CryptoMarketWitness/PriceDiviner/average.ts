@@ -43,7 +43,7 @@ export const average = (...payloads: XyoCryptoMarketAssetPayload[]): Record<stri
         [...valuations].map((valuation) => {
           const assetValuations = assetInfo.map((info) => info.value?.[valuation])
           const averageAssetValuation = averageStringifiedNumbers(...assetValuations)
-          return [valuation, averageAssetValuation]
+          return [valuation, averageAssetValuation?.toString()]
         })
       )
       return [token, { value }]

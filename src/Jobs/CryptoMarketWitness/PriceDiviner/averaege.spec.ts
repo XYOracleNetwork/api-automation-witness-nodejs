@@ -14,11 +14,11 @@ const getPayloadWithPrice = (price: number): XyoCryptoMarketAssetPayload => {
 describe('average', () => {
   it('averages numbers', () => {
     const payloads = [getPayloadWithPrice(1), getPayloadWithPrice(2), getPayloadWithPrice(3)]
-    expect(average(...payloads)?.xyo?.value?.usd).toBe(2)
+    expect(average(...payloads)?.xyo?.value?.usd).toBe('2')
   })
   it('handles single value', () => {
     const payloads = [getPayloadWithPrice(1)]
-    expect(average(...payloads)?.xyo?.value?.usd).toBe(1)
+    expect(average(...payloads)?.xyo?.value?.usd).toBe('1')
   })
   it('handles no values', () => {
     expect(average()?.xyo?.value?.usd).toBeUndefined()
