@@ -4,6 +4,7 @@ import { sampleUniswapPayload } from './sampleResponses.spec'
 describe('divineUniswapPrices', () => {
   it('divines prices from Uniswap', () => {
     const result = divineUniswapPrices(sampleUniswapPayload)
-    expect(result).toBe(0.0148782)
+    expect(result).toBeObject()
+    expect(result?.assets?.xyo?.value).toBe('0.0148782')
   })
 })
