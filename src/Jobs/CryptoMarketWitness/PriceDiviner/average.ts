@@ -19,7 +19,7 @@ const averageStringifiedNumbers = (...prices: string[] | undefined[]): number | 
 
 export const average = (...payloads: XyoCryptoMarketAssetPayload[]): Record<string, AssetInfo> => {
   const assets = new Set<Token>(payloads.map((payload) => Object.keys(payload.assets).map<Token>((k) => k as Token)).flatMap((asset) => asset))
-  assets.forEach((asset) => {
+  const tokens = assets.forEach((asset) => {
     const valuations = payloads.map((p) => p.assets?.[asset]).filter(exists)
     const symbols = new Set<Currency | Token>(
       valuations
