@@ -12,21 +12,42 @@ const parseStringifiedNumber = (value: string | undefined): number | undefined =
   return isNaN(parsed) ? undefined : parsed
 }
 
-const averageStringifiedNumbers = (...prices: string[] | undefined[]): number | undefined => {
+const averageStringifiedNumbers = (...prices: (string | undefined)[]): number | undefined => {
   const numbers = prices.map(parseStringifiedNumber).filter(isNumber)
   return numbers.length ? numbers.reduce((sum, n) => sum + n, 0) / numbers.length : undefined
 }
 
 export const average = (...payloads: XyoCryptoMarketAssetPayload[]): Record<string, AssetInfo> => {
-  const assets = new Set<Token>(payloads.map((payload) => Object.keys(payload.assets).map<Token>((k) => k as Token)).flatMap((asset) => asset))
-  const tokens = assets.forEach((asset) => {
-    const valuations = payloads.map((p) => p.assets?.[asset]).filter(exists)
-    const symbols = new Set<Currency | Token>(
-      valuations
-        .map((v) => Object.keys(v.value) as unknown as Currency | Token)
-        .flatMap((v) => v)
-        .filter(exists)
-    )
-  })
-  throw ''
+  // Get all the assets represented
+  const tokens = new Set<Token>(payloads.map((payload) => Object.keys(payload.assets).map<Token>((t) => t as Token)).flatMap((t) => t))
+  // Get all the valuations used
+  const valuations = new Set<Token | Currency>(
+    [...tokens]
+      .map((asset) => {
+        const assetInfo = payloads.map((p) => p.assets?.[asset]).filter(exists)
+        const valueBasis = new Set<Currency | Token>(
+          assetInfo
+            .map((v) => Object.keys(v.value) as unknown as Currency | Token)
+            .flatMap((v) => v)
+            .filter(exists)
+        )
+        return Array.from(valueBasis)
+      })
+      .flatMap((v) => v)
+  )
+  // For each of the tokens, calculate the average valuation for each of valuation bases
+  const assets: Record<string, AssetInfo> = Object.fromEntries(
+    [...tokens].map((token) => {
+      const assetInfo = payloads.map((p) => p.assets?.[token]).filter(exists)
+      const value = Object.fromEntries(
+        [...valuations].map((valuation) => {
+          const assetValuations = assetInfo.map((info) => info.value?.[valuation])
+          const averageAssetValuation = averageStringifiedNumbers(...assetValuations)
+          return [valuation, averageAssetValuation]
+        })
+      )
+      return [token, { value }]
+    })
+  )
+  return assets
 }
