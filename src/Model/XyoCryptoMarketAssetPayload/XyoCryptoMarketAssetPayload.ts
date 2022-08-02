@@ -1,4 +1,4 @@
-import { XyoPayload, XyoQueryPayload } from '@xyo-network/sdk-xyo-client-js'
+import { PartialRecord, XyoPayload, XyoQueryPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { AssetInfo } from './AssetInfo'
 import { Token } from './Token'
@@ -14,7 +14,7 @@ export type XyoCryptoMarketAssetQueryPayload = XyoQueryPayload<{
 }>
 
 export interface XyoCryptoMarketAssetPayload extends XyoPayload {
-  assets: Record<Token, AssetInfo | undefined>
+  assets: PartialRecord<Token, AssetInfo | undefined>
   schema: XyoCryptoMarketAssetSchema
   timestamp: number
 }
