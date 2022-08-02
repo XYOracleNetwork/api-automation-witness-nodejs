@@ -17,8 +17,9 @@ const averageStringifiedNumbers = (...prices: (string | undefined)[]): number | 
   return numbers.length ? numbers.reduce((sum, n) => sum + n, 0) / numbers.length : undefined
 }
 
-export const average = (...payloads: XyoCryptoMarketAssetPayload[]): Record<string, AssetInfo> => {
+export const average = (...input: (XyoCryptoMarketAssetPayload | undefined)[]): Record<string, AssetInfo> => {
   // Get all the assets represented
+  const payloads = input.filter(exists)
   const tokens = new Set<Token>(payloads.map((payload) => Object.keys(payload.assets).map<Token>((t) => t as Token)).flatMap((t) => t))
   // Get all the valuations used
   const valuations = new Set<Token | Currency>(

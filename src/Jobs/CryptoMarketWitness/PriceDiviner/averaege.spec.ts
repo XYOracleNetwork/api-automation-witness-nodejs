@@ -23,8 +23,8 @@ describe('average', () => {
   it('handles no values', () => {
     expect(average()?.xyo?.value?.usd).toBeUndefined()
   })
-  // it('handles undefined values', () => {
-  //   const payloads = [getPayloadWithPrice(1), undefined, getPayloadWithPrice(3)]
-  //   expect(average(...payloads)?.xyo?.value?.usd).toBe(2)
-  // })
+  it('handles undefined values', () => {
+    const payloads = [getPayloadWithPrice(1), undefined, getPayloadWithPrice(3)]
+    expect(average(...payloads)?.xyo?.value?.usd).toBe('2')
+  })
 })
