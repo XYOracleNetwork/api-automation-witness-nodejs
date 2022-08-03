@@ -1,4 +1,5 @@
-import { PartialRecord, XyoPayload, XyoQueryPayload } from '@xyo-network/sdk-xyo-client-js'
+import { PartialRecord } from '@xylabs/sdk-js'
+import { XyoPayload, XyoQueryPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { AssetInfo } from './AssetInfo'
 import { Token } from './Token'

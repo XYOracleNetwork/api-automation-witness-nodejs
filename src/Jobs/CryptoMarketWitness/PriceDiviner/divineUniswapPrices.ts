@@ -1,6 +1,6 @@
-import { exists } from '@xylabs/sdk-js'
-import { PartialRecord, XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
+import { exists, PartialRecord } from '@xylabs/sdk-js'
 import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { AssetInfo, Currency, Token, ValueBasis, XyoCryptoMarketAssetPayload, xyoCryptoMarketAssetSchema } from '../../../Model'
 
@@ -15,7 +15,7 @@ const mapUniswapToken = (symbol: string): Token | Currency => {
   return symbol.toLowerCase() as Token
 }
 
-export const divineUniswapPrices = (uniswapPayload: XyoCryptoMarketUniswapPayload | undefined): XyoCryptoMarketAssetPayload => {
+export const divineUniswapPrices = (uniswapPayload: XyoUniswapCryptoMarketPayload | undefined): XyoCryptoMarketAssetPayload => {
   let assets: PartialRecord<Token, AssetInfo | undefined> = {}
   if (uniswapPayload) {
     const tokens: Set<Token> = new Set(
