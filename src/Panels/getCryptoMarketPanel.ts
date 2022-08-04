@@ -14,15 +14,10 @@ let panel: XyoPanel | undefined = undefined
 
 export const getCryptoMarketPanel: PanelProvider<Provider> = (provider = getProvider()): XyoPanel => {
   // if (panel) return panel
-  console.log('getCryptoMarketPanel: getting account')
   const account = getSigningAccount()
-  console.log('getCryptoMarketPanel: getting archive')
   const archive = getArchive()
-  console.log('getCryptoMarketPanel: getting archivists')
   const archivists = getArchivists()
-  console.log('getCryptoMarketPanel: getting witnesses')
   const witnesses = getCryptoMarketWitness(provider)
-  console.log('getCryptoMarketPanel: getting panel')
   panel = new XyoPanel({ account, archive, archivists, witnesses })
   return panel
 }
