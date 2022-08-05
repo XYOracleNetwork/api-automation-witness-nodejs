@@ -1,5 +1,7 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
-import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
@@ -9,8 +11,8 @@ import { divinePrices } from './PriceDiviner'
 const uniswapSchema = 'network.xyo.crypto.market.uniswap'
 const coingeckoSchema = 'network.xyo.crypto.market.coingecko'
 
-const isUniswapPayload = (p: XyoPayload): p is XyoCryptoMarketUniswapPayload => p.schema === uniswapSchema
-const isCoingeckoPayload = (p: XyoPayload): p is XyoCryptoMarketCoinGeckoPayload => p.schema === coingeckoSchema
+const isUniswapPayload = (p: XyoPayload): p is XyoUniswapCryptoMarketPayload => p.schema === uniswapSchema
+const isCoingeckoPayload = (p: XyoPayload): p is XyoCoingeckoCryptoMarketPayload => p.schema === coingeckoSchema
 
 export const getTask = (): Task => {
   const logger = getDefaultLogger()

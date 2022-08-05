@@ -1,6 +1,7 @@
 import { exists } from '@xylabs/sdk-js'
-import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
+import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { XyoCryptoMarketAssetPayload, xyoCryptoMarketAssetSchema } from '../../../Model'
 import { average } from './average'
@@ -8,8 +9,8 @@ import { divineCoinGeckoPrices } from './divineCoinGeckoPrices'
 import { divineUniswapPrices } from './divineUniswapPrices'
 
 export const divinePrices = (
-  coinGeckoPayload: XyoCryptoMarketCoinGeckoPayload | undefined,
-  uniswapPayload: XyoCryptoMarketUniswapPayload | undefined
+  coinGeckoPayload: XyoCoingeckoCryptoMarketPayload | undefined,
+  uniswapPayload: XyoUniswapCryptoMarketPayload | undefined
 ): XyoCryptoMarketAssetPayload => {
   const coinGeckoPrices = divineCoinGeckoPrices(coinGeckoPayload)
   const uniswapPrices = divineUniswapPrices(uniswapPayload)

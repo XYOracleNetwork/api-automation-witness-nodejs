@@ -1,6 +1,7 @@
-import { XyoCryptoMarketCoinGeckoPayload, XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
+import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
-export const sampleCoinGeckoPayload: XyoCryptoMarketCoinGeckoPayload = {
+export const sampleCoinGeckoPayload: XyoCoingeckoCryptoMarketPayload = {
   assets: {
     ada: {
       btc: 0.00002163,
@@ -73,7 +74,7 @@ export const sampleCoinGeckoPayload: XyoCryptoMarketCoinGeckoPayload = {
   timestamp: 1659012060785,
 }
 
-export const sampleUniswapPayload: XyoCryptoMarketUniswapPayload = {
+export const sampleUniswapPayload: XyoUniswapCryptoMarketPayload = {
   pairs: [
     {
       tokens: [
