@@ -1,4 +1,4 @@
-import { PartialRecord } from '@xyo-network/cryptomarket-witness'
+import { PartialRecord } from '@xylabs/sdk-js'
 
 import { Currency } from './Currency'
 import { Token } from './Token'

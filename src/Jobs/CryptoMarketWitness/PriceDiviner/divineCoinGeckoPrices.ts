@@ -1,4 +1,5 @@
-import { PartialRecord, XyoCryptoMarketCoinGeckoPayload } from '@xyo-network/cryptomarket-witness'
+import { PartialRecord } from '@xylabs/sdk-js'
+import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
 
 import { AssetInfo, XyoCryptoMarketAssetPayload, xyoCryptoMarketAssetSchema } from '../../../Model'
@@ -14,7 +15,7 @@ const otherValueExists = (value: [string, number | undefined]): value is [string
   return typeof possiblyNumber === 'number' && !isNaN(possiblyNumber)
 }
 
-export const divineCoinGeckoPrices = (payload: XyoCryptoMarketCoinGeckoPayload | undefined): XyoCryptoMarketAssetPayload => {
+export const divineCoinGeckoPrices = (payload: XyoCoingeckoCryptoMarketPayload | undefined): XyoCryptoMarketAssetPayload => {
   const assets: Record<string, AssetInfo> =
     payload && payload?.assets
       ? Object.fromEntries(
