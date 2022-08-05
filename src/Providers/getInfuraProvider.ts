@@ -17,7 +17,7 @@ export const canUseInfuraProvider = (): boolean => {
 }
 
 export const getInfuraProviderConfig = (): InfuraProviderConfig => {
-  const projectId = assertEx(process.env.INFURA_PROJECT_ID, 'getInfuraProviderConfig: Missing INFURA_PROJECT_ID')
-  const projectSecret = assertEx(process.env.INFURA_PROJECT_SECRET, 'getInfuraProviderConfig: Missing INFURA_PROJECT_SECRET')
+  const projectId = assertEx(process.env.INFURA_PROJECT_ID)
+  const projectSecret = assertEx(process.env.INFURA_PROJECT_SECRET)
   return { projectId, projectSecret }
 }

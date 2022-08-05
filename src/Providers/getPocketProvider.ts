@@ -17,7 +17,7 @@ export const canUsePocketProvider = (): boolean => {
 }
 
 export const getPocketProviderConfig = (): PocketProviderConfig => {
-  const applicationId = assertEx(process.env.POCKET_PORTAL_ID, 'getPocketProviderConfig: Missing POCKET_PORTAL_ID')
-  const applicationSecretKey = assertEx(process.env.POCKET_SECRET_KEY, 'getPocketProviderConfig: Missing POCKET_SECRET_KEY')
+  const applicationId = assertEx(process.env.POCKET_PORTAL_ID)
+  const applicationSecretKey = assertEx(process.env.POCKET_SECRET_KEY)
   return { applicationId, applicationSecretKey }
 }
