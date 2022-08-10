@@ -22,7 +22,7 @@ export const divineUniswapPrices = (uniswapPayload: XyoUniswapCryptoMarketPayloa
       uniswapPayload?.pairs
         .map((p) => p.tokens)
         .flatMap((t) => t)
-        .map((t) => t.symbol.toLowerCase() as Token)
+        .map((t) => t.symbol.toLowerCase() as Token),
     )
     assets = Object.fromEntries(
       [...tokens].map((token) => {
@@ -37,11 +37,11 @@ export const divineUniswapPrices = (uniswapPayload: XyoUniswapCryptoMarketPayloa
               const other = pair.filter((p) => p.symbol.toLowerCase() !== token)?.[0]
               return [other.symbol.toLowerCase(), current.value.toString()]
             })
-            .map((x) => [mapUniswapToken(x[0]), x[1]])
+            .map((x) => [mapUniswapToken(x[0]), x[1]]),
         )
         const assetInfo: AssetInfo = { value }
         return [token, assetInfo]
-      })
+      }),
     )
   }
   const timestamp = Date.now()

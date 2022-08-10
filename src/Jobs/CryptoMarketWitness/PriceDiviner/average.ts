@@ -30,11 +30,11 @@ export const average = (...input: (XyoCryptoMarketAssetPayload | undefined)[]): 
           assetInfo
             .map((v) => Object.keys(v.value) as unknown as Currency | Token)
             .flatMap((v) => v)
-            .filter(exists)
+            .filter(exists),
         )
         return [...valueBasis]
       })
-      .flatMap((v) => v)
+      .flatMap((v) => v),
   )
   // For each of the tokens, calculate the average valuation for each of valuation bases
   const assets: Record<string, AssetInfo> = Object.fromEntries(
@@ -45,10 +45,10 @@ export const average = (...input: (XyoCryptoMarketAssetPayload | undefined)[]): 
           const assetValuations = assetInfo.map((info) => info.value?.[valuation])
           const averageAssetValuation = averageStringifiedNumbers(...assetValuations)
           return [valuation, averageAssetValuation?.toString()]
-        })
+        }),
       )
       return [token, { value }]
-    })
+    }),
   )
   return assets
 }

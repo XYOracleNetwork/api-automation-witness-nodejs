@@ -25,10 +25,10 @@ export const divineCoinGeckoPrices = (payload: XyoCoingeckoCryptoMarketPayload |
               const value = Object.fromEntries(
                 Object.entries(valuation)
                   .filter(otherValueExists)
-                  .map(([symbol, price]) => [symbol.toLowerCase(), price?.toString()])
+                  .map(([symbol, price]) => [symbol.toLowerCase(), price?.toString()]),
               )
               return [asset, { value }]
-            })
+            }),
         )
       : {}
   const timestamp = Date.now()

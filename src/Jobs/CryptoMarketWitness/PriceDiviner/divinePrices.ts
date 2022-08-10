@@ -10,7 +10,7 @@ import { divineUniswapPrices } from './divineUniswapPrices'
 
 export const divinePrices = (
   coinGeckoPayload: XyoCoingeckoCryptoMarketPayload | undefined,
-  uniswapPayload: XyoUniswapCryptoMarketPayload | undefined
+  uniswapPayload: XyoUniswapCryptoMarketPayload | undefined,
 ): XyoCryptoMarketAssetPayload => {
   const coinGeckoPrices = divineCoinGeckoPrices(coinGeckoPayload)
   const uniswapPrices = divineUniswapPrices(uniswapPayload)

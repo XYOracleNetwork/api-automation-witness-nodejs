@@ -39,7 +39,7 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = get
       new XyoEtherscanEthereumGasWitness({
         apiKey,
         query: { schema: 'network.xyo.blockchain.ethereum.gas.etherscan.query', targetSchema: 'network.xyo.blockchain.ethereum.gas.etherscan' },
-      })
+      }),
     )
   }
   return witnesses
