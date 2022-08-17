@@ -1,12 +1,18 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
+import { assertEx } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import {
+  XyoCryptoMarketAssetPayloadSchema,
+  XyoCryptoMarketAssetQueryPayload,
+  XyoCryptoMarketAssetQueryPayloadSchema,
+} from '@xyo-network/crypto-asset-payload-plugin'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
 import { getAdHocPanel } from './getAdHocPanel'
-import { divinePrices } from './PriceDiviner'
+import { getCryptoMarketAssetDiviner } from './getCryptoMarketAssetDiviner'
 
 const uniswapSchema = 'network.xyo.crypto.market.uniswap'
 const coingeckoSchema = 'network.xyo.crypto.market.coingecko'
@@ -21,13 +27,20 @@ export const getTask = (): Task => {
       logger.log('Witnessing Crypto Prices')
       const result = await getCryptoMarketPanel().report()
       logger.log('Witnessed Crypto Prices')
-      logger.log('Witnessing Aggregated Crypto Prices')
-      const coingeckoPayload = result._payloads?.filter(isCoingeckoPayload)?.pop()
+      logger.log('Divining Aggregated Crypto Prices')
+      const coinGeckoPayload = result._payloads?.filter(isCoingeckoPayload)?.pop()
       const uniswapPayload = result._payloads?.filter(isUniswapPayload)?.pop()
-      const prices = divinePrices(coingeckoPayload, uniswapPayload)
+      const diviner = getCryptoMarketAssetDiviner()
+      const query: XyoCryptoMarketAssetQueryPayload = {
+        payloads: { coinGeckoPayload, uniswapPayload },
+        schema: XyoCryptoMarketAssetQueryPayloadSchema,
+        targetSchema: XyoCryptoMarketAssetPayloadSchema,
+      }
+      const answer = await diviner.divine(query)
+      const prices = assertEx(answer[1][0], 'Empty XyoCryptoMarketAssetPayload response from diviner')
       const panel = getAdHocPanel(prices)
       await panel.report()
-      logger.log('Witnessed Aggregated Crypto Prices')
+      logger.log('Divined Aggregated Crypto Prices')
     } catch (error) {
       logger.error(error)
     }
