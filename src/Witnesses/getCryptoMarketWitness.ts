@@ -6,6 +6,7 @@ import {
   XyoCoingeckoCryptoMarketWitness,
 } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import {
+  XyoAccount,
   XyoEtherchainEthereumGasWitnessV1,
   XyoEtherchainEthereumGasWitnessV2,
   XyoEtherscanEthereumGasWitness,
@@ -19,26 +20,34 @@ import { WitnessProvider } from './WitnessProvider'
 export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = getProvider()): XyoWitness[] => {
   const witnesses: XyoWitness[] = [
     new XyoCoingeckoCryptoMarketWitness({
+      account: new XyoAccount(),
       query: {
         coins: defaultCoins,
         currencies: defaultCurrencies,
         schema: 'network.xyo.crypto.market.coingecko.query',
-        targetSchema: XyoCoingeckoCryptoMarketPayloadSchema,
       },
+      schema: 'network.xyo.crypto.market.coingecko.config',
+      targetSchema: XyoCoingeckoCryptoMarketPayloadSchema,
     }),
     new XyoEtherchainEthereumGasWitnessV1(),
     new XyoEtherchainEthereumGasWitnessV2(),
     new XyoUniswapCryptoMarketWitness({
+      account: new XyoAccount(),
       provider,
-      query: { pools: UniswapPoolContracts, schema: 'network.xyo.crypto.market.uniswap.query', targetSchema: 'network.xyo.crypto.market.uniswap' },
+      query: { pools: UniswapPoolContracts, schema: 'network.xyo.crypto.market.uniswap.query' },
+      schema: 'network.xyo.crypto.market.uniswap.config',
+      targetSchema: 'network.xyo.crypto.market.uniswap',
     }),
   ]
   if (canUseEtherscanProvider()) {
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
       new XyoEtherscanEthereumGasWitness({
+        account: new XyoAccount(),
         apiKey,
-        query: { schema: 'network.xyo.blockchain.ethereum.gas.etherscan.query', targetSchema: 'network.xyo.blockchain.ethereum.gas.etherscan' },
+        query: { schema: 'network.xyo.blockchain.ethereum.gas.etherscan.query' },
+        schema: 'network.xyo.blockchain.ethereum.gas.etherscan.config',
+        targetSchema: 'network.xyo.blockchain.ethereum.gas.etherscan',
       }),
     )
   }

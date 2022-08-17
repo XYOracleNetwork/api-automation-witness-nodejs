@@ -4,5 +4,5 @@ import { getSigningAccount } from '../../Archivists'
 
 export const getCryptoMarketAssetDiviner = (): XyoCryptoMarketAssetDiviner => {
   const account = getSigningAccount()
-  return new XyoCryptoMarketAssetDiviner(account)
+  return new XyoCryptoMarketAssetDiviner({ account, schema: 'network.xyo.diviner.config' })
 }
