@@ -9,9 +9,8 @@ RUN yarn compile
 # Just install the production dependencies here
 FROM node:16 AS dependencies
 WORKDIR /app
-COPY ./package.json ./package.json
-COPY ./yarn.lock ./yarn.lock
-RUN yarn install --production --immutable
+COPY . .
+RUN yarn workspaces focus --production
 
 # Copy over the compiled output and production dependencies
 # into a slimmer container

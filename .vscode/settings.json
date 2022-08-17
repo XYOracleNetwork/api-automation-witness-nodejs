@@ -10,8 +10,7 @@
     "dist": true,
     ".webpack": true,
     ".serverless": true,
-    ".rollup.cache": true,
-    ".yarn": true
+    ".rollup.cache": true
   },
   "editor.formatOnSave": true,
   "editor.quickSuggestions": {
