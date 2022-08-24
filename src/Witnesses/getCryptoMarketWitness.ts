@@ -4,6 +4,7 @@ import {
   defaultCurrencies,
   XyoCoingeckoCryptoMarketPayloadSchema,
   XyoCoingeckoCryptoMarketWitness,
+  XyoCoingeckoCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import {
   XyoAccount,
@@ -12,7 +13,12 @@ import {
   XyoEtherscanEthereumGasWitness,
   XyoWitness,
 } from '@xyo-network/sdk-xyo-client-js'
-import { UniswapPoolContracts, XyoUniswapCryptoMarketWitness } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import {
+  UniswapPoolContracts,
+  XyoUniswapCryptoMarketPayloadSchema,
+  XyoUniswapCryptoMarketWitness,
+  XyoUniswapCryptoMarketWitnessConfigSchema,
+} from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
@@ -21,22 +27,19 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = get
   const witnesses: XyoWitness[] = [
     new XyoCoingeckoCryptoMarketWitness({
       account: new XyoAccount(),
-      query: {
-        coins: defaultCoins,
-        currencies: defaultCurrencies,
-        schema: 'network.xyo.crypto.market.coingecko.query',
-      },
-      schema: 'network.xyo.crypto.market.coingecko.config',
+      coins: defaultCoins,
+      currencies: defaultCurrencies,
+      schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
       targetSchema: XyoCoingeckoCryptoMarketPayloadSchema,
     }),
     new XyoEtherchainEthereumGasWitnessV1(),
     new XyoEtherchainEthereumGasWitnessV2(),
     new XyoUniswapCryptoMarketWitness({
       account: new XyoAccount(),
+      pools: UniswapPoolContracts,
       provider,
-      query: { pools: UniswapPoolContracts, schema: 'network.xyo.crypto.market.uniswap.query' },
-      schema: 'network.xyo.crypto.market.uniswap.config',
-      targetSchema: 'network.xyo.crypto.market.uniswap',
+      schema: XyoUniswapCryptoMarketWitnessConfigSchema,
+      targetSchema: XyoUniswapCryptoMarketPayloadSchema,
     }),
   ]
   if (canUseEtherscanProvider()) {
@@ -45,8 +48,7 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = get
       new XyoEtherscanEthereumGasWitness({
         account: new XyoAccount(),
         apiKey,
-        query: { schema: 'network.xyo.blockchain.ethereum.gas.etherscan.query' },
-        schema: 'network.xyo.blockchain.ethereum.gas.etherscan.config',
+        schema: 'network.xyo.blockchain.ethereum.gas.etherscan.witness.config',
         targetSchema: 'network.xyo.blockchain.ethereum.gas.etherscan',
       }),
     )

@@ -23,6 +23,8 @@ build
 .build
 sdk
 
+.tsconfig*
+
 .pnp.*
 .yarn/*
 !.yarn/patches

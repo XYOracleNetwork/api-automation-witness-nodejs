@@ -1,9 +1,9 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 import { assertEx } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { XyoCryptoMarketAssetQueryPayload, XyoCryptoMarketAssetQueryPayloadSchema } from '@xyo-network/crypto-asset-payload-plugin'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoDivinerDivineQueryPayload, XyoDivinerDivineQuerySchema, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import compact from 'lodash/compact'
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
@@ -27,9 +27,9 @@ export const getTask = (): Task => {
       const coinGeckoPayload = result._payloads?.filter(isCoingeckoPayload)?.pop()
       const uniswapPayload = result._payloads?.filter(isUniswapPayload)?.pop()
       const diviner = getCryptoMarketAssetDiviner()
-      const query: XyoCryptoMarketAssetQueryPayload = {
-        payloads: { coinGeckoPayload, uniswapPayload },
-        schema: XyoCryptoMarketAssetQueryPayloadSchema,
+      const query: XyoDivinerDivineQueryPayload = {
+        payloads: compact([coinGeckoPayload, uniswapPayload]),
+        schema: XyoDivinerDivineQuerySchema,
       }
       const answer = await diviner.query(query)
       const prices = assertEx(answer[1][0], 'Empty XyoCryptoMarketAssetPayload response from diviner')
