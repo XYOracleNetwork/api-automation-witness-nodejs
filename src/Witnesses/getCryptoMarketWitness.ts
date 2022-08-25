@@ -7,12 +7,21 @@ import {
   XyoCoingeckoCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import {
-  XyoAccount,
   XyoEtherchainEthereumGasWitnessV1,
+  XyoEthereumGasEtherchainV1PayloadSchema,
+  XyoEthereumGasEtherchainV1WitnessConfigSchema,
+} from '@xyo-network/etherchain-ethereum-gas-v1-payload-plugin'
+import {
   XyoEtherchainEthereumGasWitnessV2,
+  XyoEthereumGasEtherchainV2PayloadSchema,
+  XyoEthereumGasEtherchainV2WitnessConfigSchema,
+} from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
+import {
+  XyoEthereumGasEtherscanPayloadSchema,
+  XyoEthereumGasEtherscanWitnessConfigSchema,
   XyoEtherscanEthereumGasWitness,
-  XyoWitness,
-} from '@xyo-network/sdk-xyo-client-js'
+} from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
+import { XyoAccount, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
 import {
   UniswapPoolContracts,
   XyoUniswapCryptoMarketPayloadSchema,
@@ -32,8 +41,16 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = get
       schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
       targetSchema: XyoCoingeckoCryptoMarketPayloadSchema,
     }),
-    new XyoEtherchainEthereumGasWitnessV1(),
-    new XyoEtherchainEthereumGasWitnessV2(),
+    new XyoEtherchainEthereumGasWitnessV1({
+      account: new XyoAccount(),
+      schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
+      targetSchema: XyoEthereumGasEtherchainV1PayloadSchema,
+    }),
+    new XyoEtherchainEthereumGasWitnessV2({
+      account: new XyoAccount(),
+      schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
+      targetSchema: XyoEthereumGasEtherchainV2PayloadSchema,
+    }),
     new XyoUniswapCryptoMarketWitness({
       account: new XyoAccount(),
       pools: UniswapPoolContracts,
@@ -48,8 +65,8 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = get
       new XyoEtherscanEthereumGasWitness({
         account: new XyoAccount(),
         apiKey,
-        schema: 'network.xyo.blockchain.ethereum.gas.etherscan.witness.config',
-        targetSchema: 'network.xyo.blockchain.ethereum.gas.etherscan',
+        schema: XyoEthereumGasEtherscanWitnessConfigSchema,
+        targetSchema: XyoEthereumGasEtherscanPayloadSchema,
       }),
     )
   }
