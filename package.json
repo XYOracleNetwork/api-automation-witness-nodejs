@@ -27,7 +27,6 @@
   "scripts": {
     "start": "nodemon",
     "launch": "node --max-old-space-size=8192 --experimental-specifier-resolution=node ./dist/cjs/index.js",
-    "reinstall": "rimraf ./yarn-error.log && rimraf ./node_modules && yarn install && yarn outdated",
     "test": "jest ./src",
     "test:hash": "jest ./src/hash",
     "test:domain": "jest ./src/domain",
