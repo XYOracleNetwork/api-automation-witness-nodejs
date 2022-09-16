@@ -1,7 +1,7 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 import { assertEx } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { XyoDivinerDivineQueryPayload, XyoDivinerDivineQuerySchema, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoDivinerDivineQuery, XyoDivinerDivineQuerySchema, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import compact from 'lodash/compact'
 
@@ -21,13 +21,13 @@ export const getTask = (): Task => {
   const task: Task = async () => {
     try {
       logger.log('Witnessing Crypto Prices')
-      const result = await getCryptoMarketPanel().report()
+      const [, payloads] = await getCryptoMarketPanel().report()
       logger.log('Witnessed Crypto Prices')
       logger.log('Divining Aggregated Crypto Prices')
-      const coinGeckoPayload = result._payloads?.filter(isCoingeckoPayload)?.pop()
-      const uniswapPayload = result._payloads?.filter(isUniswapPayload)?.pop()
+      const coinGeckoPayload = payloads?.filter(isCoingeckoPayload)?.pop()
+      const uniswapPayload = payloads?.filter(isUniswapPayload)?.pop()
       const diviner = getCryptoMarketAssetDiviner()
-      const query: XyoDivinerDivineQueryPayload = {
+      const query: XyoDivinerDivineQuery = {
         payloads: compact([coinGeckoPayload, uniswapPayload]),
         schema: XyoDivinerDivineQuerySchema,
       }

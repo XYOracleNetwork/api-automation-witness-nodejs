@@ -2,29 +2,29 @@ import { Provider } from '@ethersproject/providers'
 import {
   defaultCoins,
   defaultCurrencies,
-  XyoCoingeckoCryptoMarketPayloadSchema,
+  XyoCoingeckoCryptoMarketSchema,
   XyoCoingeckoCryptoMarketWitness,
   XyoCoingeckoCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import {
   XyoEtherchainEthereumGasWitnessV1,
-  XyoEthereumGasEtherchainV1PayloadSchema,
+  XyoEthereumGasEtherchainV1Schema,
   XyoEthereumGasEtherchainV1WitnessConfigSchema,
 } from '@xyo-network/etherchain-ethereum-gas-v1-payload-plugin'
 import {
   XyoEtherchainEthereumGasWitnessV2,
-  XyoEthereumGasEtherchainV2PayloadSchema,
+  XyoEthereumGasEtherchainV2Schema,
   XyoEthereumGasEtherchainV2WitnessConfigSchema,
 } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import {
-  XyoEthereumGasEtherscanPayloadSchema,
+  XyoEthereumGasEtherscanSchema,
   XyoEthereumGasEtherscanWitnessConfigSchema,
   XyoEtherscanEthereumGasWitness,
 } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
-import { XyoAccount, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWitness } from '@xyo-network/sdk-xyo-client-js'
 import {
   UniswapPoolContracts,
-  XyoUniswapCryptoMarketPayloadSchema,
+  XyoUniswapCryptoMarketSchema,
   XyoUniswapCryptoMarketWitness,
   XyoUniswapCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
@@ -35,38 +35,33 @@ import { WitnessProvider } from './WitnessProvider'
 export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = getProvider()): XyoWitness[] => {
   const witnesses: XyoWitness[] = [
     new XyoCoingeckoCryptoMarketWitness({
-      account: new XyoAccount(),
       coins: defaultCoins,
       currencies: defaultCurrencies,
       schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
-      targetSchema: XyoCoingeckoCryptoMarketPayloadSchema,
+      targetSchema: XyoCoingeckoCryptoMarketSchema,
     }),
     new XyoEtherchainEthereumGasWitnessV1({
-      account: new XyoAccount(),
       schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
-      targetSchema: XyoEthereumGasEtherchainV1PayloadSchema,
+      targetSchema: XyoEthereumGasEtherchainV1Schema,
     }),
     new XyoEtherchainEthereumGasWitnessV2({
-      account: new XyoAccount(),
       schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
-      targetSchema: XyoEthereumGasEtherchainV2PayloadSchema,
+      targetSchema: XyoEthereumGasEtherchainV2Schema,
     }),
     new XyoUniswapCryptoMarketWitness({
-      account: new XyoAccount(),
       pools: UniswapPoolContracts,
       provider,
       schema: XyoUniswapCryptoMarketWitnessConfigSchema,
-      targetSchema: XyoUniswapCryptoMarketPayloadSchema,
+      targetSchema: XyoUniswapCryptoMarketSchema,
     }),
   ]
   if (canUseEtherscanProvider()) {
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
       new XyoEtherscanEthereumGasWitness({
-        account: new XyoAccount(),
         apiKey,
         schema: XyoEthereumGasEtherscanWitnessConfigSchema,
-        targetSchema: XyoEthereumGasEtherscanPayloadSchema,
+        targetSchema: XyoEthereumGasEtherscanSchema,
       }),
     )
   }
