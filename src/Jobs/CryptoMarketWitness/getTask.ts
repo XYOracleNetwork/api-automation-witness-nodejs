@@ -1,9 +1,8 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx, exists } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { XyoDivinerDivineQuery, XyoDivinerDivineQuerySchema, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoDivinerWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
-import compact from 'lodash/compact'
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
@@ -26,13 +25,10 @@ export const getTask = (): Task => {
       logger.log('Divining Aggregated Crypto Prices')
       const coinGeckoPayload = payloads?.filter(isCoingeckoPayload)?.pop()
       const uniswapPayload = payloads?.filter(isUniswapPayload)?.pop()
+      const results = [coinGeckoPayload, uniswapPayload].filter(exists)
       const diviner = getCryptoMarketAssetDiviner()
-      const query: XyoDivinerDivineQuery = {
-        payloads: compact([coinGeckoPayload, uniswapPayload]),
-        schema: XyoDivinerDivineQuerySchema,
-      }
-      const answer = await diviner.query(query)
-      const prices = assertEx(answer[1][0], 'Empty XyoCryptoMarketAssetPayload response from diviner')
+      const answer = (await new XyoDivinerWrapper(diviner).divine(results)).pop()
+      const prices = assertEx(answer, 'Empty XyoCryptoMarketAssetPayload response from diviner')
       const panel = getAdHocPanel(prices)
       await panel.report()
       logger.log('Divined Aggregated Crypto Prices')
