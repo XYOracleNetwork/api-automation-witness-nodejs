@@ -4567,7 +4567,6 @@ __metadata:
     jest-extended: ^3.1.0
     jest-mock-extended: ^3.0.1
     jest-sorted: ^1.0.14
-    lodash: ^4.17.21
     nodemon: ^2.0.20
     pako: ^2.0.4
     supertest: ^6.3.0

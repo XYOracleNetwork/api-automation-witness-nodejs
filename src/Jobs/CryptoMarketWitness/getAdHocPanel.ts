@@ -13,18 +13,14 @@ import { getArchive, getArchivists } from '../../Archivists'
 export const getAdHocPanel = (prices: XyoPayload): XyoPanel => {
   // TODO: Where to fit archive
   const archive = getArchive()
-  const archivistModule = getArchivists()
-  const witnessModule = new XyoAdhocWitness(prices)
-  const modules: XyoModule[] = [...archivistModule, witnessModule]
-  const archivists = ['TODO']
-  const witnesses = ['TODO']
-  const resolver: XyoModuleResolverFunc = (address: string) => {
-    return (modules.find((mod) => mod?.address === address) as XyoModule) || null
-  }
+  const archivists = getArchivists()
+  const witnesses = [new XyoAdhocWitness(prices)]
+  const modules: XyoModule[] = [...archivists, ...witnesses]
+  const resolver: XyoModuleResolverFunc = (address: string) => (modules.find((mod) => mod?.address === address) as XyoModule) || null
   const config: XyoPanelConfig = {
-    archivists,
+    archivists: archivists.map((mod) => mod.address),
     schema: XyoPanelConfigSchema,
-    witnesses,
+    witnesses: witnesses.map((mod) => mod.address),
   }
   return new XyoPanel(config, undefined, resolver)
 }
