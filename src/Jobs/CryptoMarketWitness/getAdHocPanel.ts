@@ -8,11 +8,9 @@ import {
   XyoPayload,
 } from '@xyo-network/sdk-xyo-client-js'
 
-import { getArchive, getArchivists } from '../../Archivists'
+import { getArchivists } from '../../Archivists'
 
 export const getAdHocPanel = (prices: XyoPayload): XyoPanel => {
-  // TODO: Where to fit archive
-  const archive = getArchive()
   const archivists = getArchivists()
   const witnesses = [new XyoAdhocWitness(prices)]
   const modules: XyoModule[] = [...archivists, ...witnesses]
