@@ -1,7 +1,7 @@
 import { Provider } from '@ethersproject/providers'
 import { XyoModule, XyoModuleResolverFunc, XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/sdk-xyo-client-js'
 
-import { getArchive, getArchivists } from '../Archivists'
+import { getArchivists } from '../Archivists'
 import { getProvider } from '../Providers'
 import { getCryptoMarketWitness } from '../Witnesses'
 import { PanelProvider } from './PanelProvider'
@@ -13,8 +13,6 @@ import { PanelProvider } from './PanelProvider'
 let panel: XyoPanel | undefined = undefined
 
 export const getCryptoMarketPanel: PanelProvider<Provider> = (provider = getProvider()): XyoPanel => {
-  // TODO: Archive
-  const archive = getArchive()
   const archivists = getArchivists()
   const witnesses = getCryptoMarketWitness(provider)
   const modules: XyoModule[] = [...archivists, ...witnesses]
