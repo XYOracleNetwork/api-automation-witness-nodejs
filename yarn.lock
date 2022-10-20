@@ -3511,13 +3511,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.0.0, @types/jest@npm:^29.0.3":
-  version: 29.0.3
-  resolution: "@types/jest@npm:29.0.3"
+"@types/jest@npm:^29.0.0, @types/jest@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "@types/jest@npm:29.2.0"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: 14a8ec1954540ec59f4072c3c4dbc6b5d5ff616556c98671aca26606bdf9d49616a3f269f3e488c80cd481ee19880351575c1f6895827628818e193600c121e0
+  checksum: 6779e63d8d7507b116a61b2935a200e48531849fc1ac74090212759fe17716777ca6d2c3a8d927a563e9cfa474ae91d40b1688376ae80e3a08974b3c9e9691e1
   languageName: node
   linkType: hard
 
@@ -3562,10 +3562,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.185":
-  version: 4.14.185
-  resolution: "@types/lodash@npm:4.14.185"
-  checksum: f81d13da5ecab110ca9c5c7cc2bedc3c9802a6acf668576aecd1b8f4b134ed81d06c15f1e600fb08f05975098280a0d97d30cddfc2cb39ec1c6b56e971ca53b3
+"@types/lodash@npm:^4.14.186":
+  version: 4.14.186
+  resolution: "@types/lodash@npm:4.14.186"
+  checksum: ee0c1368a8100bb6efb88335107473a41928fc307ff1ef4ff1278868ccddba9c04c68c36d1ffe3a0392ef4a956e1955f7de3203ec09df4f1655dd1b88485c549
   languageName: node
   linkType: hard
 
@@ -3613,10 +3613,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.7.15, @types/node@npm:^18.7.18":
-  version: 18.7.18
-  resolution: "@types/node@npm:18.7.18"
-  checksum: 8aec61f0f96e2a69ce51f1f40f949ca578bbb4fe05d7c0b8ce3aeeb848e90f755837f17f6ac132ca404d974fe9b2974150ad3b4984fc9dc7c3ceddb10bae0167
+"@types/node@npm:*, @types/node@npm:^18.11.3, @types/node@npm:^18.7.15":
+  version: 18.11.3
+  resolution: "@types/node@npm:18.11.3"
+  checksum: 3a2a9142d891a90a195c296149bf64a69cc0abcc42f543be911ab22b2e0ead85ff077f90af92f0f13f6e3e5e72501469200fd753dfd1101825d4646a89d3ee47
   languageName: node
   linkType: hard
 
@@ -4375,9 +4375,9 @@ __metadata:
     "@types/compression": ^1.7.2
     "@types/cors": ^2.8.12
     "@types/express": 4.17.14
-    "@types/jest": ^29.0.3
-    "@types/lodash": ^4.14.185
-    "@types/node": ^18.7.18
+    "@types/jest": ^29.2.0
+    "@types/lodash": ^4.14.186
+    "@types/node": ^18.11.3
     "@types/supertest": ^2.0.12
     "@xylabs/eslint-config": ^2.7.22
     "@xylabs/sdk-api-express-ecs": ^1.2.4
