@@ -1,11 +1,24 @@
-import { XyoAdhocWitness, XyoPanel, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import {
+  XyoAdhocWitness,
+  XyoModule,
+  XyoModuleResolverFunc,
+  XyoPanel,
+  XyoPanelConfig,
+  XyoPanelConfigSchema,
+  XyoPayload,
+} from '@xyo-network/sdk-xyo-client-js'
 
-import { getArchive, getArchivists, getSigningAccount } from '../../Archivists'
+import { getArchivists } from '../../Archivists'
 
 export const getAdHocPanel = (prices: XyoPayload): XyoPanel => {
-  const account = getSigningAccount()
-  const archive = getArchive()
   const archivists = getArchivists()
   const witnesses = [new XyoAdhocWitness(prices)]
-  return new XyoPanel({ account, archive, archivists, witnesses })
+  const modules: XyoModule[] = [...archivists, ...witnesses]
+  const resolver: XyoModuleResolverFunc = (address: string) => (modules.find((mod) => mod?.address === address) as XyoModule) || null
+  const config: XyoPanelConfig = {
+    archivists: archivists.map((mod) => mod.address),
+    schema: XyoPanelConfigSchema,
+    witnesses: witnesses.map((mod) => mod.address),
+  }
+  return new XyoPanel(config, undefined, resolver)
 }

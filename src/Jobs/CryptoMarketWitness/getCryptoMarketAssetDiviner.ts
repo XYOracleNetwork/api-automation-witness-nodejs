@@ -1,8 +1,7 @@
-import { XyoCryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-payload-plugin'
-
-import { getSigningAccount } from '../../Archivists'
+import { XyoCryptoMarketAssetDiviner, XyoCryptoMarketAssetDivinerConfigSchema } from '@xyo-network/crypto-asset-payload-plugin'
 
 export const getCryptoMarketAssetDiviner = (): XyoCryptoMarketAssetDiviner => {
-  const account = getSigningAccount()
-  return new XyoCryptoMarketAssetDiviner(account)
+  return new XyoCryptoMarketAssetDiviner({
+    schema: XyoCryptoMarketAssetDivinerConfigSchema,
+  })
 }

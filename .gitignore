@@ -9,6 +9,7 @@ kube/
 .env.dev
 .env.production
 .env.ecs
+.eslintcache
 androidSubscriptionKey.ts
 serviceAccount.json
 serviceAccount.ts
@@ -22,6 +23,8 @@ tmp/
 build
 .build
 sdk
+
+.tsconfig*
 
 .pnp.*
 .yarn/*

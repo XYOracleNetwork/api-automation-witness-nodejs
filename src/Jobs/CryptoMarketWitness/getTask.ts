@@ -1,12 +1,7 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx, exists } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import {
-  XyoCryptoMarketAssetPayloadSchema,
-  XyoCryptoMarketAssetQueryPayload,
-  XyoCryptoMarketAssetQueryPayloadSchema,
-} from '@xyo-network/crypto-asset-payload-plugin'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoDivinerWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { Task } from '../../Model'
@@ -25,19 +20,15 @@ export const getTask = (): Task => {
   const task: Task = async () => {
     try {
       logger.log('Witnessing Crypto Prices')
-      const result = await getCryptoMarketPanel().report()
+      const [, payloads] = await getCryptoMarketPanel().report()
       logger.log('Witnessed Crypto Prices')
       logger.log('Divining Aggregated Crypto Prices')
-      const coinGeckoPayload = result._payloads?.filter(isCoingeckoPayload)?.pop()
-      const uniswapPayload = result._payloads?.filter(isUniswapPayload)?.pop()
+      const coinGeckoPayload = payloads?.filter(isCoingeckoPayload)?.pop()
+      const uniswapPayload = payloads?.filter(isUniswapPayload)?.pop()
+      const results = [coinGeckoPayload, uniswapPayload].filter(exists)
       const diviner = getCryptoMarketAssetDiviner()
-      const query: XyoCryptoMarketAssetQueryPayload = {
-        payloads: { coinGeckoPayload, uniswapPayload },
-        schema: XyoCryptoMarketAssetQueryPayloadSchema,
-        targetSchema: XyoCryptoMarketAssetPayloadSchema,
-      }
-      const answer = await diviner.divine(query)
-      const prices = assertEx(answer[1][0], 'Empty XyoCryptoMarketAssetPayload response from diviner')
+      const answer = (await new XyoDivinerWrapper(diviner).divine(results)).pop()
+      const prices = assertEx(answer, 'Empty XyoCryptoMarketAssetPayload response from diviner')
       const panel = getAdHocPanel(prices)
       await panel.report()
       logger.log('Divined Aggregated Crypto Prices')
