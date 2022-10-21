@@ -29,7 +29,7 @@ export const getTask = (): Task => {
       const diviner = getCryptoMarketAssetDiviner()
       const answer = (await new XyoDivinerWrapper(diviner).divine(results)).pop()
       const prices = assertEx(answer, 'Empty XyoCryptoMarketAssetPayload response from diviner')
-      const panel = getAdHocPanel(prices)
+      const panel = await getAdHocPanel(prices)
       await panel.report()
       logger.log('Divined Aggregated Crypto Prices')
     } catch (error) {
