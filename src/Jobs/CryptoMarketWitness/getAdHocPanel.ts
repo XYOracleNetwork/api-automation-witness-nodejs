@@ -13,7 +13,7 @@ import { getArchivists } from '../../Archivists'
 
 export const getAdHocPanel = async (prices: XyoPayload): Promise<XyoPanel> => {
   const archivists = await getArchivists()
-  const witnesses = [await XyoAdhocWitness.create({ config: { payload: prices, schema: XyoAdhocWitnessConfigSchema, targetSchema: '' } })]
+  const witnesses = [await XyoAdhocWitness.create({ config: { payload: prices, schema: XyoAdhocWitnessConfigSchema, targetSchema: prices.schema } })]
   const modules: XyoModule[] = [...archivists, ...witnesses]
   const resolver = new XyoModuleResolver()
   modules.map((mod) => resolver.add(mod))
