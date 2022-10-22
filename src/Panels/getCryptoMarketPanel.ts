@@ -14,7 +14,7 @@ let panel: XyoPanel | undefined = undefined
 
 export const getCryptoMarketPanel: PanelProvider<Provider> = async (provider = getProvider()): Promise<XyoPanel> => {
   const archivists = await getArchivists()
-  const witnesses = getCryptoMarketWitness(provider)
+  const witnesses = await getCryptoMarketWitness(provider)
   const modules: XyoModule[] = [...archivists, ...witnesses]
   const resolver: XyoModuleResolver = new XyoModuleResolver()
   modules.map((mod) => resolver.add(mod))

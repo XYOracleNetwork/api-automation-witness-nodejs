@@ -32,36 +32,46 @@ import {
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
-export const getCryptoMarketWitness: WitnessProvider<Provider> = (provider = getProvider()): XyoWitness[] => {
+export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
   const witnesses: XyoWitness[] = [
-    new XyoCoingeckoCryptoMarketWitness({
-      coins: defaultCoins,
-      currencies: defaultCurrencies,
-      schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
-      targetSchema: XyoCoingeckoCryptoMarketSchema,
+    await XyoCoingeckoCryptoMarketWitness.create({
+      config: {
+        coins: defaultCoins,
+        currencies: defaultCurrencies,
+        schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
+        targetSchema: XyoCoingeckoCryptoMarketSchema,
+      },
     }),
-    new XyoEtherchainEthereumGasWitnessV1({
-      schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
-      targetSchema: XyoEthereumGasEtherchainV1Schema,
+    await XyoEtherchainEthereumGasWitnessV1.create({
+      config: {
+        schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
+        targetSchema: XyoEthereumGasEtherchainV1Schema,
+      },
     }),
-    new XyoEtherchainEthereumGasWitnessV2({
-      schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
-      targetSchema: XyoEthereumGasEtherchainV2Schema,
+    await XyoEtherchainEthereumGasWitnessV2.create({
+      config: {
+        schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
+        targetSchema: XyoEthereumGasEtherchainV2Schema,
+      },
     }),
-    new XyoUniswapCryptoMarketWitness({
-      pools: UniswapPoolContracts,
+    await XyoUniswapCryptoMarketWitness.create({
+      config: {
+        pools: UniswapPoolContracts,
+        schema: XyoUniswapCryptoMarketWitnessConfigSchema,
+        targetSchema: XyoUniswapCryptoMarketSchema,
+      },
       provider,
-      schema: XyoUniswapCryptoMarketWitnessConfigSchema,
-      targetSchema: XyoUniswapCryptoMarketSchema,
     }),
   ]
   if (canUseEtherscanProvider()) {
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
-      new XyoEtherscanEthereumGasWitness({
-        apiKey,
-        schema: XyoEthereumGasEtherscanWitnessConfigSchema,
-        targetSchema: XyoEthereumGasEtherscanSchema,
+      await XyoEtherscanEthereumGasWitness.create({
+        config: {
+          apiKey,
+          schema: XyoEthereumGasEtherscanWitnessConfigSchema,
+          targetSchema: XyoEthereumGasEtherscanSchema,
+        },
       }),
     )
   }
