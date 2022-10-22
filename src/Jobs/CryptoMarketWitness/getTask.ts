@@ -20,13 +20,14 @@ export const getTask = (): Task => {
   const task: Task = async () => {
     try {
       logger.log('Witnessing Crypto Prices')
-      const [, payloads] = await getCryptoMarketPanel().report()
+      const cryptoMarketPanel = await getCryptoMarketPanel()
+      const [, payloads] = await cryptoMarketPanel.report()
       logger.log('Witnessed Crypto Prices')
       logger.log('Divining Aggregated Crypto Prices')
       const coinGeckoPayload = payloads?.filter(isCoingeckoPayload)?.pop()
       const uniswapPayload = payloads?.filter(isUniswapPayload)?.pop()
       const results = [coinGeckoPayload, uniswapPayload].filter(exists)
-      const diviner = getCryptoMarketAssetDiviner()
+      const diviner = await getCryptoMarketAssetDiviner()
       const answer = (await new XyoDivinerWrapper(diviner).divine(results)).pop()
       const prices = assertEx(answer, 'Empty XyoCryptoMarketAssetPayload response from diviner')
       const panel = await getAdHocPanel(prices)
