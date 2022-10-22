@@ -1,7 +1,9 @@
 import { XyoCryptoMarketAssetDiviner, XyoCryptoMarketAssetDivinerConfigSchema } from '@xyo-network/crypto-asset-payload-plugin'
 
-export const getCryptoMarketAssetDiviner = (): XyoCryptoMarketAssetDiviner => {
-  return new XyoCryptoMarketAssetDiviner({
-    schema: XyoCryptoMarketAssetDivinerConfigSchema,
+export const getCryptoMarketAssetDiviner = async (): Promise<XyoCryptoMarketAssetDiviner> => {
+  return await XyoCryptoMarketAssetDiviner.create({
+    config: {
+      schema: XyoCryptoMarketAssetDivinerConfigSchema,
+    },
   })
 }

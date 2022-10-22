@@ -1,7 +1,8 @@
 import {
   XyoAdhocWitness,
+  XyoAdhocWitnessConfigSchema,
   XyoModule,
-  XyoModuleResolverFunc,
+  XyoModuleResolver,
   XyoPanel,
   XyoPanelConfig,
   XyoPanelConfigSchema,
@@ -10,15 +11,16 @@ import {
 
 import { getArchivists } from '../../Archivists'
 
-export const getAdHocPanel = (prices: XyoPayload): XyoPanel => {
-  const archivists = getArchivists()
-  const witnesses = [new XyoAdhocWitness(prices)]
+export const getAdHocPanel = async (prices: XyoPayload): Promise<XyoPanel> => {
+  const archivists = await getArchivists()
+  const witnesses = [await XyoAdhocWitness.create({ config: { payload: prices, schema: XyoAdhocWitnessConfigSchema, targetSchema: prices.schema } })]
   const modules: XyoModule[] = [...archivists, ...witnesses]
-  const resolver: XyoModuleResolverFunc = (address: string) => (modules.find((mod) => mod?.address === address) as XyoModule) || null
+  const resolver = new XyoModuleResolver()
+  modules.map((mod) => resolver.add(mod))
   const config: XyoPanelConfig = {
     archivists: archivists.map((mod) => mod.address),
     schema: XyoPanelConfigSchema,
     witnesses: witnesses.map((mod) => mod.address),
   }
-  return new XyoPanel(config, undefined, resolver)
+  return await XyoPanel.create({ config, resolver })
 }
