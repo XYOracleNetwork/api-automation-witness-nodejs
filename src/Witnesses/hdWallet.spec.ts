@@ -32,19 +32,30 @@ describe('HD Wallet', () => {
     })
   })
   describe('child', () => {
-    it.each(['m/0/4', "m/44'/0'/0'", "m/49'/0'/0'", "m/84'/0'/0'"])('public address is equal to XyoAccount for path %s', (path: string) => {
+    it.each(['m/0/4', "m/44'/0'/0'", "m/49'/0'/0'", "m/84'/0'/0'", "m/84'/0'/0'/0"])(
+      'public address is equal to XyoAccount for path %s',
+      (path: string) => {
+        const parent = HDNode.fromMnemonic(mnemonic)
+        const child = parent.derivePath(path)
+        expect(child).toBeObject()
+        expect(child.privateKey).toBeString()
+
+        const privateKey = child.privateKey.toLowerCase().replace('0x', '')
+        const account = new XyoAccount({ privateKey })
+
+        // Compare public addresses from both for equivalence
+        const hdWalletAddress = child.address.toLowerCase().replace('0x', '')
+        const xyoWalletAddress = account.addressValue.hex.toLowerCase().replace('0x', '')
+        expect(hdWalletAddress).toEqual(xyoWalletAddress)
+      },
+    )
+  })
+  describe('relationship', () => {
+    it.skip('can determine parent', () => {
       const parent = HDNode.fromMnemonic(mnemonic)
-      const child = parent.derivePath(path)
+      const child = parent.derivePath('m/0/0')
       expect(child).toBeObject()
-      expect(child.privateKey).toBeString()
-
-      const privateKey = child.privateKey.toLowerCase().replace('0x', '')
-      const account = new XyoAccount({ privateKey })
-
-      // Compare public addresses from both for equivalence
-      const hdWalletAddress = child.address.toLowerCase().replace('0x', '')
-      const xyoWalletAddress = account.addressValue.hex.toLowerCase().replace('0x', '')
-      expect(hdWalletAddress).toEqual(xyoWalletAddress)
+      // TODO: Check that child is child of parent
     })
   })
 })
