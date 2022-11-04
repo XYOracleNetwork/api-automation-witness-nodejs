@@ -4387,11 +4387,13 @@ __metadata:
     "@xylabs/sdk-js": ^2.6.9
     "@xylabs/ts-scripts-yarn3": ^2.7.24
     "@xylabs/tsconfig": ^2.7.24
+    "@xyo-network/account": ^2.39.6
     "@xyo-network/api": ^2.39.6
     "@xyo-network/api-models": ^2.39.6
     "@xyo-network/archivist": ^2.39.6
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.39.6
     "@xyo-network/crypto-asset-payload-plugin": ^2.39.6
+    "@xyo-network/diviner": ^2.39.6
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": ^2.39.6
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.39.6
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.39.6
@@ -4401,6 +4403,7 @@ __metadata:
     "@xyo-network/typechain": ^2.0.4
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.39.6
     "@xyo-network/uniswap-typechain": ^2.0.4
+    "@xyo-network/witness": ^2.39.6
     "@xyo-network/witnesses": ^2.39.6
     agenda: ^4.4.0
     axios: ^0.27.2
