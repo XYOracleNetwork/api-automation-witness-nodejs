@@ -4396,9 +4396,12 @@ __metadata:
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.39.6
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.39.6
     "@xyo-network/module": ^2.39.6
+    "@xyo-network/panel": ^2.39.6
+    "@xyo-network/payload": ^2.39.6
     "@xyo-network/typechain": ^2.0.4
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.39.6
     "@xyo-network/uniswap-typechain": ^2.0.4
+    "@xyo-network/witnesses": ^2.39.6
     agenda: ^4.4.0
     axios: ^0.27.2
     babel-jest: ^29.2.2
@@ -4574,6 +4577,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/panel@npm:^2.39.6":
+  version: 2.39.6
+  resolution: "@xyo-network/panel@npm:2.39.6"
+  dependencies:
+    "@xylabs/assert": ^2.6.9
+    "@xyo-network/archivist": ^2.39.6
+    "@xyo-network/boundwitness": ^2.39.6
+    "@xyo-network/core": ^2.39.6
+    "@xyo-network/module": ^2.39.6
+    "@xyo-network/payload": ^2.39.6
+    "@xyo-network/witness": ^2.39.6
+    lodash: ^4.17.21
+    tslib: ^2.4.1
+  checksum: b1f3aae53f76498f16e12dd19c1d93344252ea72dca869bb9a6fd726d668061d041140ab8ab40e8a4d50878547b0ccc4e11c078a9322988cb248803c014f713b
+  languageName: node
+  linkType: hard
+
 "@xyo-network/payload-plugin@npm:^2.39.6":
   version: 2.39.6
   resolution: "@xyo-network/payload-plugin@npm:2.39.6"
@@ -4726,6 +4746,21 @@ __metadata:
     "@xyo-network/promise": ^2.39.6
     tslib: ^2.4.1
   checksum: 946aa86f8777f0f882dfcee8809959d949b5fc2bb3ab3896a5833c81ed2daea18604565509aa8d32ebca06b9e59131319471abf5332dd41dc07ea473fb9497e1
+  languageName: node
+  linkType: hard
+
+"@xyo-network/witnesses@npm:^2.39.6":
+  version: 2.39.6
+  resolution: "@xyo-network/witnesses@npm:2.39.6"
+  dependencies:
+    "@xylabs/delay": ^2.6.9
+    "@xyo-network/core": ^2.39.6
+    "@xyo-network/module": ^2.39.6
+    "@xyo-network/payload": ^2.39.6
+    "@xyo-network/witness": ^2.39.6
+    lodash: ^4.17.21
+    tslib: ^2.4.1
+  checksum: 8d49cc609ba4ed1290394cba69794506b7180d3e954bda482e041c11734400b96ebbccff76f3e4d947d791cecc473bcf4301a7ca75ff78b4bfae091bf3cf3fbf
   languageName: node
   linkType: hard
 

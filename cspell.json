@@ -6,11 +6,14 @@
   "import": [],
   "version": "0.2",
   "words": [
+    "Arie",
     "BUILDKIT",
     "buildx",
     "cryptomarket",
     "Etherchain",
     "ethersproject",
+    "pako",
+    "Trouw",
     "typechain",
     "xylabs",
     "yarnpkg"
