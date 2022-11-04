@@ -29,12 +29,15 @@ import {
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { XyoWitness } from '@xyo-network/witness'
 
+import { getSigningAccount } from '../Archivists'
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
 export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
+  const account = getSigningAccount()
   const witnesses: XyoWitness[] = [
     await XyoCoingeckoCryptoMarketWitness.create({
+      account,
       config: {
         coins: defaultCoins,
         currencies: defaultCurrencies,
@@ -43,18 +46,21 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
       },
     }),
     await XyoEtherchainEthereumGasWitnessV1.create({
+      account,
       config: {
         schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
         targetSchema: XyoEthereumGasEtherchainV1Schema,
       },
     }),
     await XyoEtherchainEthereumGasWitnessV2.create({
+      account,
       config: {
         schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
         targetSchema: XyoEthereumGasEtherchainV2Schema,
       },
     }),
     await XyoUniswapCryptoMarketWitness.create({
+      account,
       config: {
         pools: UniswapPoolContracts,
         schema: XyoUniswapCryptoMarketWitnessConfigSchema,
@@ -67,6 +73,7 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
       await XyoEtherscanEthereumGasWitness.create({
+        account,
         config: {
           apiKey,
           schema: XyoEthereumGasEtherscanWitnessConfigSchema,
