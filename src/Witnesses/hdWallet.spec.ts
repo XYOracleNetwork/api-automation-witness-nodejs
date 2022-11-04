@@ -11,8 +11,8 @@ const mnemonic =
   'music snack noble scheme invest off disease pulp mountain sting present uncover steak visual bachelor wait please wreck dwarf lecture car excuse seminar educate'
 
 describe('HD Wallet', () => {
-  describe('XyoAccount', () => {
-    it('public addresses are equal', () => {
+  describe('parent', () => {
+    it('public addresses are equal to XyoAccount', () => {
       // Create HD Wallet from mnemonic
       const hdNode = HDNode.fromMnemonic(mnemonic)
       expect(hdNode).toBeObject()
@@ -27,6 +27,22 @@ describe('HD Wallet', () => {
 
       // Compare public addresses from both for equivalence
       const hdWalletAddress = hdNode.address.toLowerCase().replace('0x', '')
+      const xyoWalletAddress = account.addressValue.hex.toLowerCase().replace('0x', '')
+      expect(hdWalletAddress).toEqual(xyoWalletAddress)
+    })
+  })
+  describe('child', () => {
+    it('public addresses are equal XyoAccount', () => {
+      const parent = HDNode.fromMnemonic(mnemonic)
+      const child = parent.derivePath('m/0/4')
+      expect(child).toBeObject()
+      expect(child.privateKey).toBeString()
+
+      const privateKey = child.privateKey.toLowerCase().replace('0x', '')
+      const account = new XyoAccount({ privateKey })
+
+      // Compare public addresses from both for equivalence
+      const hdWalletAddress = child.address.toLowerCase().replace('0x', '')
       const xyoWalletAddress = account.addressValue.hex.toLowerCase().replace('0x', '')
       expect(hdWalletAddress).toEqual(xyoWalletAddress)
     })
