@@ -32,7 +32,7 @@ describe('HD Wallet', () => {
     })
   })
   describe('child', () => {
-    it.each(['m/0/4', "m/44'/0'/0'", "m/49'/0'/0'", "m/84'/0'/0'", "m/84'/0'/0'/0"])(
+    it.each(['m/0/4', "m/44'/0'/0'", "m/44'/60'/0'/0/0", "m/44'/60'/0'/0/1", "m/49'/0'/0'", "m/84'/0'/0'", "m/84'/0'/0'/0"])(
       'public address is equal to XyoAccount for path %s',
       (path: string) => {
         const parent = HDNode.fromMnemonic(mnemonic)
