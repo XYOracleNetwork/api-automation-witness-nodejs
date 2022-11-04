@@ -1,5 +1,6 @@
 import { Provider } from '@ethersproject/providers'
-import { XyoModule, XyoModuleResolver, XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/sdk-xyo-client-js'
+import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
+import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 
 import { getArchivists } from '../Archivists'
 import { getProvider } from '../Providers'
