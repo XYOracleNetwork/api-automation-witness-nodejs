@@ -32,9 +32,9 @@ describe('HD Wallet', () => {
     })
   })
   describe('child', () => {
-    it('public address is equal to XyoAccount', () => {
+    it.each(['m/0/4', "m/44'/0'/0'", "m/49'/0'/0'", "m/84'/0'/0'"])('public address is equal to XyoAccount for path %s', (path: string) => {
       const parent = HDNode.fromMnemonic(mnemonic)
-      const child = parent.derivePath('m/0/4')
+      const child = parent.derivePath(path)
       expect(child).toBeObject()
       expect(child.privateKey).toBeString()
 
