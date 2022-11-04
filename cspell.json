@@ -12,6 +12,7 @@
     "cryptomarket",
     "Etherchain",
     "ethersproject",
+    "hdnode",
     "pako",
     "Trouw",
     "typechain",
