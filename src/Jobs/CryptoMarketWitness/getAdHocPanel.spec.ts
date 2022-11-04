@@ -1,4 +1,4 @@
-import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayloadBuilder } from '@xyo-network/payload'
 
 import { getAdHocPanel } from './getAdHocPanel'
 
