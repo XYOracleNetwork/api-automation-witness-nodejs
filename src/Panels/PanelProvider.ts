@@ -1,3 +1,3 @@
-import { XyoPanel } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPanel } from '@xyo-network/panel'
 
 export type PanelProvider<T> = (opts?: T) => Promise<XyoPanel>
