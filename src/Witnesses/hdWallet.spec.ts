@@ -13,14 +13,19 @@ const mnemonic =
 describe('HD Wallet', () => {
   describe('XyoAccount', () => {
     it('public addresses are equal', () => {
-      const seed = mnemonicToSeed(mnemonic)
-      const seedArray: Uint8Array = arrayify(seed)
-      const I: Uint8Array = arrayify(computeHmac(SupportedAlgorithm.sha512, MasterSecret, seedArray))
-      const privateKey = I.slice(0, 32)
-      const account = new XyoAccount({ privateKey })
-      expect(account).toBeObject()
+      // Create HD Wallet from mnemonic
       const hdNode = HDNode.fromMnemonic(mnemonic)
       expect(hdNode).toBeObject()
+
+      // Create XyoAccount from mnemonic private key
+      const seed = mnemonicToSeed(mnemonic)
+      const seedArray: Uint8Array = arrayify(seed)
+      const hmac: Uint8Array = arrayify(computeHmac(SupportedAlgorithm.sha512, MasterSecret, seedArray))
+      const privateKey = hmac.slice(0, 32)
+      const account = new XyoAccount({ privateKey })
+      expect(account).toBeObject()
+
+      // Compare public addresses from both for equivalence
       const hdWalletAddress = hdNode.address.toLowerCase().replace('0x', '')
       const xyoWalletAddress = account.addressValue.hex.toLowerCase().replace('0x', '')
       expect(hdWalletAddress).toEqual(xyoWalletAddress)
