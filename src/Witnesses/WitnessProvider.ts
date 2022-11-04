@@ -1,3 +1,3 @@
-import { XyoWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWitness } from '@xyo-network/witness'
 
 export type WitnessProvider<T> = (opts?: T) => Promise<XyoWitness[]>
