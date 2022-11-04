@@ -10,9 +10,9 @@ const MasterSecret = toUtf8Bytes('Bitcoin seed')
 const mnemonic =
   'music snack noble scheme invest off disease pulp mountain sting present uncover steak visual bachelor wait please wreck dwarf lecture car excuse seminar educate'
 
-describe('getCryptoMarketWitness', () => {
+describe('XyoAccount', () => {
   describe('HD Wallet', () => {
-    it('can derive HD Wallet', () => {
+    it('public addresses are equal', () => {
       const seed = mnemonicToSeed(mnemonic)
       const seedArray: Uint8Array = arrayify(seed)
       const I: Uint8Array = arrayify(computeHmac(SupportedAlgorithm.sha512, MasterSecret, seedArray))
