@@ -1,11 +1,7 @@
-import {
-  PayloadArchivist,
-  XyoApiConfig,
-  XyoArchivistApi,
-  XyoModule,
-  XyoRemoteArchivist,
-  XyoRemoteArchivistConfigSchema,
-} from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistApi, XyoRemoteArchivist, XyoRemoteArchivistConfigSchema } from '@xyo-network/api'
+import { XyoApiConfig } from '@xyo-network/api-models'
+import { PayloadArchivist } from '@xyo-network/archivist'
+import { XyoModule } from '@xyo-network/module'
 
 import { getApiConfig } from './getApiConfig'
 import { getArchive } from './getArchive'
