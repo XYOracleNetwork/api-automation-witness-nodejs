@@ -1,7 +1,8 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 import { assertEx, exists } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { XyoDivinerWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 import { Task } from '../../Model'
