@@ -1,4 +1,4 @@
-import { XyoApiConfig } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiConfig } from '@xyo-network/api-models'
 
 export const getApiConfig = (): XyoApiConfig => {
   return {
