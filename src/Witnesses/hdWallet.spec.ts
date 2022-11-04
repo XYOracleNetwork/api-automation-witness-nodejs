@@ -12,7 +12,7 @@ const mnemonic =
 
 describe('HD Wallet', () => {
   describe('parent', () => {
-    it('public addresses are equal to XyoAccount', () => {
+    it('public address is equal to XyoAccount', () => {
       // Create HD Wallet from mnemonic
       const hdNode = HDNode.fromMnemonic(mnemonic)
       expect(hdNode).toBeObject()
@@ -32,7 +32,7 @@ describe('HD Wallet', () => {
     })
   })
   describe('child', () => {
-    it('public addresses are equal XyoAccount', () => {
+    it('public address is equal to XyoAccount', () => {
       const parent = HDNode.fromMnemonic(mnemonic)
       const child = parent.derivePath('m/0/4')
       expect(child).toBeObject()
