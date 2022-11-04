@@ -21,13 +21,13 @@ import {
   XyoEthereumGasEtherscanWitnessConfigSchema,
   XyoEtherscanEthereumGasWitness,
 } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
-import { XyoWitness } from '@xyo-network/sdk-xyo-client-js'
 import {
   UniswapPoolContracts,
   XyoUniswapCryptoMarketSchema,
   XyoUniswapCryptoMarketWitness,
   XyoUniswapCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import { XyoWitness } from '@xyo-network/witness'
 
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'

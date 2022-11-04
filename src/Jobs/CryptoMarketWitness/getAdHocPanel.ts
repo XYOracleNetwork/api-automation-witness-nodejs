@@ -1,13 +1,7 @@
-import {
-  XyoAdhocWitness,
-  XyoAdhocWitnessConfigSchema,
-  XyoModule,
-  XyoModuleResolver,
-  XyoPanel,
-  XyoPanelConfig,
-  XyoPanelConfigSchema,
-  XyoPayload,
-} from '@xyo-network/sdk-xyo-client-js'
+import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
+import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
+import { XyoPayload } from '@xyo-network/payload'
+import { XyoAdhocWitness, XyoAdhocWitnessConfigSchema } from '@xyo-network/witnesses'
 
 import { getArchivists } from '../../Archivists'
 
