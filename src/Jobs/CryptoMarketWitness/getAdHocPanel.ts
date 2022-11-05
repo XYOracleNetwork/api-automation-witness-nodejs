@@ -6,7 +6,7 @@ import { XyoAdhocWitness, XyoAdhocWitnessConfig, XyoAdhocWitnessConfigSchema } f
 import { getAccount, WalletPaths } from '../../Account'
 import { getArchivists } from '../../Archivists'
 
-export const getAdHocPanel = async (prices: XyoPayload): Promise<XyoPanel> => {
+export const getAggregatePricePanel = async (prices: XyoPayload): Promise<XyoPanel> => {
   const account = getAccount(WalletPaths.AggregatePricePanel)
   const archivists = await getArchivists()
   const witnessConfig: XyoAdhocWitnessConfig = { payload: prices, schema: XyoAdhocWitnessConfigSchema, targetSchema: prices.schema }
