@@ -4,6 +4,8 @@ import { computeHmac, SupportedAlgorithm } from '@ethersproject/sha2'
 import { toUtf8Bytes } from '@ethersproject/strings'
 import { XyoAccount } from '@xyo-network/account'
 
+import { fromMnemonic } from './HdWallet'
+
 // "Bitcoin seed"
 const MasterSecret = toUtf8Bytes('Bitcoin seed')
 
@@ -14,7 +16,6 @@ const mnemonics = [
   'satoshi cake access cannon feed source art oblige turtle perfect turtle dolphin',
   'food cream bacon divorce bring gravity employ taste hub fish tennis put',
 ]
-
 const mnemonic = mnemonics[0]
 
 const paths = ['m/0/4', "m/44'/0'/0'", "m/44'/60'/0'/0/0", "m/44'/60'/0'/0/1", "m/49'/0'/0'", "m/84'/0'/0'", "m/84'/0'/0'/0"]
@@ -64,6 +65,18 @@ describe('HD Wallet', () => {
         expect(child).toBeObject()
         // TODO: Check that child is child of parent
       })
+    })
+  })
+  describe('fromMnemonic', () => {
+    it.each(mnemonics)('generates account from mnemonic', (mnemonic: string) => {
+      const account = fromMnemonic(mnemonic)
+      expect(account).toBeObject()
+      expect(account.addressValue.hex).toBeString()
+    })
+    it.each(paths)('generates account from mnemonic & phrase', (phrase: string) => {
+      const account = fromMnemonic(mnemonic, phrase)
+      expect(account).toBeObject()
+      expect(account.addressValue.hex).toBeString()
     })
   })
 })
