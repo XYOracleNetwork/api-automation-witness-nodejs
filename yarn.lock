@@ -4388,8 +4388,8 @@ __metadata:
     "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/assert": ^2.6.9
     "@xylabs/eslint-config": ^2.7.24
+    "@xylabs/exists": ^2.6.9
     "@xylabs/sdk-api-express-ecs": ^1.2.5
-    "@xylabs/sdk-js": ^2.6.9
     "@xylabs/ts-scripts-yarn3": ^2.7.24
     "@xylabs/tsconfig": ^2.7.24
     "@xyo-network/account": ^2.39.6

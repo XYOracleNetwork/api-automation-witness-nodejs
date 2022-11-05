@@ -1,5 +1,5 @@
 import { InfuraProvider, Provider } from '@ethersproject/providers'
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
 
 import { InfuraProviderConfig } from '../Model'
 
