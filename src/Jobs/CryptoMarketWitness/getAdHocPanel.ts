@@ -3,11 +3,11 @@ import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/pan
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoAdhocWitness, XyoAdhocWitnessConfig, XyoAdhocWitnessConfigSchema } from '@xyo-network/witnesses'
 
-import { getSigningAccount } from '../../Account'
+import { getAccount, WalletPaths } from '../../Account'
 import { getArchivists } from '../../Archivists'
 
 export const getAdHocPanel = async (prices: XyoPayload): Promise<XyoPanel> => {
-  const account = getSigningAccount()
+  const account = getAccount(WalletPaths.AggregatePricePanel)
   const archivists = await getArchivists()
   const witnessConfig: XyoAdhocWitnessConfig = { payload: prices, schema: XyoAdhocWitnessConfigSchema, targetSchema: prices.schema }
   const witnesses = [await XyoAdhocWitness.create({ account, config: witnessConfig })]
