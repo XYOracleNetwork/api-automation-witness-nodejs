@@ -29,7 +29,7 @@ import {
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { XyoWitness } from '@xyo-network/witness'
 
-import { getSigningAccount } from '../Archivists'
+import { getSigningAccount } from '../Account'
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
