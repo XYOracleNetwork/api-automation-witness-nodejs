@@ -4386,6 +4386,7 @@ __metadata:
     "@uniswap/sdk": ^3.0.3
     "@uniswap/sdk-core": ^3.1.0
     "@uniswap/v3-sdk": ^3.9.0
+    "@xylabs/assert": ^2.6.9
     "@xylabs/eslint-config": ^2.7.24
     "@xylabs/sdk-api-express-ecs": ^1.2.5
     "@xylabs/sdk-js": ^2.6.9
