@@ -1,5 +1,5 @@
 import { EtherscanProvider, Provider } from '@ethersproject/providers'
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
 
 let instance: EtherscanProvider | undefined = undefined
 
