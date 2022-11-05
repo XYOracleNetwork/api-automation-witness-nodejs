@@ -6,9 +6,7 @@
       "request": "launch",
       "name": "Debug",
       "program": "${workspaceFolder}/src/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/dist/**/*.js"
-      ],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "runtimeArgs": [
         "--max-old-space-size=8192",
         "--experimental-specifier-resolution=node",
@@ -20,16 +18,14 @@
         "${workspaceFolder}/src/**",
         "!**/node_modules/**"
       ],
-      "pauseForSourceMap": true,
+      "pauseForSourceMap": true
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Build & Debug",
       "program": "${workspaceFolder}/src/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/dist/**/*.js"
-      ],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "runtimeArgs": [
         "--max-old-space-size=8192",
         "--experimental-specifier-resolution=node",
@@ -48,23 +44,28 @@
       "name": "Debug Jest Tests",
       "type": "node",
       "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "--max-old-space-size=8192",
+      ],
       "osx": {
-        "runtimeArgs": [
-          "--inspect-brk",
-          "${workspaceRoot}/node_modules/.bin/jest",
-          "--runInBand"
-        ]
+        "program": "${workspaceRoot}/node_modules/.bin/jest"
       },
       "windows": {
-        "runtimeArgs": [
-          "--inspect-brk",
-          "${workspaceRoot}/node_modules/jest/bin/jest.js",
-          "--runInBand"
-        ]
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest.js"
       },
+      "args": [
+        "--forceExit",
+        "--runInBand",
+        "src/Wallet/HdWallet.spec.ts"
+      ],
+      "pauseForSourceMap": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "test"
+      },
       "envFile": "${workspaceFolder}/.env"
     }
   ]

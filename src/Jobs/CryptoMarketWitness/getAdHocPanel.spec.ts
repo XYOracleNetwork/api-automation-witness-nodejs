@@ -1,10 +1,10 @@
 import { XyoPayloadBuilder } from '@xyo-network/payload'
 
-import { getAdHocPanel } from './getAdHocPanel'
+import { getAggregatePricePanel } from './getAdHocPanel'
 
-describe('getAdHocPanel', () => {
-  it('gets an AdHocPanel', async () => {
+describe('getAggregatePricePanel', () => {
+  it('gets an getAggregatePricePanel', async () => {
     const payload = new XyoPayloadBuilder({ schema: 'network.xyo.test' }).build()
-    expect(await getAdHocPanel(payload)).toBeObject()
+    expect(await getAggregatePricePanel(payload)).toBeObject()
   })
 })
