@@ -1,11 +1,10 @@
 import { XyoCryptoMarketAssetDiviner, XyoCryptoMarketAssetDivinerConfigSchema } from '@xyo-network/crypto-asset-payload-plugin'
 
-import { getSigningAccount } from '../../Account'
+import { getAccount } from '../../Account'
 
 export const getCryptoMarketAssetDiviner = async (): Promise<XyoCryptoMarketAssetDiviner> => {
-  const account = getSigningAccount()
   return await XyoCryptoMarketAssetDiviner.create({
-    account,
+    account: getAccount(),
     config: {
       schema: XyoCryptoMarketAssetDivinerConfigSchema,
     },
