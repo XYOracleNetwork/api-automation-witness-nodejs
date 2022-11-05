@@ -1,4 +1,5 @@
 export const WalletPaths = {
+  CryptoMarketPanel: "m/44'/60'/7'/0/0",
   XyoCoingeckoCryptoMarketWitness: "m/44'/60'/1'/0/0",
   XyoCryptoMarketAssetDiviner: "m/44'/60'/2'/0/0",
   XyoEtherchainEthereumGasWitnessV1: "m/44'/60'/3'/0/0",
