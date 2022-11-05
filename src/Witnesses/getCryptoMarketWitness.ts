@@ -29,9 +29,8 @@ import {
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { XyoWitness } from '@xyo-network/witness'
 
-import { getAccount } from '../Account'
+import { getAccount, WalletPaths } from '../Account'
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
-import { WalletPaths } from './WalletPaths'
 import { WitnessProvider } from './WitnessProvider'
 
 export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
