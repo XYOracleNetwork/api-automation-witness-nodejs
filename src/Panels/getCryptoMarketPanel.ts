@@ -2,7 +2,7 @@ import { Provider } from '@ethersproject/providers'
 import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 
-import { getSigningAccount } from '../Account'
+import { getAccount, WalletPaths } from '../Account'
 import { getArchivists } from '../Archivists'
 import { getProvider } from '../Providers'
 import { getCryptoMarketWitness } from '../Witnesses'
@@ -15,7 +15,7 @@ import { PanelProvider } from './PanelProvider'
 let panel: XyoPanel | undefined = undefined
 
 export const getCryptoMarketPanel: PanelProvider<Provider> = async (provider = getProvider()): Promise<XyoPanel> => {
-  const account = getSigningAccount()
+  const account = getAccount(WalletPaths.CryptoMarketPanel)
   const archivists = await getArchivists()
   const witnesses = await getCryptoMarketWitness(provider)
   const modules: XyoModule[] = [...archivists, ...witnesses]
