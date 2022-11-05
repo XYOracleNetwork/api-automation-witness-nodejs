@@ -3,7 +3,8 @@ import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/pan
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoAdhocWitness, XyoAdhocWitnessConfig, XyoAdhocWitnessConfigSchema } from '@xyo-network/witnesses'
 
-import { getArchivists, getSigningAccount } from '../../Archivists'
+import { getSigningAccount } from '../../Account'
+import { getArchivists } from '../../Archivists'
 
 export const getAdHocPanel = async (prices: XyoPayload): Promise<XyoPanel> => {
   const account = getSigningAccount()
