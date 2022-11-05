@@ -29,15 +29,15 @@ import {
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { XyoWitness } from '@xyo-network/witness'
 
-import { getSigningAccount } from '../Account'
+import { getAccount } from '../Account'
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
+import { WalletPaths } from './WalletPaths'
 import { WitnessProvider } from './WitnessProvider'
 
 export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
-  const account = getSigningAccount()
   const witnesses: XyoWitness[] = [
     await XyoCoingeckoCryptoMarketWitness.create({
-      account,
+      account: getAccount(WalletPaths.XyoCoingeckoCryptoMarketWitness),
       config: {
         coins: defaultCoins,
         currencies: defaultCurrencies,
@@ -46,21 +46,21 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
       },
     }),
     await XyoEtherchainEthereumGasWitnessV1.create({
-      account,
+      account: getAccount(WalletPaths.XyoEtherchainEthereumGasWitnessV1),
       config: {
         schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
         targetSchema: XyoEthereumGasEtherchainV1Schema,
       },
     }),
     await XyoEtherchainEthereumGasWitnessV2.create({
-      account,
+      account: getAccount(WalletPaths.XyoEtherchainEthereumGasWitnessV2),
       config: {
         schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
         targetSchema: XyoEthereumGasEtherchainV2Schema,
       },
     }),
     await XyoUniswapCryptoMarketWitness.create({
-      account,
+      account: getAccount(WalletPaths.XyoUniswapCryptoMarketWitness),
       config: {
         pools: UniswapPoolContracts,
         schema: XyoUniswapCryptoMarketWitnessConfigSchema,
@@ -73,7 +73,7 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
       await XyoEtherscanEthereumGasWitness.create({
-        account,
+        account: getAccount(WalletPaths.XyoEtherscanEthereumGasWitness),
         config: {
           apiKey,
           schema: XyoEthereumGasEtherscanWitnessConfigSchema,
