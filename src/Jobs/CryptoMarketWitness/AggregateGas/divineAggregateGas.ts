@@ -12,7 +12,7 @@ const isEthereumGasEtherchainV1Payload = (p: XyoPayload): p is XyoEthereumGasEth
 const isEthereumGasEtherchainV2Payload = (p: XyoPayload): p is XyoEthereumGasEtherchainV2Payload => p.schema === XyoEthereumGasEtherchainV2Schema
 const isEthereumGasEtherscanPayload = (p: XyoPayload): p is XyoEthereumGasEtherscanPayload => p.schema === XyoEthereumGasEtherscanSchema
 
-export const divineAggregateGasPrices = async (payloads: XyoPayload[]) => {
+export const divineAggregateGas = async (payloads: XyoPayload[]) => {
   const ethereumGasEtherchainV1Payload = payloads?.filter(isEthereumGasEtherchainV1Payload)?.pop()
   const ethereumGasEtherchainV2Payload = payloads?.filter(isEthereumGasEtherchainV2Payload)?.pop()
   const ethereumGasEtherscanPayload = payloads?.filter(isEthereumGasEtherscanPayload)?.pop()
