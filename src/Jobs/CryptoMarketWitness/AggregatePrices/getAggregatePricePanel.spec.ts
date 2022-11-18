@@ -1,6 +1,6 @@
 import { XyoPayloadBuilder } from '@xyo-network/payload'
 
-import { getAggregatePricePanel } from './getAdHocPanel'
+import { getAggregatePricePanel } from './getAggregatePricePanel'
 
 describe('getAggregatePricePanel', () => {
   it('gets an getAggregatePricePanel', async () => {
