@@ -18,8 +18,8 @@ import {
 } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import {
   XyoEthereumGasEtherscanSchema,
+  XyoEthereumGasEtherscanWitness,
   XyoEthereumGasEtherscanWitnessConfigSchema,
-  XyoEtherscanEthereumGasWitness,
 } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
 import {
   UniswapPoolContracts,
@@ -71,7 +71,7 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
   if (canUseEtherscanProvider()) {
     const apiKey = getEtherscanProviderConfig()
     witnesses.push(
-      await XyoEtherscanEthereumGasWitness.create({
+      await XyoEthereumGasEtherscanWitness.create({
         account: getAccount(WalletPaths.XyoEtherscanEthereumGasWitness),
         config: {
           apiKey,
