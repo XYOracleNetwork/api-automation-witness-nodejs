@@ -2,8 +2,8 @@ import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 
 import { Task } from '../../Model'
 import { getCryptoMarketPanel } from '../../Panels'
+import { divineAggregateGas } from './AggregateGas'
 import { divineAggregatePrices } from './AggregatePrices'
-import { divineAggregateGasPrices } from './divineAggregateGasPrices'
 
 export const getTask = (): Task => {
   const logger = getDefaultLogger()
@@ -17,7 +17,7 @@ export const getTask = (): Task => {
       await divineAggregatePrices(payloads)
       logger.log('Divined Aggregated Crypto Prices')
       logger.log('Divining Aggregated Gas Price')
-      await divineAggregateGasPrices(payloads)
+      await divineAggregateGas(payloads)
       logger.log('Divined Aggregated Gas Price')
     } catch (error) {
       logger.error(error)
