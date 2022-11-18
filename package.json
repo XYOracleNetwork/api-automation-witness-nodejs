@@ -68,7 +68,7 @@
     "@xyo-network/uniswap-typechain": "^2.0.4",
     "@xyo-network/witness": "^2.39.6",
     "@xyo-network/witnesses": "^2.39.6",
-    "agenda": "^4.4.0",
+    "agenda": "^5.0.0",
     "axios": "^1.1.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",

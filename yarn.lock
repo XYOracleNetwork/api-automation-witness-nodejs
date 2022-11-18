@@ -4407,7 +4407,7 @@ __metadata:
     "@xyo-network/uniswap-typechain": ^2.0.4
     "@xyo-network/witness": ^2.39.6
     "@xyo-network/witnesses": ^2.39.6
-    agenda: ^4.4.0
+    agenda: ^5.0.0
     axios: ^1.1.3
     babel-jest: ^29.3.1
     compression: ^1.7.4
@@ -4851,17 +4851,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"agenda@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "agenda@npm:4.4.0"
+"agenda@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "agenda@npm:5.0.0"
   dependencies:
-    cron-parser: ^3.0.0
+    cron-parser: ^3.5.0
     date.js: ~0.3.3
-    debug: ~4.3.0
-    human-interval: ~2.0.0
+    debug: ~4.3.4
+    human-interval: ~2.0.1
     moment-timezone: ~0.5.37
-    mongodb: ^4.1.0
-  checksum: 52cc5a429a5493cc341f6e509c12fc3ebcf7c8d3aefa70fe30db3e03fb361ecdb4b0b76ff733911bad84395425f1575e33560e1b2130ca45340e940ed63bca12
+    mongodb: ^4.11.0
+  checksum: 3dfa4f4b770d66dab9e2a0841eb81d8d1ce2ba6c9e540463058cee136200ba610a54c734446be924e40c48c146ecfee2220b4da6348b9b879e4d59a94dbbedb2
   languageName: node
   linkType: hard
 
@@ -6333,7 +6333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-parser@npm:^3.0.0":
+"cron-parser@npm:^3.5.0":
   version: 3.5.0
   resolution: "cron-parser@npm:3.5.0"
   dependencies:
@@ -6428,7 +6428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.2.0, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4, debug@npm:~4.3.0":
+"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.2.0, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4, debug@npm:~4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -6621,13 +6621,6 @@ __metadata:
   version: 1.0.0
   resolution: "delegates@npm:1.0.0"
   checksum: a51744d9b53c164ba9c0492471a1a2ffa0b6727451bdc89e31627fdf4adda9d51277cfcbfb20f0a6f08ccb3c436f341df3e92631a3440226d93a8971724771fd
-  languageName: node
-  linkType: hard
-
-"denque@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "denque@npm:2.1.0"
-  checksum: 1d4ae1d05e59ac3a3481e7b478293f4b4c813819342273f3d5b826c7ffa9753c520919ba264f377e09108d24ec6cf0ec0ac729a5686cbb8f32d797126c5dae74
   languageName: node
   linkType: hard
 
@@ -8647,7 +8640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"human-interval@npm:~2.0.0":
+"human-interval@npm:~2.0.1":
   version: 2.0.1
   resolution: "human-interval@npm:2.0.1"
   dependencies:
@@ -11304,13 +11297,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.1.0":
-  version: 4.11.0
-  resolution: "mongodb@npm:4.11.0"
+"mongodb@npm:^4.11.0":
+  version: 4.12.0
+  resolution: "mongodb@npm:4.12.0"
   dependencies:
     "@aws-sdk/credential-providers": ^3.186.0
     bson: ^4.7.0
-    denque: ^2.1.0
     mongodb-connection-string-url: ^2.5.4
     saslprep: ^1.0.3
     socks: ^2.7.1
@@ -11319,7 +11311,7 @@ __metadata:
       optional: true
     saslprep:
       optional: true
-  checksum: 3080c2f58dc712ca6d0a34b0f4101c3ca66fbf86360b2a5ea2b64a9f757b4a0d7b77851688657fc3240ac748ddcd69c21ec2f7c785f10cb7d41e00e863f415ec
+  checksum: 002a92eecfeb160d07aa83f8f9e4fa33a06816635606a85312713150eba41cb17abf92b785ca1ecc7c8de40519ef119d372896f2a1cd4902f92447d26a80b000
   languageName: node
   linkType: hard
 
