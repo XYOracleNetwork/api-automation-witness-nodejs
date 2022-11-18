@@ -5,8 +5,8 @@ import { XyoDivinerWrapper } from '@xyo-network/diviner'
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload, XyoUniswapCryptoMarketSchema } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
-import { getAggregatePricePanel } from './getAdHocPanel'
-import { getCryptoMarketAssetDiviner } from './getCryptoMarketAssetDiviner'
+import { getCryptoMarketAssetDiviner } from '../getCryptoMarketAssetDiviner'
+import { getAggregatePricePanel } from './getAggregatePricePanel'
 
 const isUniswapPayload = (p: XyoPayload): p is XyoUniswapCryptoMarketPayload => p.schema === XyoUniswapCryptoMarketSchema
 const isCoingeckoPayload = (p: XyoPayload): p is XyoCoingeckoCryptoMarketPayload => p.schema === XyoCoingeckoCryptoMarketSchema
