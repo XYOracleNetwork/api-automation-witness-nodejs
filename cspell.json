@@ -13,6 +13,7 @@
     "cryptomarket",
     "Etherchain",
     "ethersproject",
+    "Ethgasstation",
     "hdnode",
     "pako",
     "satoshi",
