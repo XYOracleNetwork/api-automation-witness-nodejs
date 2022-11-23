@@ -62,6 +62,7 @@
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "^2.41.7",
     "@xyo-network/gas-price-payload-plugin": "^2.41.6",
     "@xyo-network/module": "^2.41.7",
+    "@xyo-network/node-core-model": "^2.41.7",
     "@xyo-network/panel": "^2.41.7",
     "@xyo-network/payload": "^2.41.7",
     "@xyo-network/typechain": "^2.0.4",
