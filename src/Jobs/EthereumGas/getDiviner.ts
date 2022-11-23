@@ -2,7 +2,7 @@ import { XyoEthereumGasDiviner, XyoEthereumGasDivinerConfigSchema } from '@xyo-n
 
 import { getAccount } from '../../Account'
 
-export const getEthereumGasDiviner = async (): Promise<XyoEthereumGasDiviner> => {
+export const getDiviner = async (): Promise<XyoEthereumGasDiviner> => {
   return await XyoEthereumGasDiviner.create({
     account: getAccount(),
     config: {
