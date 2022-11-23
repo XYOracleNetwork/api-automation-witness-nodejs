@@ -7,7 +7,7 @@ import { getAccount, WalletPaths } from '../../Account'
 import { getArchivists } from '../../Archivists'
 
 export const getDivinerResultPanel = async (result: XyoPayload): Promise<XyoPanel> => {
-  const account = getAccount(WalletPaths.AggregateEthereumGasPanel)
+  const account = getAccount(WalletPaths.EthereumGasDivinerResultPanel)
   const archivists = await getArchivists()
   const witnessConfig: XyoAdhocWitnessConfig = { payload: result, schema: XyoAdhocWitnessConfigSchema, targetSchema: result.schema }
   const witnesses = [await XyoAdhocWitness.create({ account, config: witnessConfig })]

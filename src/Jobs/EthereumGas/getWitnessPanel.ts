@@ -13,7 +13,7 @@ import { getEthereumGasWitness } from '../../Witnesses'
 let panel: XyoPanel | undefined = undefined
 
 export const getWitnessPanel = async (provider = getProvider()): Promise<XyoPanel> => {
-  const account = getAccount(WalletPaths.EthereumGasPanel)
+  const account = getAccount(WalletPaths.EthereumGasWitnessPanel)
   const archivists = await getArchivists()
   const witnesses = await getEthereumGasWitness(provider)
   const modules: XyoModule[] = [...archivists, ...witnesses]
