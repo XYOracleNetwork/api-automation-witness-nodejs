@@ -1,5 +1,5 @@
 import { getProvider } from '../Providers'
-import { getCryptoMarketWitness } from './getEthereumGasWitness'
+import { getCryptoMarketWitness } from './getCryptoMarketWitness'
 
 describe('getCryptoMarketWitness', () => {
   it('gets witnesses using supplied provider', async () => {
