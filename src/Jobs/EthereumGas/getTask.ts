@@ -21,8 +21,8 @@ export const getTask = (): Task => {
       const answer = assertEx(result, 'Empty XyoEthereumGasPayload response from diviner')
       logger.log('Divined Aggregated Gas Price')
       logger.log('Witnessing Aggregated Gas Price')
-      const panel = await getDivinerResultPanel(answer)
-      await panel.report()
+      const divinerResultPanel = await getDivinerResultPanel(answer)
+      await divinerResultPanel.report()
       logger.log('Witnessed Aggregated Gas Price')
     } catch (error) {
       logger.error(error)
