@@ -1,10 +1,8 @@
-import { Provider } from '@ethersproject/providers'
 import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 
 import { getAccount, WalletPaths } from '../../Account'
 import { getArchivists } from '../../Archivists'
-import { PanelProvider } from '../../Model'
 import { getProvider } from '../../Providers'
 import { getEthereumGasWitness } from '../../Witnesses'
 
@@ -14,7 +12,7 @@ import { getEthereumGasWitness } from '../../Witnesses'
  */
 let panel: XyoPanel | undefined = undefined
 
-export const getEthereumGasPanel: PanelProvider<Provider> = async (provider = getProvider()): Promise<XyoPanel> => {
+export const getEthereumGasPanel = async (provider = getProvider()): Promise<XyoPanel> => {
   const account = getAccount(WalletPaths.EthereumGasPanel)
   const archivists = await getArchivists()
   const witnesses = await getEthereumGasWitness(provider)
