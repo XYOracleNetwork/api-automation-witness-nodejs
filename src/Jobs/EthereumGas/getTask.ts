@@ -11,10 +11,10 @@ export const getTask = (): Task => {
   const logger = getDefaultLogger()
   const task: Task = async () => {
     try {
-      logger.log('Witnessing Ethereum Gas')
+      logger.log('Witnessing Ethereum Gas Prices')
       const witnessPanel = await getWitnessPanel()
       const [, payloads] = await witnessPanel.report()
-      logger.log('Witnessed Ethereum Gas')
+      logger.log('Witnessed Ethereum Gas Prices')
       logger.log('Divining Aggregated Gas Price')
       const diviner = await getDiviner()
       const result = (await new XyoDivinerWrapper(diviner).divine(payloads)).pop()
