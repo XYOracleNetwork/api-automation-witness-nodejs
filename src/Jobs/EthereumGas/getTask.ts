@@ -1,8 +1,8 @@
 import { assertEx } from '@xylabs/assert'
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { Task } from '@xyo-network/shared'
 
-import { Task } from '../../Model'
 import { getAggregateEthereumGasPanel } from './getAggregateEthereumGasPanel'
 import { getEthereumGasDiviner } from './getEthereumGasDiviner'
 import { getEthereumGasPanel } from './getEthereumGasPanel'
