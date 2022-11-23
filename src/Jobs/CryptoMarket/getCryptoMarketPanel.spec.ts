@@ -1,4 +1,4 @@
-import { getProvider } from '../Providers'
+import { getProvider } from '../../Providers'
 import { getCryptoMarketPanel } from './getCryptoMarketPanel'
 
 describe('getCryptoMarketPanel', () => {

@@ -1,8 +1,8 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 
 import { Task } from '../../Model'
-import { getEthereumGasPanel } from '../../Panels'
 import { divineAggregateGas } from './divineAggregateGas'
+import { getEthereumGasPanel } from './getEthereumGasPanel'
 
 export const getTask = (): Task => {
   const logger = getDefaultLogger()

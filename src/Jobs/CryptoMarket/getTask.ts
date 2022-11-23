@@ -1,8 +1,8 @@
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
 
 import { Task } from '../../Model'
-import { getCryptoMarketPanel } from '../../Panels'
 import { divineAggregatePrices } from './divineAggregatePrices'
+import { getCryptoMarketPanel } from './getCryptoMarketPanel'
 
 export const getTask = (): Task => {
   const logger = getDefaultLogger()
