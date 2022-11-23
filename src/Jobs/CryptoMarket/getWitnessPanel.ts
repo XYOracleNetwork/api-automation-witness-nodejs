@@ -12,7 +12,7 @@ import { getCryptoMarketWitness } from '../../Witnesses'
  */
 let panel: XyoPanel | undefined = undefined
 
-export const getCryptoMarketPanel = async (provider = getProvider()): Promise<XyoPanel> => {
+export const getWitnessPanel = async (provider = getProvider()): Promise<XyoPanel> => {
   const account = getAccount(WalletPaths.CryptoMarketPanel)
   const archivists = await getArchivists()
   const witnesses = await getCryptoMarketWitness(provider)
