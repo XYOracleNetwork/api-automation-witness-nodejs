@@ -4408,6 +4408,7 @@ __metadata:
     "@xyo-network/node-core-model": ^2.41.7
     "@xyo-network/panel": ^2.41.7
     "@xyo-network/payload": ^2.41.7
+    "@xyo-network/shared": ^2.41.7
     "@xyo-network/typechain": ^2.0.4
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.41.7
     "@xyo-network/uniswap-typechain": ^2.0.4

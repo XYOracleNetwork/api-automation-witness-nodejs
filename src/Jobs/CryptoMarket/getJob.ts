@@ -1,6 +1,6 @@
-import { Job, Task } from '../../Model'
-import { getTask } from './getTask'
+import { Job, Task } from '@xyo-network/shared'
 
+import { getTask } from './getTask'
 const name = 'cryptoMarketWitness'
 
 export const getJob = (): Job => {
