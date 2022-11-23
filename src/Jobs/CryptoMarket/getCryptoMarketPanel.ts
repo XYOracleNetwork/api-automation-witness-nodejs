@@ -2,11 +2,11 @@ import { Provider } from '@ethersproject/providers'
 import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 
-import { getAccount, WalletPaths } from '../Account'
-import { getArchivists } from '../Archivists'
-import { getProvider } from '../Providers'
-import { getCryptoMarketWitness } from '../Witnesses'
-import { PanelProvider } from './PanelProvider'
+import { getAccount, WalletPaths } from '../../Account'
+import { getArchivists } from '../../Archivists'
+import { PanelProvider } from '../../Model'
+import { getProvider } from '../../Providers'
+import { getCryptoMarketWitness } from '../../Witnesses'
 
 /**
  * Static panel to prevent recreation/re-initialization of panel

@@ -1,4 +1,4 @@
-import { getProvider } from '../Providers'
+import { getProvider } from '../../Providers'
 import { getEthereumGasPanel } from './getEthereumGasPanel'
 
 describe('getEthereumGasPanel', () => {
