@@ -1,12 +1,10 @@
-import { Provider } from '@ethersproject/providers'
 import { XyoModule, XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 
-import { getAccount, WalletPaths } from '../Account'
-import { getArchivists } from '../Archivists'
-import { getProvider } from '../Providers'
-import { getCryptoMarketWitness } from '../Witnesses'
-import { PanelProvider } from './PanelProvider'
+import { getAccount, WalletPaths } from '../../Account'
+import { getArchivists } from '../../Archivists'
+import { getProvider } from '../../Providers'
+import { getEthereumGasWitness } from '../../Witnesses'
 
 /**
  * Static panel to prevent recreation/re-initialization of panel
@@ -14,10 +12,10 @@ import { PanelProvider } from './PanelProvider'
  */
 let panel: XyoPanel | undefined = undefined
 
-export const getCryptoMarketPanel: PanelProvider<Provider> = async (provider = getProvider()): Promise<XyoPanel> => {
-  const account = getAccount(WalletPaths.CryptoMarketPanel)
+export const getWitnessPanel = async (provider = getProvider()): Promise<XyoPanel> => {
+  const account = getAccount(WalletPaths.EthereumGasWitnessPanel)
   const archivists = await getArchivists()
-  const witnesses = await getCryptoMarketWitness(provider)
+  const witnesses = await getEthereumGasWitness(provider)
   const modules: XyoModule[] = [...archivists, ...witnesses]
   const resolver: XyoModuleResolver = new XyoModuleResolver()
   modules.map((mod) => resolver.add(mod))

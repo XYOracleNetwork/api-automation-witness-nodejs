@@ -3,11 +3,11 @@ import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/pan
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoAdhocWitness, XyoAdhocWitnessConfig, XyoAdhocWitnessConfigSchema } from '@xyo-network/witnesses'
 
-import { getAccount, WalletPaths } from '../../../Account'
-import { getArchivists } from '../../../Archivists'
+import { getAccount, WalletPaths } from '../../Account'
+import { getArchivists } from '../../Archivists'
 
-export const getEthereumGasPanel = async (result: XyoPayload): Promise<XyoPanel> => {
-  const account = getAccount(WalletPaths.AggregatePricePanel)
+export const getDivinerResultPanel = async (result: XyoPayload): Promise<XyoPanel> => {
+  const account = getAccount(WalletPaths.EthereumGasDivinerResultPanel)
   const archivists = await getArchivists()
   const witnessConfig: XyoAdhocWitnessConfig = { payload: result, schema: XyoAdhocWitnessConfigSchema, targetSchema: result.schema }
   const witnesses = [await XyoAdhocWitness.create({ account, config: witnessConfig })]
