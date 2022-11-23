@@ -6,8 +6,8 @@ import { XyoEthereumGasEtherchainV2Payload, XyoEthereumGasEtherchainV2Schema } f
 import { XyoEthereumGasEtherscanPayload, XyoEthereumGasEtherscanSchema } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
 import { XyoPayload } from '@xyo-network/payload'
 
+import { getAggregateEthereumGasPanel } from './getAggregateEthereumGasPanel'
 import { getEthereumGasDiviner } from './getEthereumGasDiviner'
-import { getEthereumGasPanel } from './getEthereumGasPanel'
 
 const isEthereumGasEtherchainV1Payload = (p: XyoPayload): p is XyoEthereumGasEtherchainV1Payload => p.schema === XyoEthereumGasEtherchainV1Schema
 const isEthereumGasEtherchainV2Payload = (p: XyoPayload): p is XyoEthereumGasEtherchainV2Payload => p.schema === XyoEthereumGasEtherchainV2Schema
@@ -21,6 +21,6 @@ export const divineAggregateGas = async (payloads: XyoPayload[]) => {
   const result = [ethereumGasEtherchainV1Payload, ethereumGasEtherchainV2Payload, ethereumGasEtherscanPayload].filter(exists)
   const answer = (await new XyoDivinerWrapper(diviner).divine(result)).pop()
   const prices = assertEx(answer, 'Empty XyoEthereumGasPayload response from diviner')
-  const panel = await getEthereumGasPanel(prices)
+  const panel = await getAggregateEthereumGasPanel(prices)
   await panel.report()
 }
