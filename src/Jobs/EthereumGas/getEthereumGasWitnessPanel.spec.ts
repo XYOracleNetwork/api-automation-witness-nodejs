@@ -1,13 +1,13 @@
 import { getProvider } from '../../Providers'
-import { getEthereumGasPanel } from './getEthereumGasPanel'
+import { getEthereumGasWitnessPanel } from './getEthereumGasWitnessPanel'
 
-describe('getEthereumGasPanel', () => {
+describe('getEthereumGasWitnessPanel', () => {
   it('gets panel using supplied provider', () => {
-    const panel = getEthereumGasPanel(getProvider())
+    const panel = getEthereumGasWitnessPanel(getProvider())
     expect(panel).toBeTruthy()
   })
   it('gets panel using default provider if no provider supplied', () => {
-    const panel = getEthereumGasPanel()
+    const panel = getEthereumGasWitnessPanel()
     expect(panel).toBeTruthy()
   })
 })
