@@ -12,14 +12,14 @@ import {
   XyoUniswapCryptoMarketWitness,
   XyoUniswapCryptoMarketWitnessConfigSchema,
 } from '@xyo-network/uniswap-crypto-market-payload-plugin'
-import { XyoWitness } from '@xyo-network/witness'
+import { AbstractWitness } from '@xyo-network/witness'
 
 import { getAccount, WalletPaths } from '../Account'
 import { getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
-export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
-  const witnesses: XyoWitness[] = [
+export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<AbstractWitness[]> => {
+  const witnesses: AbstractWitness[] = [
     await XyoCoingeckoCryptoMarketWitness.create({
       account: getAccount(WalletPaths.XyoCoingeckoCryptoMarketWitness),
       config: {

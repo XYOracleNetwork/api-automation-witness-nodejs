@@ -1,3 +1,3 @@
-import { XyoWitness } from '@xyo-network/witness'
+import { AbstractWitness } from '@xyo-network/witness'
 
-export type WitnessProvider<T> = (opts?: T) => Promise<XyoWitness[]>
+export type WitnessProvider<T> = (opts?: T) => Promise<AbstractWitness[]>
