@@ -1,6 +1,7 @@
 import { assertEx } from '@xylabs/assert'
 import { getDefaultLogger } from '@xylabs/sdk-api-express-ecs'
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner'
+import { XyoEthereumGasSchema } from '@xyo-network/gas-price-payload-plugin'
 import { Task } from '@xyo-network/shared'
 
 import { getDiviner } from './getDiviner'
@@ -17,7 +18,7 @@ export const getTask = (): Task => {
       logger.log('Witnessed Ethereum Gas Prices')
       logger.log('Divining Aggregated Gas Price')
       const diviner = await getDiviner()
-      const result = (await new XyoDivinerWrapper(diviner).divine(payloads)).pop()
+      const result = (await new DivinerWrapper(diviner).divine(payloads)).find((p) => p.schema === XyoEthereumGasSchema)
       const answer = assertEx(result, 'Empty XyoEthereumGasPayload response from diviner')
       logger.log('Divined Aggregated Gas Price')
       logger.log('Witnessing Aggregated Gas Price')
