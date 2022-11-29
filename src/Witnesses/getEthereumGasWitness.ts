@@ -29,14 +29,14 @@ import {
   XyoEthereumGasEthgasstationWitness,
   XyoEthereumGasEthgasstationWitnessConfigSchema,
 } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
-import { XyoWitness } from '@xyo-network/witness'
+import { AbstractWitness } from '@xyo-network/witness'
 
 import { getAccount, WalletPaths } from '../Account'
 import { canUseEtherscanProvider, getEtherscanProviderConfig, getProvider } from '../Providers'
 import { WitnessProvider } from './WitnessProvider'
 
-export const getEthereumGasWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<XyoWitness[]> => {
-  const witnesses: XyoWitness[] = [
+export const getEthereumGasWitness: WitnessProvider<Provider> = async (provider = getProvider()): Promise<AbstractWitness[]> => {
+  const witnesses: AbstractWitness[] = [
     await XyoEthereumGasBlocknativeWitness.create({
       account: getAccount(WalletPaths.XyoEthereumGasBlocknativeWitness),
       config: {
