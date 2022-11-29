@@ -82,7 +82,7 @@
     "pako": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.2",
+    "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.12",
