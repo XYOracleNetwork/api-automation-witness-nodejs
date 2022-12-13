@@ -1,5 +1,5 @@
-import { XyoAccount } from '@xyo-network/account'
+import { Account } from '@xyo-network/account'
 
-export const getSigningAccount = (phrase = process.env.ACCOUNT_SEED): XyoAccount => {
-  return new XyoAccount({ phrase })
+export const getSigningAccount = (phrase = process.env.ACCOUNT_SEED): Account => {
+  return new Account({ phrase })
 }

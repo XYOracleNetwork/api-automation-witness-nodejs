@@ -2,7 +2,7 @@ import { arrayify } from '@ethersproject/bytes'
 import { HDNode, mnemonicToSeed } from '@ethersproject/hdnode'
 import { computeHmac, SupportedAlgorithm } from '@ethersproject/sha2'
 import { toUtf8Bytes } from '@ethersproject/strings'
-import { XyoAccount } from '@xyo-network/account'
+import { Account } from '@xyo-network/account'
 
 import { fromMnemonic } from './HdWallet'
 
@@ -33,7 +33,7 @@ describe('HD Wallet', () => {
         const seedArray: Uint8Array = arrayify(seed)
         const hmac: Uint8Array = arrayify(computeHmac(SupportedAlgorithm.sha512, MasterSecret, seedArray))
         const privateKey = hmac.slice(0, 32)
-        const account = new XyoAccount({ privateKey })
+        const account = new Account({ privateKey })
         expect(account).toBeObject()
 
         // Compare public addresses from both for equivalence
@@ -50,7 +50,7 @@ describe('HD Wallet', () => {
         expect(child.privateKey).toBeString()
 
         const privateKey = child.privateKey.toLowerCase().replace('0x', '')
-        const account = new XyoAccount({ privateKey })
+        const account = new Account({ privateKey })
 
         // Compare public addresses from both for equivalence
         const hdWalletAddress = child.address.toLowerCase().replace('0x', '')

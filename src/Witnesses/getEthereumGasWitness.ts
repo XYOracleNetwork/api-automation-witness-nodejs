@@ -1,34 +1,10 @@
 import { Provider } from '@ethersproject/providers'
-import {
-  XyoEthereumGasBlocknativeSchema,
-  XyoEthereumGasBlocknativeWitness,
-  XyoEthereumGasBlocknativeWitnessConfigSchema,
-} from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
-import {
-  XyoEtherchainEthereumGasWitnessV1,
-  XyoEthereumGasEtherchainV1Schema,
-  XyoEthereumGasEtherchainV1WitnessConfigSchema,
-} from '@xyo-network/etherchain-ethereum-gas-v1-payload-plugin'
-import {
-  XyoEtherchainEthereumGasWitnessV2,
-  XyoEthereumGasEtherchainV2Schema,
-  XyoEthereumGasEtherchainV2WitnessConfigSchema,
-} from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
-import {
-  XyoEthereumGasEthersSchema,
-  XyoEthereumGasEthersWitness,
-  XyoEthereumGasEthersWitnessConfigSchema,
-} from '@xyo-network/ethers-ethereum-gas-payload-plugin'
-import {
-  XyoEthereumGasEtherscanSchema,
-  XyoEthereumGasEtherscanWitness,
-  XyoEthereumGasEtherscanWitnessConfigSchema,
-} from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
-import {
-  XyoEthereumGasEthgasstationSchema,
-  XyoEthereumGasEthgasstationWitness,
-  XyoEthereumGasEthgasstationWitnessConfigSchema,
-} from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
+import { XyoEthereumGasBlocknativeWitness, XyoEthereumGasBlocknativeWitnessConfigSchema } from '@xyo-network/blocknative-ethereum-gas-plugin'
+import { XyoEtherchainEthereumGasWitnessV1, XyoEthereumGasEtherchainV1WitnessConfigSchema } from '@xyo-network/etherchain-ethereum-gas-v1-plugin'
+import { XyoEtherchainEthereumGasWitnessV2, XyoEthereumGasEtherchainV2WitnessConfigSchema } from '@xyo-network/etherchain-ethereum-gas-v2-plugin'
+import { XyoEthereumGasEthersWitness, XyoEthereumGasEthersWitnessConfigSchema } from '@xyo-network/ethers-ethereum-gas-plugin'
+import { XyoEthereumGasEtherscanWitness, XyoEthereumGasEtherscanWitnessConfigSchema } from '@xyo-network/etherscan-ethereum-gas-plugin'
+import { XyoEthereumGasEthgasstationWitness, XyoEthereumGasEthgasstationWitnessConfigSchema } from '@xyo-network/ethgasstation-ethereum-gas-plugin'
 import { AbstractWitness } from '@xyo-network/witness'
 
 import { getAccount, WalletPaths } from '../Account'
@@ -41,28 +17,24 @@ export const getEthereumGasWitness: WitnessProvider<Provider> = async (provider 
       account: getAccount(WalletPaths.XyoEthereumGasBlocknativeWitness),
       config: {
         schema: XyoEthereumGasBlocknativeWitnessConfigSchema,
-        targetSchema: XyoEthereumGasBlocknativeSchema,
       },
     }),
     await XyoEtherchainEthereumGasWitnessV1.create({
       account: getAccount(WalletPaths.XyoEtherchainEthereumGasWitnessV1),
       config: {
         schema: XyoEthereumGasEtherchainV1WitnessConfigSchema,
-        targetSchema: XyoEthereumGasEtherchainV1Schema,
       },
     }),
     await XyoEtherchainEthereumGasWitnessV2.create({
       account: getAccount(WalletPaths.XyoEtherchainEthereumGasWitnessV2),
       config: {
         schema: XyoEthereumGasEtherchainV2WitnessConfigSchema,
-        targetSchema: XyoEthereumGasEtherchainV2Schema,
       },
     }),
     await XyoEthereumGasEthersWitness.create({
       account: getAccount(WalletPaths.XyoEthereumGasEthersWitness),
       config: {
         schema: XyoEthereumGasEthersWitnessConfigSchema,
-        targetSchema: XyoEthereumGasEthersSchema,
       },
       provider,
     }),
@@ -70,7 +42,6 @@ export const getEthereumGasWitness: WitnessProvider<Provider> = async (provider 
       account: getAccount(WalletPaths.XyoEthereumGasEthgasstationWitness),
       config: {
         schema: XyoEthereumGasEthgasstationWitnessConfigSchema,
-        targetSchema: XyoEthereumGasEthgasstationSchema,
       },
     }),
   ]
@@ -82,7 +53,6 @@ export const getEthereumGasWitness: WitnessProvider<Provider> = async (provider 
         config: {
           apiKey,
           schema: XyoEthereumGasEtherscanWitnessConfigSchema,
-          targetSchema: XyoEthereumGasEtherscanSchema,
         },
       }),
     )

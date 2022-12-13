@@ -9,7 +9,7 @@ import { getArchivists } from '../../Archivists'
 export const getDivinerResultPanel = async (result: XyoPayload): Promise<XyoPanel> => {
   const account = getAccount(WalletPaths.EthereumGasDivinerResultPanel)
   const archivists = await getArchivists()
-  const witnessConfig: XyoAdhocWitnessConfig = { payload: result, schema: XyoAdhocWitnessConfigSchema, targetSchema: result.schema }
+  const witnessConfig: XyoAdhocWitnessConfig = { payload: result, schema: XyoAdhocWitnessConfigSchema }
   const witnesses = [await XyoAdhocWitness.create({ account, config: witnessConfig })]
   const modules: XyoModule[] = [...archivists, ...witnesses]
   const resolver = new XyoModuleResolver()

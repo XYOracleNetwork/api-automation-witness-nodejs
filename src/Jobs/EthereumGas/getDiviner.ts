@@ -1,4 +1,4 @@
-import { XyoEthereumGasDiviner, XyoEthereumGasDivinerConfigSchema } from '@xyo-network/gas-price-payload-plugin'
+import { XyoEthereumGasDiviner, XyoEthereumGasDivinerConfigSchema } from '@xyo-network/gas-price-plugin'
 
 import { getAccount } from '../../Account'
 

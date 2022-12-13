@@ -1,9 +1,9 @@
 import { assertEx } from '@xylabs/assert'
-import { XyoAccount } from '@xyo-network/account'
+import { Account } from '@xyo-network/account'
 
 import { fromMnemonic } from './HdWallet'
 
-export const getAccount = (path?: string): XyoAccount => {
+export const getAccount = (path?: string): Account => {
   const mnemonic = assertEx(process.env.MNEMONIC, 'Missing mnemonic for wallet creation')
   return fromMnemonic(mnemonic, path)
 }

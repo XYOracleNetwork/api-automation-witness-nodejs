@@ -2,16 +2,11 @@ import { Provider } from '@ethersproject/providers'
 import {
   defaultCoins,
   defaultCurrencies,
-  XyoCoingeckoCryptoMarketSchema,
   XyoCoingeckoCryptoMarketWitness,
   XyoCoingeckoCryptoMarketWitnessConfigSchema,
-} from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import {
-  UniswapPoolContracts,
-  XyoUniswapCryptoMarketSchema,
-  XyoUniswapCryptoMarketWitness,
-  XyoUniswapCryptoMarketWitnessConfigSchema,
-} from '@xyo-network/uniswap-crypto-market-payload-plugin'
+} from '@xyo-network/coingecko-crypto-market-plugin'
+import { XyoUniswapCryptoMarketWitnessConfigSchema } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import { UniswapPoolContracts, XyoUniswapCryptoMarketWitness } from '@xyo-network/uniswap-crypto-market-plugin'
 import { AbstractWitness } from '@xyo-network/witness'
 
 import { getAccount, WalletPaths } from '../Account'
@@ -26,7 +21,6 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
         coins: defaultCoins,
         currencies: defaultCurrencies,
         schema: XyoCoingeckoCryptoMarketWitnessConfigSchema,
-        targetSchema: XyoCoingeckoCryptoMarketSchema,
       },
     }),
     await XyoUniswapCryptoMarketWitness.create({
@@ -34,7 +28,6 @@ export const getCryptoMarketWitness: WitnessProvider<Provider> = async (provider
       config: {
         pools: UniswapPoolContracts,
         schema: XyoUniswapCryptoMarketWitnessConfigSchema,
-        targetSchema: XyoUniswapCryptoMarketSchema,
       },
       provider,
     }),
