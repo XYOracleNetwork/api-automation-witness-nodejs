@@ -1,8 +1,4 @@
 ignores: [
-  "@ethersproject/address",
-  "@ethersproject/contracts",
-  "@ethersproject/networks",
-  "@ethersproject/solidity",
   "@types/jest",
   "@types/supertest",
   "@xylabs/ts-scripts-yarn3",
@@ -13,6 +9,5 @@ ignores: [
   "jest-sorted",
   "supertest",
   "ts-jest",
-  "ts-node",
-  "typescript",
+  "ts-node"
 ]
