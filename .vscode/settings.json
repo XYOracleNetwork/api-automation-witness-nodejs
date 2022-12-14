@@ -44,4 +44,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "cSpell.words": [
+    "Autogen"
+  ],
 }
