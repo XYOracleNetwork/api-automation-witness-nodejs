@@ -1,20 +1,20 @@
 # syntax=docker/dockerfile:1
 # Build here and pull down all the devDependencies
-FROM node:16 AS builder
+FROM node:18 AS builder
 WORKDIR /app
 COPY . .
 RUN yarn install
 RUN yarn compile
 
 # Just install the production dependencies here
-FROM node:16 AS dependencies
+FROM node:18 AS dependencies
 WORKDIR /app
 COPY . .
 RUN yarn workspaces focus --production
 
 # Copy over the compiled output and production dependencies
 # into a slimmer container
-FROM node:16-alpine
+FROM node:18-alpine
 EXPOSE 80
 WORKDIR /app
 CMD ["yarn", "launch"]
