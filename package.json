@@ -35,8 +35,8 @@
   "author": "Arie Trouw",
   "license": "LGPL-3.0",
   "dependencies": {
-    "@xylabs/sdk-api-express-ecs": "^1.2.5",
-    "@xyo-network/automation-witness-server": "^2.42.8",
+    "@xylabs/sdk-api-express-ecs": "^1.3.0",
+    "@xyo-network/automation-witness-server": "^2.43.13",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
   },
