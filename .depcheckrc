@@ -9,5 +9,6 @@ ignores: [
   "jest-sorted",
   "supertest",
   "ts-jest",
-  "ts-node"
+  "ts-node",
+  "typescript"
 ]
