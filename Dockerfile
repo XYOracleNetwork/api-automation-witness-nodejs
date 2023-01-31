@@ -4,7 +4,7 @@ FROM node:18 AS builder
 WORKDIR /app
 COPY . .
 RUN yarn install
-RUN yarn compile
+RUN yarn xy compile
 
 # Just install the production dependencies here
 FROM node:18 AS dependencies
