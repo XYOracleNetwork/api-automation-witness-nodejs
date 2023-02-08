@@ -1,13 +1,12 @@
 ignores: [
   "@types/jest",
-  "@types/supertest",
+  "@types/node",
   "@xylabs/ts-scripts-yarn3",
   "@xylabs/tsconfig",
   "babel-jest",
   "jest-extended",
   "jest-mock-extended",
   "jest-sorted",
-  "supertest",
   "ts-jest",
   "ts-node",
   "typescript"
