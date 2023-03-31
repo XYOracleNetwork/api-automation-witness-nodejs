@@ -1,14 +1,13 @@
 ignores: [
   "@types/jest",
-  "@ethersproject/address",
-  "@ethersproject/contracts",
-  "@ethersproject/networks",
-  "@ethersproject/solidity",
-  "@xylabs/ts-scripts",
+  "@types/node",
+  "@xylabs/ts-scripts-yarn3",
   "@xylabs/tsconfig",
   "babel-jest",
   "jest-extended",
+  "jest-mock-extended",
   "jest-sorted",
   "ts-jest",
-  "ts-node"
+  "ts-node",
+  "typescript"
 ]
