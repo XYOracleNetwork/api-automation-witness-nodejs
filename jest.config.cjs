@@ -15,7 +15,7 @@ const generateJestConfig = ({ esModules }) => {
     },
     preset: 'ts-jest/presets/default-esm',
     setupFiles: ['dotenv/config'],
-    setupFilesAfterEnv: ['jest-extended/all', 'jest-sorted'],
+    setupFilesAfterEnv: [],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
     testTimeout: 15000,
     transform: {
