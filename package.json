@@ -27,7 +27,7 @@
   "types": "dist/node/index.d.ts",
   "scripts": {
     "start": "nodemon",
-    "launch": "node --max-old-space-size=8192 --experimental-specifier-resolution=node ./dist/cjs/index.js",
+    "launch": "node --max-old-space-size=8192 --experimental-specifier-resolution=node ./dist/node/index.js",
     "test": "jest ./src",
     "test:hash": "jest ./src/hash",
     "test:domain": "jest ./src/domain",
