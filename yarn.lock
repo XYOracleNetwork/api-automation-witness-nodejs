@@ -4578,6 +4578,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/tsconfig-jest@npm:^3.10.4":
+  version: 3.10.4
+  resolution: "@xylabs/tsconfig-jest@npm:3.10.4"
+  dependencies:
+    "@xylabs/tsconfig": ~3.10.4
+    jest-extended: ^4.0.2
+    jest-sorted: ^1.0.15
+  peerDependencies:
+    typescript: ^5
+  checksum: 6fc5d1ac30761475b02287748f7377e2e1a42d558ee43e6ba52404deca05456cf6924df771f138937836ae7a87394d19fa63f1c22afc3004a9ba05177bb3d77c
+  languageName: node
+  linkType: hard
+
 "@xylabs/tsconfig@npm:^3.10.4, @xylabs/tsconfig@npm:~3.10.4":
   version: 3.10.4
   resolution: "@xylabs/tsconfig@npm:3.10.4"
@@ -4706,6 +4719,7 @@ __metadata:
     "@xylabs/sdk-api-express-ecs": ^2.0.4
     "@xylabs/ts-scripts-yarn3": ^3.10.4
     "@xylabs/tsconfig": ^3.10.4
+    "@xylabs/tsconfig-jest": ^3.10.4
     "@xyo-network/automation-witness-server": ^2.88.3
     babel-jest: ^29.7.0
     body-parser: ^1.20.2
