@@ -36,10 +36,10 @@
   "author": "Arie Trouw",
   "license": "LGPL-3.0",
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.580.0",
-    "@xylabs/assert": "^3.3.3",
+    "@aws-sdk/client-secrets-manager": "^3.583.0",
+    "@xylabs/assert": "^3.5.1",
     "@xylabs/sdk-api-express-ecs": "^2.0.4",
-    "@xyo-network/automation-witness-server": "^2.88.3",
+    "@xyo-network/automation-witness-server": "^2.88.6",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "ethers": "6.12.1",
@@ -52,8 +52,8 @@
     "winston-transport": "^4.7.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
-    "@babel/preset-env": "^7.24.5",
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.12",
     "@xylabs/eslint-config": "^3.10.4",
