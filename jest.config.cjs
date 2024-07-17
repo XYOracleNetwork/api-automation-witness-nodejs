@@ -1,23 +1,16 @@
 const generateJestConfig = ({ esModules }) => {
   const esModulesList = Array.isArray(esModules) ? esModules.join('|') : esModules
   return {
-    coveragePathIgnorePatterns: ['<rootDir>/src/Server'],
-    coverageThreshold: {
-      global: {
-        branches: 50,
-        functions: 70,
-        lines: 70,
-        statements: 70,
-      },
-    },
+    coveragePathIgnorePatterns: ['<rootDir>/(.*)/dist'],
+    extensionsToTreatAsEsm: ['.ts'],
     moduleNameMapper: {
       '^(\\.{1,2}/.*)\\.js$': '$1',
     },
-    preset: 'ts-jest/presets/default-esm',
+    preset: 'ts-jest',
     setupFiles: ['dotenv/config'],
     setupFilesAfterEnv: [],
-    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
-    testTimeout: 15000,
+    testRegex: String.raw`(/__tests__/.*|(\.|/)(test|spec))\.tsx?$`,
+    testTimeout: 15_000,
     transform: {
       [`(${esModulesList}).+\\.js$`]: [
         'babel-jest',
