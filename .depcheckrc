@@ -9,6 +9,5 @@ ignores: [
   "jest-mock-extended",
   "jest-sorted",
   "ts-jest",
-  "ts-node",
   "typescript"
 ]
