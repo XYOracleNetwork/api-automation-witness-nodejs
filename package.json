@@ -1,12 +1,12 @@
 {
   "$schema": "http://json.schemastore.org/package.json",
   "name": "@xyo-network/automation-witness-runner",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "2.0.96",
+  "private": true,
   "description": "XYO Automation Witness",
-  "sideeffects": false,
+  "license": "LGPL-3.0",
+  "author": "Arie Trouw",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -17,15 +17,13 @@
   "module": "dist/node/index.mjs",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "start": "nodemon",
     "launch": "node --max-old-space-size=8192 --experimental-specifier-resolution=node ./dist/node/index.js",
+    "start": "nodemon",
     "test": "jest ./src",
-    "test:hash": "jest ./src/hash",
     "test:domain": "jest ./src/domain",
+    "test:hash": "jest ./src/hash",
     "test:schema": "jest ./src/schema"
   },
-  "author": "Arie Trouw",
-  "license": "LGPL-3.0",
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.782.0",
     "@xylabs/assert": "^4.7.15",
@@ -47,10 +45,11 @@
     "@babel/preset-env": "^7.26.9",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.0",
-    "@xylabs/eslint-config": "^3.15.16",
-    "@xylabs/ts-scripts-yarn3": "^6.2.1",
-    "@xylabs/tsconfig": "^6.2.1",
-    "@xylabs/tsconfig-jest": "^4.1.0",
+    "@xylabs/eslint-config-flat": "^6.1.13",
+    "@xylabs/ts-scripts-yarn3": "^6.1.13",
+    "@xylabs/tsconfig": "^6.1.13",
+    "@xylabs/vitest-extended": "^4.7.15",
+    "@xylabs/vitest-matchers": "^4.7.15",
     "babel-jest": "^29.7.0",
     "eslint": "^9.24.0",
     "jest": "^29.7.0",
@@ -61,14 +60,16 @@
     "ts-jest": "^29.3.1",
     "typescript": "^5.8.3"
   },
-  "private": true,
+  "packageManager": "yarn@4.8.1",
   "engines": {
     "node": ">=22 <23"
   },
-  "packageManager": "yarn@4.8.1",
   "volta": {
     "node": "22.3.0",
     "yarn": "4.8.1"
   },
-  "type": "module"
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideeffects": false
 }
