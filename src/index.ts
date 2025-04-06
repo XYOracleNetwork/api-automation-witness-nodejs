@@ -1,4 +1,4 @@
-import { tryParseInt } from '@xylabs/sdk-api-express-ecs'
+import { tryParseInt } from '@xylabs/express'
 import { automationWitness } from '@xyo-network/automation-witness-server'
 import { config } from 'dotenv'
 
