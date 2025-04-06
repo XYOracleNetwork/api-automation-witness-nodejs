@@ -26,7 +26,7 @@ RUN yarn workspaces focus --production
 FROM node:${NODE_VERSION}
 EXPOSE 80
 WORKDIR /app
-CMD ["node", "./dist/node/index.js"]
+CMD ["node", "./dist/node/index.mjs"]
 
 # Install required packages
 # RUN apk add --no-cache file imagemagick ffmpeg
