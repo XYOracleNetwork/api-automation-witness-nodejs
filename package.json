@@ -21,7 +21,6 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@xylabs/assert": "^4.7.15",
     "@xylabs/express": "^4.7.15",
     "@xyo-network/automation-witness-server": "^3.4.2",
     "dotenv": "^16.4.7",
