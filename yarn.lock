@@ -4577,7 +4577,6 @@ __metadata:
     "@babel/core": "npm:^7.26.10"
     "@babel/preset-env": "npm:^7.26.9"
     "@types/node": "npm:^22.14.0"
-    "@xylabs/assert": "npm:^4.7.15"
     "@xylabs/eslint-config-flat": "npm:^6.1.13"
     "@xylabs/express": "npm:^4.7.15"
     "@xylabs/ts-scripts-yarn3": "npm:^6.1.13"
