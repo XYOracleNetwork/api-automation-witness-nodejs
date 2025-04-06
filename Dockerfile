@@ -30,7 +30,7 @@ CMD ["node", "./dist/node/index.mjs"]
 
 # Install required packages
 # RUN apk add --no-cache file imagemagick ffmpeg
-RUN apt-get update && apt-get install -y file imagemagick ffmpeg
+# RUN apt-get update && apt-get install -y file imagemagick ffmpeg
 
 COPY --from=dependencies /app/package.json ./package.json
 RUN corepack enable
