@@ -1,3 +1,4 @@
 {
-  "extends": "@xylabs/tsconfig-jest"
+  "extends": "@xylabs/tsconfig-jest",
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

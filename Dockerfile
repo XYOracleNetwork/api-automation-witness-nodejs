@@ -26,11 +26,11 @@ RUN yarn workspaces focus --production
 FROM node:${NODE_VERSION}
 EXPOSE 80
 WORKDIR /app
-CMD ["node", "./dist/node/index.js"]
+CMD ["node", "./dist/node/index.mjs"]
 
 # Install required packages
 # RUN apk add --no-cache file imagemagick ffmpeg
-RUN apt-get update && apt-get install -y file imagemagick ffmpeg
+# RUN apt-get update && apt-get install -y file imagemagick ffmpeg
 
 COPY --from=dependencies /app/package.json ./package.json
 RUN corepack enable
