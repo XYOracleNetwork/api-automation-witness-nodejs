@@ -21,24 +21,24 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@xylabs/express": "^4.7.15",
-    "@xyo-network/automation-witness-server": "^3.4.3",
-    "dotenv": "^16.4.7",
+    "@xylabs/express": "^4.8.7",
+    "@xyo-network/automation-witness-server": "^3.6.1",
+    "dotenv": "^16.5.0",
     "ethers": "6.13.6"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
-    "@types/node": "^22.14.0",
-    "@xylabs/eslint-config-flat": "^6.2.1",
-    "@xylabs/ts-scripts-yarn3": "^6.2.1",
-    "@xylabs/tsconfig": "^6.2.1",
+    "@types/node": "^22.14.1",
+    "@xylabs/eslint-config-flat": "^6.3.5",
+    "@xylabs/ts-scripts-yarn3": "^6.3.5",
+    "@xylabs/tsconfig": "^6.3.5",
     "@xylabs/tsconfig-jest": "^4.1.0",
-    "eslint": "^9.24.0",
-    "knip": "^5.47.0",
-    "nodemon": "^3.1.9",
+    "eslint": "^9.25.1",
+    "knip": "^5.50.5",
+    "nodemon": "^3.1.10",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.2"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
