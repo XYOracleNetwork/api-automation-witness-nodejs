@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@xylabs/express": "^4.8.7",
-    "@xyo-network/automation-witness-server": "^3.6.1",
+    "@xyo-network/automation-witness-server": "^3.6.2",
     "dotenv": "^16.5.0",
     "ethers": "6.13.6"
   },
