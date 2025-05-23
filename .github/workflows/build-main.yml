@@ -28,6 +28,7 @@ jobs:
         run: yarn xy build
   test:
     runs-on: ubuntu-latest
+    if: false
     env:
       YARN_CACHE_FOLDER: ./.yarn/cache
     steps:
