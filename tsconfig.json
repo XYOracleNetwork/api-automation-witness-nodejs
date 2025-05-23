@@ -1,20 +1,4 @@
 {
-  "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "nodenext",
-    "module": "nodenext",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types",
-    ],
-    "types": [
-      "node"
-    ]
-  },
-  "exclude": [
-    "dist/**/*"
-  ],
-  "extends": "@xylabs/tsconfig"
+  "exclude": ["dist", "docs", "node_modules"],
+  "extends": "@xylabs/tsconfig",
 }

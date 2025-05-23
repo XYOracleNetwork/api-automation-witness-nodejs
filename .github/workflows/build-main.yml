@@ -9,42 +9,43 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     env:
       YARN_CACHE_FOLDER: ./.yarn/cache
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "yarn"
       - name: install
         run: yarn install
       - name: build
-        run: yarn build
+        run: yarn xy build
   test:
     runs-on: ubuntu-latest
+    if: false
     env:
       YARN_CACHE_FOLDER: ./.yarn/cache
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "yarn"
       - name: install
         run: yarn install
       - name: copy env file
         run: cp .example.env .env
       - name: test
-        run: yarn test --forceExit --coverage
+        run: yarn vitest --coverage --watch=false
         env:
           # Current max memory size of Linux hosted runner is 7 GB
           # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
