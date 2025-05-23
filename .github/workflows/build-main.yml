@@ -44,7 +44,7 @@ jobs:
       - name: copy env file
         run: cp .example.env .env
       - name: test
-        run: yarn test --forceExit --coverage
+        run: yarn vitest --coverage --watch=false
         env:
           # Current max memory size of Linux hosted runner is 7 GB
           # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
