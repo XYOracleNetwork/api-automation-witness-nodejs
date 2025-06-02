@@ -17,6 +17,7 @@ export default [
       '**/storybook-static',
       '**/.storybook',
       'scripts',
+      'coverage',
       '**/node_modules',
       '.dependency-cruiser.mjs',
       'node_modules',
