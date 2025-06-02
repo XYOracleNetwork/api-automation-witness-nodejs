@@ -4735,7 +4735,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^6.5.7"
     "@xylabs/tsconfig": "npm:^6.5.7"
     "@xylabs/tsconfig-jest": "npm:^4.1.0"
-    "@xyo-network/automation-witness-server": "npm:^3.7.5"
+    "@xyo-network/automation-witness-server": "npm:^3.7.6"
     dotenv: "npm:^16.5.0"
     eslint: "npm:^9.28.0"
     eslint-import-resolver-typescript: "npm:^4.4.2"
@@ -4750,9 +4750,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/automation-witness-server@npm:^3.7.5":
-  version: 3.7.5
-  resolution: "@xyo-network/automation-witness-server@npm:3.7.5"
+"@xyo-network/automation-witness-server@npm:^3.7.6":
+  version: 3.7.6
+  resolution: "@xyo-network/automation-witness-server@npm:3.7.6"
   dependencies:
     "@xylabs/assert": "npm:^4.11.4"
     "@xylabs/crypto": "npm:^4.11.4"
@@ -4777,7 +4777,7 @@ __metadata:
     "@xyo-network/manifest": "npm:^3.18.0"
     "@xyo-network/module-factory-locator": "npm:^3.18.0"
     "@xyo-network/module-model": "npm:^3.18.0"
-    "@xyo-network/node-core-model": "npm:^3.7.5"
+    "@xyo-network/node-core-model": "npm:^3.7.6"
     "@xyo-network/node-memory": "npm:^3.18.0"
     "@xyo-network/payload-model": "npm:^3.18.0"
     "@xyo-network/sentinel-memory": "npm:^3.18.0"
@@ -4798,7 +4798,7 @@ __metadata:
     dotenv: "npm:^16.5.0"
     ethers: "npm:^6.14.3"
     express: "npm:^5.1.0"
-  checksum: 10/0ca76e7fa0c3d82a375872bd2741569d79cdc1fb97d6c628263b1ea3cb5f4914a7656a3260feb6b2bd66c2d353d5fa3d9211e74ffa6de24d005d8dcf2d252cea
+  checksum: 10/47a11fa69fdb7adc2ae3d5e26487ce0bc51b4f832df56e99a2f1d87282e84282255518a74b4393da37776f7323ca9d7c6a09acdffe61ab255ea6837c0e27ecf0
   languageName: node
   linkType: hard
 
@@ -5610,9 +5610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/node-core-model@npm:^3.7.5":
-  version: 3.7.5
-  resolution: "@xyo-network/node-core-model@npm:3.7.5"
+"@xyo-network/node-core-model@npm:^3.7.6":
+  version: 3.7.6
+  resolution: "@xyo-network/node-core-model@npm:3.7.6"
   dependencies:
     "@xylabs/hex": "npm:^4.11.4"
     "@xylabs/object": "npm:^4.11.4"
@@ -5624,7 +5624,7 @@ __metadata:
     "@xyo-network/payload-mongodb": "npm:^3.18.0"
     "@xyo-network/shared": "npm:^3.18.0"
     ajv: "npm:^8.17.1"
-  checksum: 10/255d964e171fd8ecb4070c4249b0bcc8e001f5b70cd980f64d99c24623d272f6baf79362d9040b043b11abad6ac8e71bf40d0c2482ce562c65676898f306cb33
+  checksum: 10/9134829567a85fba230c609af1f88a38b1845d212e57e4f54f2ab2cadd91b2832d1e748fd750a3e5563139dbbbac9ecf3ce8c9229fdf237604dfc889bdc24244
   languageName: node
   linkType: hard
 
