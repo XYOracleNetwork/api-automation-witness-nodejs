@@ -115,7 +115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:^3.817.0":
+"@aws-sdk/client-secrets-manager@npm:^3.821.0":
   version: 3.821.0
   resolution: "@aws-sdk/client-secrets-manager@npm:3.821.0"
   dependencies:
@@ -4215,10 +4215,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/assert@npm:^4.11.2, @xylabs/assert@npm:^4.11.4":
-  version: 4.11.4
-  resolution: "@xylabs/assert@npm:4.11.4"
-  checksum: 10/956f8d024c364757e316bb0d6a0b0c5779103267d301b456c3d02b7e39424f81fac3344175ef67d61d67971549cac18ebef210f071404c46220b52c029276b17
+"@xylabs/assert@npm:^4.11.2, @xylabs/assert@npm:^4.11.4, @xylabs/assert@npm:^4.11.6":
+  version: 4.11.6
+  resolution: "@xylabs/assert@npm:4.11.6"
+  checksum: 10/480c64c7d476c341231fe14c44d5756f2814d121b341196428631a56f411bb7ce981dd08ef81ff205d5e2493352e92fdb7dc82acb7f454f8c3c1635684f0ca23
   languageName: node
   linkType: hard
 
@@ -4263,17 +4263,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/enum@npm:^4.11.4":
-  version: 4.11.4
-  resolution: "@xylabs/enum@npm:4.11.4"
-  checksum: 10/021a1b590255b49997ccdf4f6cea5a5b8e4e58fa905f64d7910a3f4825668fdfa9714c16f9a0955479e77a495dbf84336f43bd976d74f130ec274e7384d9de00
+"@xylabs/enum@npm:^4.11.6":
+  version: 4.11.6
+  resolution: "@xylabs/enum@npm:4.11.6"
+  checksum: 10/d74c81479c3750d173bc4d890023fc0f635d0431d5a46c49cbcf30528b408c387c8d8c3e89c801845badd1aaf1f5fd0ed054e40debcb18d3e283cedeec802504
   languageName: node
   linkType: hard
 
-"@xylabs/error@npm:^4.11.2, @xylabs/error@npm:^4.11.4":
-  version: 4.11.4
-  resolution: "@xylabs/error@npm:4.11.4"
-  checksum: 10/1fb6616ecb52617cdf560fb835f0878ee41be616444b450234c2250897f4e42576efd83b8c5afb0e4b4b730c19277ee10d247a5a35dae2ee135014ec37adcaa4
+"@xylabs/error@npm:^4.11.2, @xylabs/error@npm:^4.11.4, @xylabs/error@npm:^4.11.6":
+  version: 4.11.6
+  resolution: "@xylabs/error@npm:4.11.6"
+  checksum: 10/39675154ac2edc5198d56312859367d28d43eafca9a19f59b1939efc6b28a2db894e8281e2c5b8f504cd5e5299050509b2d0d57ae5b0ccb0e6d021df2289fd59
   languageName: node
   linkType: hard
 
@@ -4320,15 +4320,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/express@npm:^4.11.4":
-  version: 4.11.4
-  resolution: "@xylabs/express@npm:4.11.4"
+"@xylabs/express@npm:^4.11.4, @xylabs/express@npm:^4.11.6":
+  version: 4.11.6
+  resolution: "@xylabs/express@npm:4.11.6"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:^3.817.0"
+    "@aws-sdk/client-secrets-manager": "npm:^3.821.0"
     "@types/connect": "npm:^3.4.38"
     "@types/express-serve-static-core": "npm:^5.0.6"
-    "@xylabs/assert": "npm:^4.11.4"
-    "@xylabs/typeof": "npm:^4.11.4"
+    "@xylabs/assert": "npm:^4.11.6"
+    "@xylabs/typeof": "npm:^4.11.6"
     body-parser: "npm:^2.2.0"
     express-mung: "npm:^0.5.1"
     http-status-codes: "npm:^2.3.0"
@@ -4338,7 +4338,7 @@ __metadata:
     winston-transport: "npm:^4.9.0"
   peerDependencies:
     express: ^5
-  checksum: 10/8a343bdf0e54083406f863769082f362519f01f9d708928ec62cf07c8c6223309ad11f47cff0f68251b1e98562e2efd7fe2e482b4fbfab62b86e093be75d33bf
+  checksum: 10/5407135f337a4b70a851ad1322e0e46ba1b7dc9bad6ffc52e2277a6cbe629a08900107c811e6fe4cd27717c5b9aba76f697bd2be5db366b7c8cb9a7ee6cffa23
   languageName: node
   linkType: hard
 
@@ -4363,13 +4363,13 @@ __metadata:
   linkType: hard
 
 "@xylabs/logger@npm:^4.11.2, @xylabs/logger@npm:^4.11.4, @xylabs/logger@npm:^4.8.7":
-  version: 4.11.4
-  resolution: "@xylabs/logger@npm:4.11.4"
+  version: 4.11.6
+  resolution: "@xylabs/logger@npm:4.11.6"
   dependencies:
-    "@xylabs/enum": "npm:^4.11.4"
-    "@xylabs/error": "npm:^4.11.4"
-    "@xylabs/typeof": "npm:^4.11.4"
-  checksum: 10/63cbfcc44bbd6a1d6cfc3294597b256503be78ce10cce831db96697bb80b19073fa90f8ae479849aaa2184bba9ca09b2fd987160df23a45f56330e5544bff800
+    "@xylabs/enum": "npm:^4.11.6"
+    "@xylabs/error": "npm:^4.11.6"
+    "@xylabs/typeof": "npm:^4.11.6"
+  checksum: 10/a66eabc281f6857c210fa1d6099a644074ebcd5a76c6f0ec7ce9a5d55d3c3db4bbd8f559f2dbabef959022641570efefe1f7ddb903d21c034165cc745f2a0469
   languageName: node
   linkType: hard
 
@@ -4530,10 +4530,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/typeof@npm:^4.11.2, @xylabs/typeof@npm:^4.11.4":
-  version: 4.11.4
-  resolution: "@xylabs/typeof@npm:4.11.4"
-  checksum: 10/99ae69c825b818aa23f7e409f0a8b8ca3d4a2cb690321e2b7806b71fd326d80db8f381d462b62e28ac70d738220659f7ba3a13d7ee8e1236f60617d93e2f2fe1
+"@xylabs/typeof@npm:^4.11.2, @xylabs/typeof@npm:^4.11.4, @xylabs/typeof@npm:^4.11.6":
+  version: 4.11.6
+  resolution: "@xylabs/typeof@npm:4.11.6"
+  checksum: 10/054fc49d3925d1442e2c210d0946ca15d878d14f171baf743aaa0ae6837b27c48114ba9b7f05ee10a0cf4d066eaa2d479ee6d99a9021098a8c6614417c4c945e
   languageName: node
   linkType: hard
 
@@ -4731,7 +4731,7 @@ __metadata:
     "@types/node": "npm:^22.15.29"
     "@vitest/coverage-v8": "npm:^3.2.0"
     "@xylabs/eslint-config-flat": "npm:^6.5.7"
-    "@xylabs/express": "npm:^4.11.4"
+    "@xylabs/express": "npm:^4.11.6"
     "@xylabs/ts-scripts-yarn3": "npm:^6.5.7"
     "@xylabs/tsconfig": "npm:^6.5.7"
     "@xylabs/tsconfig-jest": "npm:^4.1.0"
@@ -4742,8 +4742,11 @@ __metadata:
     ethers: "npm:6.14.3"
     knip: "npm:^5.59.1"
     nodemon: "npm:^3.1.10"
+    rollbar: "npm:^2.26.4"
     typescript: "npm:^5.8.3"
     vitest: "npm:^3.2.0"
+    winston: "npm:^3.17.0"
+    winston-transport: "npm:^4.9.0"
   languageName: unknown
   linkType: soft
 
