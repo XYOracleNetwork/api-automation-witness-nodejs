@@ -56,6 +56,8 @@ export class RollbarTransport extends Transport {
   }
 }
 
+globalThis.xy = globalThis.xy ?? {}
+
 globalThis.xy.defaultLogger = new WrappedWinstonLogger(winston.createLogger({
   level: 'info',
   format: winston.format.combine(
