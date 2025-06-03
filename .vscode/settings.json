@@ -48,4 +48,5 @@
     "Autogen",
     "rollbar"
   ],
+  "vitest.disableWorkspaceWarning": true,
 }
