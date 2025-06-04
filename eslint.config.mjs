@@ -20,8 +20,6 @@ export default [
       'coverage',
       '**/node_modules',
       '.dependency-cruiser.mjs',
-      './*.ts',
-      './*.mjs',
       'node_modules',
       'dist',
       'build',
