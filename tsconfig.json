@@ -1,8 +1,4 @@
 {
-  "compilerOptions": {
-    "rootDir": "src",
-  },
   "exclude": ["dist", "docs", "node_modules"],
-  "extends": "@xylabs/tsconfig",
-  "include": ["src/**/*"]
+  "extends": "@xylabs/tsconfig"
 }
