@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json.schemastore.org/package.json",
   "name": "@xyo-network/automation-witness-runner",
   "version": "2.0.97",
   "private": true,
@@ -21,28 +20,26 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@xylabs/express": "^4.11.11",
-    "@xyo-network/automation-witness-server": "^3.7.10",
+    "@xylabs/express": "^4.11.14",
+    "@xyo-network/automation-witness-server": "^3.7.11",
     "dotenv": "^16.5.0",
-    "ethers": "6.14.3",
-    "winston": "^3.17.0",
-    "winston-transport": "^4.9.0"
+    "express": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
-    "@types/node": "^22.15.29",
-    "@vitest/coverage-v8": "^3.2.1",
+    "@types/node": "^22.15.30",
+    "@vitest/coverage-v8": "^3.2.2",
     "@xylabs/eslint-config-flat": "^6.5.8",
     "@xylabs/ts-scripts-yarn3": "^6.5.8",
     "@xylabs/tsconfig": "^6.5.8",
     "@xylabs/tsconfig-jest": "^4.1.0",
     "eslint": "^9.28.0",
-    "eslint-import-resolver-typescript": "^4.4.2",
-    "knip": "^5.60.0",
+    "eslint-import-resolver-typescript": "^4.4.3",
+    "knip": "^5.60.2",
     "nodemon": "^3.1.10",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.1"
+    "vitest": "^3.2.2"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
