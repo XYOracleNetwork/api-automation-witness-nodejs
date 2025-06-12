@@ -20,28 +20,28 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@xylabs/express": "^4.11.14",
-    "@xyo-network/automation-witness-server": "^3.7.11",
+    "@xylabs/express": "^4.11.20",
+    "@xyo-network/automation-witness-server": "^3.7.13",
     "dotenv": "^16.5.0",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
-    "@types/node": "^22.15.30",
-    "@vitest/coverage-v8": "^3.2.2",
+    "@types/node": "^24.0.1",
+    "@vitest/coverage-v8": "^3.2.3",
     "@xylabs/eslint-config-flat": "^6.5.8",
     "@xylabs/ts-scripts-yarn3": "^6.5.8",
     "@xylabs/tsconfig": "^6.5.8",
     "@xylabs/tsconfig-jest": "^4.1.0",
     "eslint": "^9.28.0",
     "eslint-import-resolver-typescript": "^4.4.3",
-    "knip": "^5.60.2",
+    "knip": "^5.61.0",
     "nodemon": "^3.1.10",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.2"
+    "vitest": "^3.2.3"
   },
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.9.2",
   "engines": {
     "node": ">=22 <23"
   },
