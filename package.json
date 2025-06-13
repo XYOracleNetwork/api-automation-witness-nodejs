@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@xylabs/express": "^4.11.20",
-    "@xyo-network/automation-witness-server": "^3.7.13",
+    "@xyo-network/automation-witness-server": "^3.7.14",
     "dotenv": "^16.5.0",
     "express": "^5.1.0"
   },
@@ -34,7 +34,7 @@
     "@xylabs/ts-scripts-yarn3": "^6.5.8",
     "@xylabs/tsconfig": "^6.5.8",
     "@xylabs/tsconfig-jest": "^4.1.0",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "eslint-import-resolver-typescript": "^4.4.3",
     "knip": "^5.61.0",
     "nodemon": "^3.1.10",
