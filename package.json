@@ -20,8 +20,8 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@xylabs/express": "^4.12.1",
-    "@xyo-network/automation-witness-server": "^3.7.15",
+    "@xylabs/express": "^4.12.6",
+    "@xyo-network/automation-witness-server": "^3.7.16",
     "dotenv": "^16.5.0",
     "express": "^5.1.0"
   },
