@@ -45,6 +45,8 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "cSpell.words": [
-    "Autogen"
+    "Autogen",
+    "rollbar"
   ],
+  "vitest.disableWorkspaceWarning": true,
 }

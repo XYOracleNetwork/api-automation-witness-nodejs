@@ -8,7 +8,23 @@ import {
 } from '@xylabs/eslint-config-flat'
 
 export default [
-  { ignores: ['.yarn', 'dist', '**/dist/**', 'build', '**/build/**', 'node_modules/**', 'public', 'storybook-static', 'eslint.config.mjs', 'bin', 'scripts', 'load.mjs', 'puppeteer' ] },
+  {
+    ignores: [
+      '.yarn',
+      '**/dist',
+      '**/build',
+      '**/public',
+      '**/storybook-static',
+      '**/.storybook',
+      'scripts',
+      'coverage',
+      '**/node_modules',
+      '.dependency-cruiser.mjs',
+      'node_modules',
+      'dist',
+      'build',
+    ],
+  },
   unicornConfig,
   workspacesConfig,
   rulesConfig,
@@ -17,10 +33,19 @@ export default [
   sonarConfig,
   {
     rules: {
-      'sonarjs/prefer-single-boolean-return': ['off'],
-      'sonarjs/no-hardcoded-ip': ['off'],
-      'sonarjs/no-clear-text-protocols': ['off'],
       'import-x/no-unresolved': ['off'],
+      'import-x/no-internal-modules': ['off'],
+      'sonarjs/prefer-single-boolean-return': ['off'],
+    },
+  },
+  {
+    files: ['**/packages/*/src/**/*.{js,ts,jsx,tsx}'],
+    ignores: ['**/*.spec.{js,ts,jsx,tsx}', 'packages/sdk/src/test/**/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { patterns: ['node:*'] }, // Also blocks imports like `node:fs`
+      ],
     },
   },
 ]
